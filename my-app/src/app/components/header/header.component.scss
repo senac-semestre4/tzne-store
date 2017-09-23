@@ -1,0 +1,302 @@
+/*HEADER*/
+header{
+    padding: 15px 30px;
+}
+/*logo*/
+header h1.logo a{
+    font-size: 3rem;
+    letter-spacing: .5rem;
+    color: #355474;
+    font-weight: 300;
+    border: 1px solid;
+    padding: 0px 15px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+/*pesquisa*/
+header div.input-pesquisa{
+    width: 90%;
+    margin-top: 10px;
+    position: relative;
+
+}
+header .input-pesquisa input{
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border: 1px solid #355474;
+    color: #355474;
+}
+header .input-pesquisa i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #355474;
+    cursor: pointer;
+}
+header .input-pesquisa input:focus{
+    border-color: #d1d147;
+}
+/*placeholder*/
+::-webkit-input-placeholder {
+   color: #355474;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #355474;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #355474;  
+}
+
+:-ms-input-placeholder {  
+   color: #355474;  
+}
+/*conta e carrinho*/
+header .conta-carrinho{
+    text-align: center;
+    padding-top: 30px;
+}
+header .conta-carrinho i:first-of-type{
+    margin-right: 20px;
+}
+header .conta-carrinho h2{
+    margin-right: 30px;
+    font-size: .9rem;
+    letter-spacing: .1rem;
+}
+header .conta-carrinho h2 a{
+    text-decoration: underline;
+}
+header .conta-carrinho i.fa-shopping-cart::after{
+    content: "0";
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
+header .conta-carrinho i{
+    cursor: pointer;
+}
+header .conta-carrinho h2, header .conta-carrinho h2 a, header .conta-carrinho i{
+    color: #355474;
+}
+header .conta-carrinho h2 a:hover{
+    color: #d1d147;
+}
+.conta-carrinho h2, .conta-carrinho i{
+    display: inline-block;
+}
+.conta-carrinho h2{
+    margin-right: 15px;
+}
+
+/* menu toggle */
+
+#menu_toggle{
+    position: absolute;
+    top: 4px;
+    cursor: pointer;
+    float: left;
+    width: 26px;
+    height: 23px;
+    padding: 20px 0;
+}
+
+#menu_toggle button{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    background: #355474;
+    height: 3px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    outline: none !important;
+}
+
+#menu_toggle button:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -9px;
+    width: 26px;
+    height: 3px;
+    background: #355474;
+    -webkit-transform-origin: 1.5px center;
+    -moz-transform-origin: 1.5px center;
+    -o-transform-origin: 1.5px center;
+    transform-origin: 1.5px center;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+#menu_toggle button:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    width: 26px;
+    height: 3px;
+    background: #355474;
+    -webkit-transform-origin: 1.5px center;
+    -moz-transform-origin: 1.5px center;
+    -o-transform-origin: 1.5px center;
+    transform-origin: 1.5px center;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+#menu_toggle.open button{
+    background: transparent;
+}
+
+#menu_toggle.open button:before{
+    top: 0;
+    -webkit-transform: rotate3d(0,0,1,-45deg);
+    -moz-transform: rotate3d(0,0,1,-45deg);
+    -o-transform: rotate3d(0,0,1,-45deg);
+    transform: rotate3d(0,0,1,-45deg);
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+#menu_toggle.open button:after{
+    bottom: 0;
+    -webkit-transform: rotate3d(0,0,1,45deg);
+    -moz-transform: rotate3d(0,0,1,45deg);
+    -o-transform: rotate3d(0,0,1,45deg);
+    transform: rotate3d(0,0,1,45deg);
+    transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+/*menu mobile */
+.menu-mobile{
+    text-align: center;
+}
+
+.menu-mobile ul{
+    background: #fff;
+    padding: 0;
+    display: none;
+}
+
+.menu_ativo{
+    display: block !important;
+
+}
+.menu-mobile ul li{
+    border-bottom: 1px solid #c2c2c2;
+    border-radius: 1px;
+}
+.menu-mobile ul li:hover{
+    background: #355474;
+    transition-duration: .3s;
+}
+.menu-mobile ul li a{
+    font-size: 1rem;
+    border: none;
+    padding: 20px;
+    display: block;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #355474;
+    line-height: 1.4rem;
+    letter-spacing: .1rem;
+}
+.menu-mobile ul li a:hover{
+    text-decoration: none;
+    color: #fff;
+    transition-duration: .3s;
+}
+
+.menu-mobile ul li a.link_ativo{
+    background: #fff;
+    color: #000 !important;
+    border-radius: 2px;
+}
+
+/*MEDIA QUERY*/
+
+/* Large Devices, .visible-lg-* */
+@media (min-width: 1200px) {
+
+}
+
+/* Medium Devices, .visible-md-* */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Small Devices, .visible-sm-* */
+@media (min-width: 768px) and (max-width: 991px) {
+    /*logo*/
+    header h1.logo a{
+        font-size: 2.4rem;
+    }
+    /* pesquisa */
+    header .box-pesquisa{
+        width: 50%
+    }
+    header div.input-pesquisa{
+        margin: 0 0 0 20px;
+    }
+    
+    /* conta e carrinho */
+    header .conta-carrinho {
+        width: 25%;
+        text-align: right;
+        padding-top: 15px;
+    }
+}
+
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 767px) {
+    /*logo*/
+    header{
+        padding: 15px 5px;
+    }
+    header .box-logo{
+        width: 50%;
+        text-align: left;
+    }
+    header h1.logo a{
+        font-size: 2.2rem;
+    }
+    
+    header div.input-pesquisa{
+        width: 100%
+    }
+    header div.input-pesquisa input{
+        height: 30px;
+    }
+    header .input-pesquisa i{
+        top: 13px;
+        font-size: 1.5rem;
+    }
+    /* carrinho */
+    header .conta-carrinho{
+        text-align: right;
+        padding-top: 12px;
+    }
+    header .conta-carrinho i:first-of-type {
+        margin-right: 9px;
+    }
+}

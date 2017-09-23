@@ -1,0 +1,18 @@
+/*MENU*/
+nav.menu-principal {
+    text-align: center;
+    font-size: 1.3rem;
+    letter-spacing: .13rem;
+    margin: 15px 0 40px 0;
+}
+nav.menu-principal ul li{
+    display: inline-block;
+}
+nav.menu-principal ul li a{
+    padding: 5px 16px;
+    color: #355474;
+}
+nav.menu-principal ul li a:hover {
+    transition-duration: .2s; 
+    border-bottom: 2px solid #355474;
+}
