@@ -1,6 +1,6 @@
 /*HEADER*/
 header{
-    padding: 15px 30px;
+    padding: 15px 25px;
 }
 /*logo*/
 header h1.logo a{
@@ -16,7 +16,6 @@ header h1.logo a{
 }
 /*pesquisa*/
 header div.input-pesquisa{
-    width: 90%;
     margin-top: 10px;
     position: relative;
 
@@ -87,8 +86,9 @@ header .conta-carrinho h2 a:hover{
     color: #d1d147;
 }
 .conta-carrinho h2, .conta-carrinho i{
-    display: inline-block;
+   display: inline-block;
 }
+
 .conta-carrinho h2{
     margin-right: 15px;
 }
@@ -233,17 +233,72 @@ header .conta-carrinho h2 a:hover{
     border-radius: 2px;
 }
 
+/*MENU*/
+nav.menu-principal {
+    text-align: center;
+    font-size: 1.3rem;
+    letter-spacing: .13rem;
+    margin: 15px 0 40px 0;
+}
+nav.menu-principal ul li{
+    display: inline-block;
+}
+nav.menu-principal ul li a{
+    padding: 5px 16px;
+    color: #355474;
+}
+nav.menu-principal ul li a:hover {
+    transition-duration: .2s; 
+    border-bottom: 2px solid #355474;
+}
+
+/*menu mobile */
+.menu-mobile{
+    text-align: center;
+}
+
+.menu-mobile ul{
+    background: #fff;
+    padding: 0;
+    display: none;
+}
+
+.menu_ativo{
+    display: block !important;
+
+}
+.menu-mobile ul li{
+    border-bottom: 1px solid #c2c2c2;
+    border-radius: 1px;
+}
+.menu-mobile ul li:hover{
+    background: #355474;
+    transition-duration: .3s;
+}
+.menu-mobile ul li a{
+    font-size: 1rem;
+    border: none;
+    padding: 20px;
+    display: block;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #355474;
+    line-height: 1.4rem;
+    letter-spacing: .1rem;
+}
+.menu-mobile ul li a:hover{
+    text-decoration: none;
+    color: #fff;
+    transition-duration: .3s;
+}
+
+.menu-mobile ul li a.link_ativo{
+    background: #fff;
+    color: #000 !important;
+    border-radius: 2px;
+}
+
 /*MEDIA QUERY*/
-
-/* Large Devices, .visible-lg-* */
-@media (min-width: 1200px) {
-
-}
-
-/* Medium Devices, .visible-md-* */
-@media (min-width: 992px) and (max-width: 1199px) {
-
-}
 
 /* Small Devices, .visible-sm-* */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -251,19 +306,14 @@ header .conta-carrinho h2 a:hover{
     header h1.logo a{
         font-size: 2.4rem;
     }
-    /* pesquisa */
-    header .box-pesquisa{
-        width: 50%
-    }
     header div.input-pesquisa{
-        margin: 0 0 0 20px;
+        margin: 0 0 0 0;
     }
     
     /* conta e carrinho */
     header .conta-carrinho {
-        width: 25%;
         text-align: right;
-        padding-top: 15px;
+        padding: 15px 0 0 0 !important;
     }
 }
 
@@ -279,16 +329,20 @@ header .conta-carrinho h2 a:hover{
     }
     header h1.logo a{
         font-size: 2.2rem;
+        margin-left: 40px;
     }
     
-    header div.input-pesquisa{
-        width: 100%
-    }
-    header div.input-pesquisa input{
-        height: 30px;
+    header .input-pesquisa input {
+        width: 100%;
+        padding: 20px 10px;
+        border-radius: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border: 1px solid #355474;
+        color: #355474;
     }
     header .input-pesquisa i{
-        top: 13px;
+        top: 18px;
         font-size: 1.5rem;
     }
     /* carrinho */

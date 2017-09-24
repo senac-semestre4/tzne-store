@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, trigger, state, style, transition, animate} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-
+export class HeaderComponent{
   constructor() { }
 
-  ngOnInit() {
+  navToggle: boolean = false;
+  
+  toggleNav(){
+    this.navToggle = !this.navToggle;
   }
 
 }
