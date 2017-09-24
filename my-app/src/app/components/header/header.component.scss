@@ -1,6 +1,7 @@
+
 /*HEADER*/
 header{
-    padding: 15px 25px;
+    padding: 15px 20px;
 }
 /*logo*/
 header h1.logo a{
@@ -16,6 +17,7 @@ header h1.logo a{
 }
 /*pesquisa*/
 header div.input-pesquisa{
+    width: 90%;
     margin-top: 10px;
     position: relative;
 
@@ -86,18 +88,40 @@ header .conta-carrinho h2 a:hover{
     color: #d1d147;
 }
 .conta-carrinho h2, .conta-carrinho i{
-   display: inline-block;
+    display: inline-block;
 }
-
 .conta-carrinho h2{
     margin-right: 15px;
 }
+
+
+
+/*MENU*/
+nav.menu-principal {
+    text-align: center;
+    font-size: 1.3rem;
+    letter-spacing: .13rem;
+    margin: 15px 0 40px 0;
+}
+nav.menu-principal ul li{
+    display: inline-block;
+}
+nav.menu-principal ul li a{
+    padding: 5px 16px;
+    color: #355474;
+}
+nav.menu-principal ul li a:hover {
+    transition-duration: .2s; 
+    border-bottom: 2px solid #355474;
+}
+
 
 /* menu toggle */
 
 #menu_toggle{
     position: absolute;
-    top: 4px;
+    left: 25px;
+    top: 23px;
     cursor: pointer;
     float: left;
     width: 26px;
@@ -232,73 +256,138 @@ header .conta-carrinho h2 a:hover{
     color: #000 !important;
     border-radius: 2px;
 }
+/*BANNER*/
 
-/*MENU*/
-nav.menu-principal {
+
+
+/*GALERIA*/
+
+article.col-3.produto{
+    position: relative;
+    padding: 20px 50px;
+    margin-bottom: 30px;
+}
+
+article.produto article img{
+    width: 100%;
+}
+article.produto article:hover{
+    transition-duration: .2s;
+    cursor: pointer;
+    border: 1px solid #355474;
+}
+
+/*footer - informações do produto*/
+article.produto article footer{
+    padding: 10px 0 0 0;
     text-align: center;
-    font-size: 1.3rem;
-    letter-spacing: .13rem;
-    margin: 15px 0 40px 0;
 }
-nav.menu-principal ul li{
-    display: inline-block;
-}
-nav.menu-principal ul li a{
-    padding: 5px 16px;
+
+/*h2 - nome do produto*/
+article.produto article footer h2{
     color: #355474;
-}
-nav.menu-principal ul li a:hover {
-    transition-duration: .2s; 
-    border-bottom: 2px solid #355474;
-}
-
-/*menu mobile */
-.menu-mobile{
-    text-align: center;
-}
-
-.menu-mobile ul{
-    background: #fff;
-    padding: 0;
-    display: none;
-}
-
-.menu_ativo{
-    display: block !important;
-
-}
-.menu-mobile ul li{
-    border-bottom: 1px solid #c2c2c2;
-    border-radius: 1px;
-}
-.menu-mobile ul li:hover{
-    background: #355474;
-    transition-duration: .3s;
-}
-.menu-mobile ul li a{
     font-size: 1rem;
-    border: none;
-    padding: 20px;
-    display: block;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: #355474;
-    line-height: 1.4rem;
-    letter-spacing: .1rem;
-}
-.menu-mobile ul li a:hover{
-    text-decoration: none;
-    color: #fff;
-    transition-duration: .3s;
+    padding: 0 5px;
 }
 
-.menu-mobile ul li a.link_ativo{
-    background: #fff;
-    color: #000 !important;
-    border-radius: 2px;
+/*h3 - valor do produto*/
+article.produto article footer h3{
+    font-weight: 700;
+    color: #901913;
+    display: inline-block;
+    font-size: .9125rem;
+    margin-bottom: 15px;
 }
+
+/*h3.preco-antigo - valor antes da promocao*/
+article.produto article footer h3.preco-antigo{
+    color: #5d5d5d;
+    text-decoration: line-through;
+    font-size: .8125rem;
+    margin-right: 5px;
+}
+/*h2::after - linha abaixo do nome*/
+article.produto article footer h2::after{
+    content: '';
+    width: 90px;
+    height: 1px;
+    background: #a2a2a2;
+    margin: 10px auto;
+    display: block;
+}
+/*btn - todos os botoes da pagina pegarao esse css*/
+.btn {
+    display: block;
+    padding: 10px 10px;
+    transition: all .3s linear;
+    border: 0;
+    font-weight: lighter;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    transition: all .2s linear;
+    background: #355474;
+    color: #fff;
+}
+.btn:hover{
+    background: #d1d147;
+    color: #5d5d5d;
+}
+/*botao dentro de adicionar ao carrinho*/
+article.produto article footer button{
+    width: 100%;
+}
+div.balet-oferta {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    background: red;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    text-align: center;
+    border: 5px dashed #fff;
+}
+div.balet-oferta p{
+    color: #fff;
+}
+div.balet-oferta p:first-of-type{
+    font-weight: 500;
+    font-size: 20px;
+}
+div.balet-oferta p:last-of-type{
+    text-decoration: line-through;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+
 
 /*MEDIA QUERY*/
+
+/* Large Devices, .visible-lg-* */
+@media (min-width: 1200px) {
+    .hidden-ld{
+        display: none !important;
+    }
+}
+
+/* Medium Devices, .visible-md-* */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* vitrine */
+    article.col-3.produto{
+        width: 33.333333333%;
+    }
+
+    /* outras classes */
+    .hidden-d{
+        display: none !important;
+    }
+}
 
 /* Small Devices, .visible-sm-* */
 @media (min-width: 768px) and (max-width: 991px) {
@@ -306,51 +395,70 @@ nav.menu-principal ul li a:hover {
     header h1.logo a{
         font-size: 2.4rem;
     }
+    /* pesquisa */
+    header .box-pesquisa{
+        width: 50%
+    }
     header div.input-pesquisa{
-        margin: 0 0 0 0;
+        margin: 0 0 0 20px;
     }
     
     /* conta e carrinho */
     header .conta-carrinho {
+        width: 25%;
         text-align: right;
-        padding: 15px 0 0 0 !important;
+        padding-top: 15px;
+    }
+    /* vitrine */
+    article.col-3.produto{
+        width: 50%;
+    }
+
+    /* outras classes */
+    .hidden-t{
+        display: none !important;
     }
 }
 
 /* Extra Small Devices, .visible-xs-* */
 @media (max-width: 767px) {
     /*logo*/
-    header{
-        padding: 15px 5px;
-    }
     header .box-logo{
         width: 50%;
         text-align: left;
     }
     header h1.logo a{
-        font-size: 2.2rem;
-        margin-left: 40px;
+        font-size: 2.4rem;
     }
     
-    header .input-pesquisa input {
-        width: 100%;
-        padding: 20px 10px;
-        border-radius: 2px;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
-        border: 1px solid #355474;
-        color: #355474;
+    header div.input-pesquisa{
+        width: 100%
+    }
+    header div.input-pesquisa input{
+        height: 50px;
     }
     header .input-pesquisa i{
-        top: 18px;
+        top: 13px;
+        right: 10px;
         font-size: 1.5rem;
     }
     /* carrinho */
     header .conta-carrinho{
+        width: 41.6666666667%;
         text-align: right;
         padding-top: 12px;
     }
     header .conta-carrinho i:first-of-type {
-        margin-right: 9px;
+        margin-right: 10px;
+    }
+
+    /* vitrine */
+    article.col-3.produto{
+        width: 100%;
+    }
+
+    /* outras classes */
+    .hidden-m{
+        display: none !important;
     }
 }

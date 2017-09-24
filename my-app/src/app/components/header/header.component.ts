@@ -8,10 +8,10 @@ import {Component, trigger, state, style, transition, animate} from '@angular/co
 export class HeaderComponent{
   constructor() { }
 
-  navToggle: boolean = false;
+  toggleMenu: boolean = false;
   
-  toggleNav(){
-    this.navToggle = !this.navToggle;
+  menuToggle(){
+    this.toggleMenu = !this.toggleMenu;
   }
 
 }

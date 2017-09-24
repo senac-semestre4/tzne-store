@@ -1,42 +1,45 @@
-<header class="row">
-    <div class="col-xs-8 col-sm-4 col-md-3 box-logo">
-        <!-- toggle -->
-        <div id="menu_toggle" class="hidden-sm hidden-md hidden-lg"
-        (click)="toggleNav()">
-            <button></button>
+<div class="linha">
+    <header>
+        <div class="col-1 hidden-ld hidden-d hidden-t">
+            <!-- toggle -->
+            <div id="menu_toggle" class="hidden-d hidden-t hidden-ld" 
+            (click) = "menuToggle()">
+                <button></button>
+            </div>
         </div>
-        <h1 class="logo"><a href="index.html">TZNE</a></h1>
-    </div>
-    <div class="col-sm-5 col-md-5 box-pesquisa hidden-xs">
-        <div class="input-pesquisa">
-            <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
-            <i class="fa fa-search" aria-hidden="true"></i>
+        <div class="col-3 box-logo">
+            <h1 class="logo"><a href="index.html">TZNE</a></h1>
         </div>
-    </div>
-    <div class="col-xs-4 col-sm-2 col-md-3 conta-carrinho pull-right">
-        <i class="fa fa-user-circle-o fa-2x hidden-md hidden-lg" aria-hidden="true"></i>
-        <h2 class="hidden-xs hidden-sm"><a href="#">Entre</a> ou <a href="#">cadastre-se</a></h2>
-        <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-    </div>
-</header>
-
-<div class="row">
-    <nav class="col-xs-12 menu-principal hidden-xs">
+        <div class="col-5 box-pesquisa hidden-m">
+            <div class="input-pesquisa">
+                <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="col-4 conta-carrinho">
+            <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
+            <h2 class="hidden-t hidden-m"><a href="#">Entre</a> ou <a href="#">cadastre-se</a></h2>
+            <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+        </div>
+    </header>
+</div>
+<div class="linha">
+    <nav class="col-12 menu-principal hidden-m">
         <ul>
             <li><a href="#">Ofertas</a></li>
             <li><a href="#">Homem</a></li>
             <li><a href="#">Mulher</a></li>
             <li><a href="#">Infantil</a></li>
-            <li><a href="#">Acessórios</a></li>
+            <li><a href="#">Acessórios</a></li>                         
         </ul>
     </nav>
-    <nav class="col-xs-12 menu-mobile">
-        <ul>
+    <nav class="col-12 menu-mobile hidden-ld hidden-d hidden-t">
+        <ul [ngClass]="{'menu_ativo': toggleMenu }">
             <header>
                 <div class="input-pesquisa">
-                    <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </div>
+                <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
             </header>
             <li><a href="#">Ofertas</a></li>
             <li><a href="#">Homem</a></li>
