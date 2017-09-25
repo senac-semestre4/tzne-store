@@ -9,7 +9,7 @@ export class HeaderComponent{
   constructor() { }
 
   toggleMenu: boolean = false;
-  
+
   menuToggle(){
     this.toggleMenu = !this.toggleMenu;
   }
