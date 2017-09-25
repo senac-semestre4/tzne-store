@@ -75,7 +75,7 @@ export class ProductService {
     },
     {
       "id" : 7,
-      "nome" : "Camiseta Feminina Super-Homem",
+      "nome" : "Camiseta Feminina super-Homem",
       "imagem" : "././assets/images/produtos/7.jpg",
       "descricao" : "",
       "especificacao" : "",

@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
-import { HttpModule }    from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
+//components
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -13,6 +14,10 @@ import { ProductComponent } from './product/product.component';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
 import { BannerHomeComponent } from './home/banner-home/banner-home.component';
 
+import { CarrinhoComponent } from './carrinho/carrinho.component';
+
+//services
+import { ProductService } from './product/product.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,8 @@ import { BannerHomeComponent } from './home/banner-home/banner-home.component';
     HomeComponent,
     ProductComponent,
     ShowcaseComponent,
-    BannerHomeComponent
+    BannerHomeComponent,
+    CarrinhoComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,7 @@ import { BannerHomeComponent } from './home/banner-home/banner-home.component';
     HttpModule,
     CarouselModule.forRoot()
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
