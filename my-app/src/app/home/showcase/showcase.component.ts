@@ -5,11 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './showcase.component.html',
   styleUrls: ['./showcase.component.scss']
 })
-export class ShowcaseComponent implements OnInit {
+export class ShowcaseComponent{
+  
+  boxComprar : boolean = false;
 
-  constructor() { }
-
-  ngOnInit() {
+  mostraBoxComprar(event){
+    this.boxComprar = true;
   }
 
+  ocultaBoxComprar(){
+    this.boxComprar = false;
+  }
 }

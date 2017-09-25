@@ -13,8 +13,6 @@ import { ProductComponent } from './product/product.component';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
 import { BannerHomeComponent } from './home/banner-home/banner-home.component';
 
-//services
-import { ProductService } from './product/product.service';
 
 @NgModule({
   declarations: [
