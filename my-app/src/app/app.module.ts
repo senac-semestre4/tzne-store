@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 //components
 import { AppComponent } from './app.component';
@@ -34,7 +35,8 @@ import { ProductService } from './product/product.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
