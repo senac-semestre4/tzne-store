@@ -101,7 +101,7 @@ nav.menu-principal {
     text-align: center;
     font-size: 1.3rem;
     letter-spacing: .13rem;
-    margin: 15px 0 40px 0;
+    margin: 15px 0 0 0;
 }
 nav.menu-principal ul li{
     display: inline-block;
@@ -113,6 +113,12 @@ nav.menu-principal ul li a{
 nav.menu-principal ul li a:hover {
     transition-duration: .2s; 
     border-bottom: 2px solid #355474;
+}
+
+.separador{
+    width: 90%;
+    border-bottom: 1px solid #ccc;
+    margin: -4px auto 20px;
 }
 
 
