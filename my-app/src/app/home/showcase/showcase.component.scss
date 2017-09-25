@@ -61,28 +61,8 @@ h2.titulo-produto{
         }
 
         footer{
-            .box-btn{
-                padding: 10px 15px;
-                .btn-adicionar-sacola{
-                    background: #d1d147;
-                    width: 100%;
-                    line-height: 1.125rem;
-                    color: #fff;
-                    letter-spacing: 1.92px;
-                    transition: all .3s linear;
-                    border-radius: 1px;
-                    padding: 8px 20px;
-                    text-transform: uppercase;
-                    margin-top: 10px;
-                    &:hover{
-                        background: #5d5d5d;
-                    }
-                }
-
-            }
-            
             .nome-produto{
-                padding: 10px;
+                padding: 20px 10px;
                 text-align: center;
                 a{
                     font-size: .875rem;
@@ -95,7 +75,7 @@ h2.titulo-produto{
                         width: 70px;
                         height: 1px;
                         background: #a2a2a2;
-                        margin: 10px auto;
+                        margin: 15px auto 0 auto;
                         display: block;
                     }
                 }
@@ -104,20 +84,19 @@ h2.titulo-produto{
                 a{
                     text-align: center;
                     .valor{
-                        font-size: .8125rem;
-                        line-height: 20px;
-                        line-height: 1.25rem;
-                        color: #901913;
-                        font-weight: 700;
                         span.valor-antigo{
                             font-size: .8125rem;
-                            line-height: 1.25rem;
+                            line-height: 1.2rem;
                             text-decoration: line-through;
                             color: #a2a2a2;
-                            font-weight: 300;
+                            font-weight: 400;
                         }
                         span.valor-atual{
-
+                            font-size: .95rem;
+                            line-height: 20px;
+                            line-height: 1.25rem;
+                            color: #901913;
+                            font-weight: 700;
                         }
                     }
                     .parcelas{
@@ -126,6 +105,25 @@ h2.titulo-produto{
                         font-size: .8125rem;
                     }
                 }
+            }
+            .box-btn{
+                padding: 10px 15px;
+                .btn-adicionar-sacola{
+                    background: #d1d147;
+                    width: 100%;
+                    line-height: 1.125rem;
+                    color: #fff;
+                    letter-spacing: 1.3px;
+                    transition: all .3s linear;
+                    border-radius: 1px;
+                    padding: 8px 5px;
+                    text-transform: uppercase;
+                    margin-top: 10px;
+                    &:hover{
+                        background: #5d5d5d;
+                    }
+                }
+
             }
         }
     }
@@ -136,6 +134,23 @@ h2.titulo-produto{
     .box-produto{
         .produto{
             padding: 0 45px;
+            footer{
+                .valor-produto{
+                    margin-bottom: 5px;
+                    .valor{
+                        margin-bottom: 5px;
+                        .valor-atual{
+                            font-size: 1.2rem;
+                        }
+                    }
+                    .parcelas{
+                        .valor-parcelas{
+                            font-size: 0.86rem
+                        }
+                    }
+    
+                }
+            }
         }
     }
 }
