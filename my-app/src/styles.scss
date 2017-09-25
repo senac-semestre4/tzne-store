@@ -144,6 +144,18 @@ a:link{
     float: left;
 }
 
+.nowrap {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+}
+
+img{
+    width: 100%;
+}
+
 @media (min-width: 992px){
     .container {
         width: 95%;

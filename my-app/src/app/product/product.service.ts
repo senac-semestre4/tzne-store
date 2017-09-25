@@ -50,7 +50,6 @@ export class ProductService {
     }
   ]
 
-
   private produtosVitrine = [
     {
       "id" : 5,
@@ -97,4 +96,9 @@ export class ProductService {
       "emDestaque" : false
     }
   ]
+
+
+  getProdutosEmDestaque(){
+    return this.getProdutosEmDestaque;
+  }
 }

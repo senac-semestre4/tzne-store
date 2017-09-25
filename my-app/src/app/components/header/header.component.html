@@ -3,7 +3,8 @@
         <div class="col-1 hidden-ld hidden-d hidden-t">
             <!-- toggle -->
             <div id="menu_toggle" class="hidden-d hidden-t hidden-ld" 
-            (click) = "menuToggle()">
+            (click) = "menuToggle()"
+            [ngClass]="{'open': toggleMenu}" >
                 <button></button>
             </div>
         </div>
