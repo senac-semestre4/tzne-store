@@ -1,0 +1,93 @@
+footer{
+    .topo-footer{
+        background: #f4f4f4;
+        padding: 20px 30px;
+        border-top: 1px solid #e9e9e9;
+        border-bottom: 1px solid #e9e9e9;
+        .box-footer-interno{
+            text-align: left;
+            width: 230px;
+            margin: auto auto 10px auto;
+            a, p{
+                font-size: 0.75rem;
+                line-height: 1.6rem;
+                font-weight: 300;
+                color: #878787;
+            }
+            .bandeira{
+                display: inline-block;
+                margin: 0 15px 10px 0px;
+                img{
+                    width: auto;
+                }
+            }
+            a:hover{
+                color: #18264b;
+                text-decoration: underline;
+                transition-duration: 0.1s;
+            }
+        }
+    }
+    .copyright-footer{
+        padding: 20px 30px;
+        background: #fff;
+        text-align: center;
+        font-size: .75rem;
+        display: block;
+        small{
+            letter-spacing: 1px;
+            color: #5d5d5d;
+            font-weight: 300;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 992px)and(min-width: 768px) {
+    footer{
+        .topo-footer{
+            .box-footer-interno{
+                text-align: left;
+                width: 230px;
+                margin: auto auto 20px auto;
+                h3.titulo{
+                    font-size: 0.95rem;
+                }
+                a, p{
+                    font-size: 0.85rem;
+                }
+            }
+        }
+    }
+}
+
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 767px) {
+    footer{
+        .topo-footer{
+            .box-footer-interno{
+                text-align: center;
+                width: 230px;
+                margin: auto auto 20px auto;
+                h3.titulo{
+                    font-size: 0.9rem;
+                    line-height: 1rem;
+                    margin-bottom: 5px;
+                }
+                a, p{
+                    font-size: 0.8rem;
+                    line-height: 1.4rem;    
+                }
+                p.bandeira{
+                    text-align: center;
+                    display: block;
+                    margin: 5px auto;
+                }
+                p.bandeira:first-of-type{
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

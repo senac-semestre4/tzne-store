@@ -19,6 +19,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 //services
 import { ProductService } from './product/product.service';
+import { NewslatterComponent } from './components/newslatter/newslatter.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductService } from './product/product.service';
     ProductComponent,
     ShowcaseComponent,
     BannerHomeComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    NewslatterComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,49 @@
-<p>
-  footer works!
-</p>
+<div class="my-container">
+  <app-newslatter></app-newslatter>
+  <footer>
+      <div class="row topo-footer">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="box-footer-interno termos-e-politicas">
+              <h3 class="titulo">Instituição</h3>
+              <ul>
+                <li><a href="#!">História</a></li>
+                <li><a href="#!">Quem somos</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="box-footer-interno instituicao">
+            <h3 class="titulo">Contato</h3>
+            <ul>
+                <li><a href="#!">Central de atendimentos</a></li>
+                <li><a href="#!">Termos e políticas</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="box-footer-interno contato">
+              <h3 class="titulo">Atendimento</h3>
+              <p><a href="#!">Minha conta</a></p>
+              <p><a href="#!">atendimento@tzne.com.br</a></p>
+              <p>(11) 5555-5555</p>
+              <p>Segunda à Sábado das 8:00 às 19:00</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="box-footer-interno metodo-pagamento">
+              <h3 class="titulo">Métodos de pagamento</h3>
+              <p class="bandeira"><img src="../../assets/images/bandeiras/visa.png" alt=""></p>
+              <p class="bandeira"><img src="../../assets/images/bandeiras/mastercard.png" alt=""></p>
+          </div>
+        </div>
+      </div>
+      <div class="row copyright-footer">
+        <small class="hidden-xs">{{ endereco }} | CEP: {{ cep }} | CNPJ: {{ cnpj }}</small>
+        <div class="hidden-sm hidden-md hidden-lg">
+          <small>{{ endereco }}</small><br>
+          <small>CEP: {{ cep }}</small><br>
+          <small id="cnpj">CNPJ: {{ cnpj }}</small>
+        </div>
+      </div>
+  </footer>
+</div>

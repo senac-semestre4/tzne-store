@@ -1,0 +1,175 @@
+.container-newsletter-redes{
+    background: #e9e9e9;
+    padding: 20px 30px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: -3px;
+
+    form{
+        .box-linha{
+            display: inline-block;
+            width: 49%;
+            .input-group{
+                width: 100%;
+                i{
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background-position: -243px -6px;
+                    width: 25px;
+                    height: 18px;
+                    color: #5d5d5d;
+                }
+                input{
+                    color: #5d5d5d;
+                    font-size: .8125rem;
+                    padding: 10px 10px 10px 35px;
+                    border: 1px solid #a2a2a2;
+                    box-sizing: border-box;
+                    width: 100%;
+                }
+
+                button{
+                    background: #b2b2b2;
+                    font-size: .9375rem;
+                    height: 36px;
+                    color: #fff;
+                    padding: 8px 50px;
+                    text-transform: uppercase;
+                    border: none;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all .3s linear;
+                    font-weight: 300;
+                    width: 100%;
+                    &:hover{
+                        background: #5d5d5d;
+                    }
+                }
+            }
+        }
+    }
+    .redes-sociais{
+        padding-left: 10px;
+        ul{
+            li{
+                display: inline-block;
+                a{
+                    width: auto;
+                    height: auto;
+                    background: 0 0;
+                    text-indent: inherit;
+                    position: relative;
+                    padding-left: 35px;
+                    line-height: 1.5625rem;
+                    font-size: .8125rem;
+                    font-weight: 600;
+                    color: #7a7a7a;
+        
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        width: 28px;
+                        height: 28px;
+                        top: 0;
+                        left: 0;
+                        background: #b2b2b2;
+                        border-radius: 50%;
+                    }
+
+                    span{
+                        position: absolute;
+                        top: 0px;
+                    }
+                }
+                a.facebook:after{
+                    content: '';
+                    background-image: url(/assets/images/redes-sociais/facebook.png);
+                }
+                a.facebook:hover{
+                    &:after{
+                        content: '';
+                        transition-duration: 0.3s;
+                        background-image: url(/assets/images/redes-sociais/facebook-ativo.png);
+                    }
+                }
+
+                a.instagram:after{
+                    content: '';
+                    background-image: url(/assets/images/redes-sociais/instagram.png);
+                }
+                a.instagram:hover{
+                    &:after{
+                        content: '';
+                        transition-duration: 0.3s;
+                        background-image: url(/assets/images/redes-sociais/instagram-ativo.png);
+                    }
+                }
+            }
+            li:first-of-type{
+                margin-right: 85px;
+            }
+        }
+    }
+}
+
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 992px)and(min-width: 768px) {
+    .container-newsletter-redes{
+        form{
+            .box-linha{
+                width: 100%;
+                display: block;
+
+                button{
+                    height: 40px;
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .redes-sociais{
+            padding-left: 30px;
+            ul{
+                li{
+                    margin: 0 0 15px 0;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 767px){
+    .container-newsletter-redes{
+        .redes-sociais{
+            margin-top: 15px;
+            ul{
+                text-align: left;
+                li{
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 568px){
+    .container-newsletter-redes{
+        form{
+            .box-linha{
+                width: 100%;
+                display: block;
+
+                button{
+                    height: 40px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

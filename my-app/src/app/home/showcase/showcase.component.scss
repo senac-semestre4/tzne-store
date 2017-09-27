@@ -133,7 +133,7 @@ h2.titulo-produto{
 @media (max-width: 767px) {
     .box-produto{
         .produto{
-            padding: 0 45px;
+            padding: 0 125px;
             footer{
                 .valor-produto{
                     margin-bottom: 5px;
@@ -151,6 +151,33 @@ h2.titulo-produto{
     
                 }
             }
+        }
+    }
+}
+
+/* para o produto não ficar tão grande na tela */
+@media (max-width: 668px) {
+    .box-produto{
+        .produto{
+            padding: 0 95px;
+        }
+    }
+}
+
+/* para o produto não ficar tão grande na tela */
+@media (max-width: 568px) {
+    .box-produto{
+        .produto{
+            padding: 0 50px;
+        }
+    }
+}
+
+/* para o produto não ficar tão grande na tela */
+@media (max-width: 490px) {
+    .box-produto{
+        .produto{
+            padding: 0;
         }
     }
 }
