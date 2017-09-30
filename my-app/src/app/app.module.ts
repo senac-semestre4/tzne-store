@@ -14,11 +14,12 @@ import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
 import { BannerHomeComponent } from './home/banner-home/banner-home.component';
-
+import { NewslatterComponent } from './components/newslatter/newslatter.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 //services
-import { ProductService } from './product/product.service';
+import { ProductService } from './services/product.service';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductService } from './product/product.service';
     ProductComponent,
     ShowcaseComponent,
     BannerHomeComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    NewslatterComponent
   ],
   imports: [
     BrowserModule,

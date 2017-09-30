@@ -156,6 +156,24 @@ img{
     width: 100%;
 }
 
+
+/* footer */
+h3.titulo{
+    font-size: .85rem;
+    text-transform: uppercase;
+    color: #878787;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    line-height: 1.6rem;
+}
+
+.my-container{
+    .row{
+        margin: 0 auto;
+    }
+}
+
 @media (min-width: 992px){
     .container {
         width: 95%;
