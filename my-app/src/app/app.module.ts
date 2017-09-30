@@ -21,6 +21,7 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ProductService } from './services/product.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

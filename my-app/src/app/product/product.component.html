@@ -2,19 +2,23 @@
     <div class="row">
       <div class="col-xs-12">
       <h2 class="titulo-produto">Detalhe do produto</h2>
+
+      <div class="nome-produto hidden-md hidden-lg">
+        <h2 >Camiseta Homem-Aranha manga longa</h2>
     </div>
-        <div class="col-md-6">
-            <article>
+    </div>
+        <div class="col-xs-12 col-sm-7">
+            <article class="img-produto">
                 <img src="../assets/images/produtos/1.jpg" alt="">
             </article>
         </div>
-        <div class="col-md-6">
+        <div class="col-xs-12 col-sm-5">
             <article>
-                <header>
+                <header class="hidden-xs hidden-sm">
                     <div class="nome-produto">
                         <h2 id="nome_produto">Camiseta Homem-Aranha manga longa</h2>
                     </div>
-                    <div class="valor-produto">
+                    <div class="valor-produto hidden-xs hidden-sm">
                         <div class="valor">
                             <span class="valor-antigo">R$ 69,90</span>
                             <span class="valor-atual">R$ 59,41</span>
@@ -33,10 +37,19 @@
                         <span>Tamanhos</span>
                         <input type="radio" name="tamanho">
                     </div>
+                    <div class="valor-produto hidden-md hidden-lg">
+                        <div class="valor">
+                            <span class="valor-antigo">R$ 69,90</span>
+                            <span class="valor-atual">R$ 59,41</span>
+                        </div>
+                        <div class="parcelas">
+                            <span class="valor-parcelas"><strong>2x</strong> de <strong>R$ 29,70</strong> sem juros</span>
+                        </div>
+                    </div>
                     <div class="box-btn">
                         <a href="" class="btn btn-adicionar-sacola">Adicionar a sacola</a>
                     </div>
-                    <div class="box-descricao-especificacao">
+                    <div class="box-descricao-especificacao hidden-sm">
                         <div>
                             <tabset>
                               <tab heading="Descrição"><p>{{ descricao }}</p></tab>
@@ -46,6 +59,14 @@
                     </div>
                 </footer>
             </article>
+        </div>
+        <div class="box-descricao-especificacao hidden-xs hidden-md hidden-lg col-sm-12">
+            <div>
+                <tabset>
+                  <tab heading="Descrição"><p>{{ descricao }}</p></tab>
+                  <tab heading="Especificação"><p>{{ especificacao }}</p></tab>
+                </tabset>
+              </div>
         </div>
     </div>
 </div>
