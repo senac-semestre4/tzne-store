@@ -3,6 +3,43 @@
     <div class="col-xs-12">
       <h2 class="titulo-produto">Produtos em destaque</h2>
     </div>
+    <div *ngFor="let p of products let i = index" class="col-xs-12 col-sm-6 col-md-3">
+      <article class="box-produto">
+        <article class="produto">
+          <header>
+            <img [src]="p.imagem" alt="" id="imagem_produto">
+          </header>
+          <footer>
+            <div class="nome-produto">
+              <a href="" id="nome_produto" class="nowrap">{{p.nome}}</a>
+            </div>
+            <div class="valor-produto">
+              <a href="">
+                <div class="valor">
+                    <span class="valor-antigo">R$: &nbsp;{{p.valorAntigo}}</span>
+                    <span class="valor-atual">R$: {{p.valorAtual}}</span>
+                </div>
+                <div class="parcelas">
+                    <span class="valor-parcelas"><strong>2x</strong> de <strong>R$:{{p.valorAtual / 2}}</strong> sem juros</span>
+                </div>
+              </a>
+            </div>
+            <div class="box-btn">
+              <a href="" class="btn btn-adicionar-sacola">Adicionar a sacola</a>
+          </div>
+          </footer>
+        </article>
+      </article>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2 class="titulo-produto">Produtos em destaque</h2>
+    </div>
     <div class="col-xs-12 col-sm-6 col-md-3">
       <article class="box-produto">
         <article class="produto">
@@ -115,4 +152,4 @@
       </article>
     </div>
   </div>
-</div>
+</div> -->

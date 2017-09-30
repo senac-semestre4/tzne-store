@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ProductService {
 
+  constructor(){ }
+
   private produtosEmDestaque = [
     {
       "id" : 1,
@@ -10,8 +12,8 @@ export class ProductService {
       "imagem" : "././assets/images/produtos/1.jpg",
       "descricao" : "",
       "especificacao" : "",
-      "valorAtual" : 59.41,
-      "valorAntigo" : 69.90,
+      "valorAtual" : 59.00,
+      "valorAntigo" : 69.00,
       "porcentagemDesconto" : 15,
       "emDestaque" : true
     },
@@ -21,8 +23,8 @@ export class ProductService {
       "imagem" : "././assets/images/produtos/2.jpg",
       "descricao" : "",
       "especificacao" : "",
-      "valorAtual" : 69.90,
-      "valorAntigo" : 69.90,
+      "valorAtual" : 69.00,
+      "valorAntigo" : 69.00,
       "porcentagemDesconto" : 0,
       "emDestaque" : true
     },
@@ -44,11 +46,55 @@ export class ProductService {
       "descricao" : "",
       "especificacao" : "",
       "valorAtual" : 65.00,
-      "valorAntigo" : 56.52,
+      "valorAntigo" : 56.00,
+      "porcentagemDesconto" : 15,
+      "emDestaque" : true
+    },
+    {
+      "id" : 5,
+      "nome" : "Camiseta Homem-Aranha",
+      "imagem" : "././assets/images/produtos/1.jpg",
+      "descricao" : "",
+      "especificacao" : "",
+      "valorAtual" : 59.00,
+      "valorAntigo" : 69.00,
+      "porcentagemDesconto" : 15,
+      "emDestaque" : true
+    },
+    {
+      "id" : 6,
+      "nome" : "Camiseta Capitão América",
+      "imagem" : "././assets/images/produtos/2.jpg",
+      "descricao" : "",
+      "especificacao" : "",
+      "valorAtual" : 69.00,
+      "valorAntigo" : 69.00,
+      "porcentagemDesconto" : 0,
+      "emDestaque" : true
+    },
+    {
+      "id" : 7,
+      "nome" : "Camiseta manga longa Batman",
+      "imagem" : "././assets/images/produtos/3.jpg",
+      "descricao" : "",
+      "especificacao" : "",
+      "valorAtual" : 100.00,
+      "valorAntigo" : 89.00,
+      "porcentagemDesconto" : 11,
+      "emDestaque" : true
+    },
+    {
+      "id" : 8,
+      "nome" : "Camiseta Super-Homem",
+      "imagem" : "././assets/images/produtos/2.jpg",
+      "descricao" : "",
+      "especificacao" : "",
+      "valorAtual" : 65.00,
+      "valorAntigo" : 56.00,
       "porcentagemDesconto" : 15,
       "emDestaque" : true
     }
-  ]
+  ];
 
   private produtosVitrine = [
     {
@@ -57,8 +103,8 @@ export class ProductService {
       "imagem" : "././assets/images/produtos/5.jpg",
       "descricao" : "",
       "especificacao" : "",
-      "valorAtual" : 59.41,
-      "valorAntigo" : 69.90,
+      "valorAtual" : 59.00,
+      "valorAntigo" : 69.00,
       "porcentagemDesconto" : 15,
       "emDestaque" : false
     },
@@ -68,8 +114,8 @@ export class ProductService {
       "imagem" : "././assets/images/produtos/6.jpg",
       "descricao" : "",
       "especificacao" : "",
-      "valorAtual" : 69.90,
-      "valorAntigo" : 69.90,
+      "valorAtual" : 69.00,
+      "valorAntigo" : 69.00,
       "porcentagemDesconto" : 0,
       "emDestaque" : false
     },
@@ -91,14 +137,14 @@ export class ProductService {
       "descricao" : "",
       "especificacao" : "",
       "valorAtual" : 65.00,
-      "valorAntigo" : 56.52,
+      "valorAntigo" : 56.00,
       "porcentagemDesconto" : 15,
       "emDestaque" : false
     }
-  ]
+  ];
 
 
-  getProdutosEmDestaque(){
-    return this.getProdutosEmDestaque;
+  public getProdutosEmDestaque(){
+    return this.produtosEmDestaque;
   }
 }
