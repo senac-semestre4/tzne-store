@@ -12,3 +12,174 @@ input{
    border: 1px solid #688;
    margin-top: 10px;
 }
+  .btn-adicionar-sacola{
+                    background: #d1d147;
+                    width: 100%;
+                    line-height: 1.125rem;
+                    color: #fff;
+                    letter-spacing: 1.92px;
+                    transition: all .3s linear;
+                    border-radius: 1px;
+                    padding: 8px 20px;
+                    text-transform: uppercase;
+                    margin-top: 10px;
+                    &:hover{
+                        background: #5d5d5d;
+                    }
+                }
+  .btn-adicionar-comprar{
+                    background: #00FA9A;
+                    width: 100%;
+                    line-height: 1.125rem;
+                    color: #fff;
+                    letter-spacing: 1.92px;
+                    transition: all .3s linear;
+                    border-radius: 1px;
+                    padding: 8px 20px;
+                    text-transform: uppercase;
+                    margin-top: 10px;
+                    &:hover{
+                        background: #5d5d5d;
+                    }
+                }
+
+@keyframes slidein {
+    from {
+      bottom: 60px;
+      background: (255, 255, 255, 0);
+      z-index: -1;
+    }
+
+    to {
+      bottom: 96px;
+      background: (255, 255, 255, 0.8);
+      z-index: 1;
+    }
+  }
+
+  @-webkit-keyframes slidein {
+    from {
+        bottom: 50px;
+        background: (255, 255, 255, 0);
+      }
+
+      to {
+        bottom: 96px;
+        background: (255, 255, 255, 0.8);
+        z-index: 1;
+      }
+  }
+
+
+h2.titulo-produto{
+    text-transform: uppercase;
+    font-family: "PT Sans",sans-serif !important;
+    letter-spacing: 1px;
+    color: #5d5d5d;
+    font-size: 1.5rem;
+    margin: 20px 0 10px 0;
+    &:after{
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: #ccc;
+        margin: 15px auto;
+        display: block;
+    }
+}
+.box-produto{
+    margin-bottom: 30px;
+    .produto{
+        position: relative;
+        header{
+            border: 1px solid #ccc;
+            img{
+                width: 100%;
+                cursor: pointer;
+            }
+            &:hover{
+                border-color: #355474;
+                transition-delay: 0.1s;
+                transition-duration: 0.3s;
+            }
+        }
+
+        footer{
+            .box-btn{
+                padding: 10px 15px;
+                .btn-adicionar-sacola{
+                    background: #d1d147;
+                    width: 100%;
+                    line-height: 1.125rem;
+                    color: #fff;
+                    letter-spacing: 1.92px;
+                    transition: all .3s linear;
+                    border-radius: 1px;
+                    padding: 8px 20px;
+                    text-transform: uppercase;
+                    margin-top: 10px;
+                    &:hover{
+                        background: #5d5d5d;
+                    }
+                }
+
+            }
+
+            .nome-produto{
+                padding: 10px;
+                text-align: center;
+                a{
+                    font-size: .875rem;
+                    text-transform: uppercase;
+                    font-family: "PT Sans",sans-serif !important;
+                    letter-spacing: 1px;
+                    color: #5d5d5d;
+                    &:after{
+                        content: '';
+                        width: 70px;
+                        height: 1px;
+                        background: #a2a2a2;
+                        margin: 10px auto;
+                        display: block;
+                    }
+                }
+            }
+            .valor-produto{
+                a{
+                    text-align: center;
+                    .valor{
+                        font-size: .8125rem;
+                        line-height: 20px;
+                        line-height: 1.25rem;
+                        color: #901913;
+                        font-weight: 700;
+                        span.valor-antigo{
+                            font-size: .8125rem;
+                            line-height: 1.25rem;
+                            text-decoration: line-through;
+                            color: #a2a2a2;
+                            font-weight: 300;
+                        }
+                        span.valor-atual{
+
+                        }
+                    }
+                    .parcelas{
+                        line-height: 1.25rem;
+                        color: #5d5d5d;
+                        font-size: .8125rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 767px) {
+    .box-produto{
+        .produto{
+            padding: 0 45px;
+        }
+    }
+}
