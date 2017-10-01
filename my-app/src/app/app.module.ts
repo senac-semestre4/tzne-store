@@ -8,22 +8,23 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 
 //components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { ProductComponent } from './product/product.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { HomeComponent } from './home/home/home.component';
+import { ProductComponent } from './home/product/product.component';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
 import { BannerHomeComponent } from './home/banner-home/banner-home.component';
-import { NewslatterComponent } from './components/newslatter/newslatter.component';
-import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { NewslatterComponent } from './layout/newslatter/newslatter.component';
+import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 
 //services
 import { ProductService } from './services/product.service';
 
-
+//import { AppRoutingModule } from './app.routing';
 
 @NgModule({
   declarations: [
+    //AppRoutingModule,
     AppComponent,
     HeaderComponent,
     FooterComponent,

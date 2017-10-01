@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { TabsetComponent } from 'ngx-bootstrap';
 
-
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product',
