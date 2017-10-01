@@ -12,9 +12,9 @@ export class ProductService {
       "imagem" : "././assets/images/produtos/1.jpg",
       "descricao" : "",
       "especificacao" : "",
-      "valorAtual" : 59.00,
+      "valorAtual" : 69.00,
       "valorAntigo" : 69.00,
-      "porcentagemDesconto" : 15,
+      "porcentagemDesconto" : 0,
       "emDestaque" : true
     },
     {
@@ -34,8 +34,8 @@ export class ProductService {
       "imagem" : "././assets/images/produtos/3.jpg",
       "descricao" : "",
       "especificacao" : "",
-      "valorAtual" : 100.00,
-      "valorAntigo" : 89.00,
+      "valorAtual" : 89.00,
+      "valorAntigo" : 100.00,
       "porcentagemDesconto" : 11,
       "emDestaque" : true
     },
@@ -45,101 +45,54 @@ export class ProductService {
       "imagem" : "././assets/images/produtos/2.jpg",
       "descricao" : "",
       "especificacao" : "",
-      "valorAtual" : 65.00,
-      "valorAntigo" : 56.00,
+      "valorAtual" : 56.00,
+      "valorAntigo" : 65.00,
       "porcentagemDesconto" : 15,
       "emDestaque" : true
     },
     {
       "id" : 5,
-      "nome" : "Camiseta Homem-Aranha",
-      "imagem" : "././assets/images/produtos/1.jpg",
-      "descricao" : "",
-      "especificacao" : "",
-      "valorAtual" : 59.00,
-      "valorAntigo" : 69.00,
-      "porcentagemDesconto" : 15,
-      "emDestaque" : true
-    },
-    {
-      "id" : 6,
-      "nome" : "Camiseta Capitão América",
-      "imagem" : "././assets/images/produtos/2.jpg",
-      "descricao" : "",
-      "especificacao" : "",
-      "valorAtual" : 69.00,
-      "valorAntigo" : 69.00,
-      "porcentagemDesconto" : 0,
-      "emDestaque" : true
-    },
-    {
-      "id" : 7,
-      "nome" : "Camiseta manga longa Batman",
-      "imagem" : "././assets/images/produtos/3.jpg",
-      "descricao" : "",
-      "especificacao" : "",
-      "valorAtual" : 100.00,
-      "valorAntigo" : 89.00,
-      "porcentagemDesconto" : 11,
-      "emDestaque" : true
-    },
-    {
-      "id" : 8,
-      "nome" : "Camiseta Super-Homem",
-      "imagem" : "././assets/images/produtos/2.jpg",
-      "descricao" : "",
-      "especificacao" : "",
-      "valorAtual" : 65.00,
-      "valorAntigo" : 56.00,
-      "porcentagemDesconto" : 15,
-      "emDestaque" : true
-    }
-  ];
-
-  private produtosVitrine = [
-    {
-      "id" : 5,
-      "nome" : "Camiseta Feminina Capitão América",
+      "nome" : "Camiseta Capitão América Feminina",
       "imagem" : "././assets/images/produtos/5.jpg",
       "descricao" : "",
       "especificacao" : "",
       "valorAtual" : 59.00,
       "valorAntigo" : 69.00,
       "porcentagemDesconto" : 15,
-      "emDestaque" : false
+      "emDestaque" : true
     },
     {
       "id" : 6,
-      "nome" : "Camiseta Mulher Maravilha",
+      "nome" : "Camiseta Flesh Feminina",
       "imagem" : "././assets/images/produtos/6.jpg",
       "descricao" : "",
       "especificacao" : "",
       "valorAtual" : 69.00,
       "valorAntigo" : 69.00,
       "porcentagemDesconto" : 0,
-      "emDestaque" : false
+      "emDestaque" : true
     },
     {
       "id" : 7,
-      "nome" : "Camiseta Feminina super-Homem",
+      "nome" : "Camiseta Feminina Super-homem",
       "imagem" : "././assets/images/produtos/7.jpg",
       "descricao" : "",
       "especificacao" : "",
-      "valorAtual" : 100.00,
+      "valorAtual" : 89.00,
       "valorAntigo" : 89.00,
-      "porcentagemDesconto" : 11,
-      "emDestaque" : false
+      "porcentagemDesconto" : 0,
+      "emDestaque" : true
     },
     {
       "id" : 8,
-      "nome" : "Camiseta Thundercats",
+      "nome" : "Camiseta Feminina Thundercats",
       "imagem" : "././assets/images/produtos/8.jpg",
       "descricao" : "",
       "especificacao" : "",
       "valorAtual" : 65.00,
       "valorAntigo" : 56.00,
       "porcentagemDesconto" : 15,
-      "emDestaque" : false
+      "emDestaque" : true
     }
   ];
 
