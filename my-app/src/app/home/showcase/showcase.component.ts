@@ -10,16 +10,6 @@ import { ProductService } from '../../services/product.service';
 })
 export class ShowcaseComponent implements OnInit {
 
-
- /*  private id: number;
-  private nome: string;
-  private imagem: string;
-  private descricao: string;
-  private especificacao: string;
-  private valorAtual: number;
-  private valorAntigo: number;
-  private porcentagemDesconto: number;
-  private produtoEmDestaque: boolean;*/
   private products: any;
   private boxComprar: boolean = false;
 

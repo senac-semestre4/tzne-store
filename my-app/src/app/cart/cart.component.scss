@@ -13,35 +13,39 @@ input{
    margin-top: 10px;
 }
   .btn-adicionar-sacola{
-                    background: #d1d147;
-                    width: 100%;
-                    line-height: 1.125rem;
-                    color: #fff;
-                    letter-spacing: 1.92px;
-                    transition: all .3s linear;
-                    border-radius: 1px;
-                    padding: 8px 20px;
-                    text-transform: uppercase;
-                    margin-top: 10px;
-                    &:hover{
-                        background: #5d5d5d;
-                    }
-                }
+        background: #5bc0de;
+        width: 100%;
+        line-height: 1.125rem;
+        color: #fff;
+        letter-spacing: 1.92px;
+        transition: all .3s linear;
+        border-radius: 2px;
+        border: 1px solid #46b8da;
+        padding: 8px 20px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        &:hover{
+            background: #5d5d5d;
+            border-color: #525252;
+        }
+    }
   .btn-adicionar-comprar{
-                    background: #00FA9A;
-                    width: 100%;
-                    line-height: 1.125rem;
-                    color: #fff;
-                    letter-spacing: 1.92px;
-                    transition: all .3s linear;
-                    border-radius: 1px;
-                    padding: 8px 20px;
-                    text-transform: uppercase;
-                    margin-top: 10px;
-                    &:hover{
-                        background: #5d5d5d;
-                    }
-                }
+    background: #398439;
+    width: 100%;
+    line-height: 1.125rem;
+    color: #fff;
+    letter-spacing: 1.92px;
+    transition: all .3s linear;
+    border-radius: 2px;
+    border: 1px solid #4cae4c;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    &:hover{
+        background: #5d5d5d;
+        border-color: #525252;
+    }
+}
 
 @keyframes slidein {
     from {
