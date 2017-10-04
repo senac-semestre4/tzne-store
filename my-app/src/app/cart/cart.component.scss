@@ -179,6 +179,57 @@ h2.titulo-produto{
     }
 }
 
+.table.table-produtos-carrinho{
+    thead.table-header{
+        tr{
+            th{
+                text-align: left;
+                font-size: 0.9rem;
+                vertical-align: middle;
+                font-weight: 300;
+                padding: 15px 2px;
+                background: #f7f7f7;
+                border: 1px solid #f8f8f8;
+                color: #5d5d5d;
+                letter-spacing: 1px;
+            }
+        }
+    }
+    tbody{
+        tr{
+            margin-top: 10px;
+            td{
+                line-height: 1.42857143;
+                vertical-align: middle;
+                border-top: 1px solid #f8f8f8;
+                background-color: white;
+                padding: 20px 0;
+                color: #878887;
+
+                .miniatura{
+                    width: 90px;
+                    display: inline-block;
+                    margin-right: 10px;
+                }
+                a{
+                    display: inline-block;
+                    h3{
+                        text-transform: uppercase;
+                        color: #5d5d5d;
+                        padding-bottom: 10px;
+                        font-size: 0.9rem;
+                        letter-spacing: 1px;
+                        font-weight: 300;
+                    }
+                }
+                p{
+                    color: #878887;
+                }
+            }
+        }
+    }
+}
+
 /* Extra Small Devices, .visible-xs-* */
 @media (max-width: 767px) {
     .box-produto{
