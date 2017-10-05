@@ -3,8 +3,7 @@
         <div class="col-1 hidden-ld hidden-d hidden-t">
             <!-- toggle -->
             <div id="menu_toggle" class="hidden-d hidden-t hidden-ld" 
-            (click) = "menuToggle()"
-            [ngClass]="{'open': toggleMenu}" >
+            (click) = "menuToggle()">
                 <button></button>
             </div>
         </div>
@@ -34,8 +33,8 @@
             <li><a href="#">Acessórios</a></li>                         
         </ul>
     </nav>
-    <nav class="col-12 menu-mobile hidden-ld hidden-d hidden-t">
-        <ul [ngClass]="{'menu_ativo': toggleMenu }">
+    <nav class="col-12 menu-mobile hidden-ld hidden-d hidden-t" [ngClass]="{'menu_ativo': toggleMenu }">
+        <ul>
             <header>
                 <div class="input-pesquisa">
                 <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
@@ -48,7 +47,9 @@
             <li><a href="#">Infantil</a></li>
             <li><a href="#">Acessórios</a></li>
         </ul>
+        <a href="#!" class="menu-close" (click) = "menuClose()">
+            <i class="fa fa-reply" aria-hidden="true"></i>
+        </a>
     </nav>
 </div>
-<div class="separador"
-[hidden]="toggleMenu"></div>
+<div class="separador"></div>

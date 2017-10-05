@@ -14,4 +14,8 @@ export class HeaderComponent{
     this.toggleMenu = !this.toggleMenu;
   }
 
+  menuClose(){
+    this.toggleMenu = false;
+  }
+
 }

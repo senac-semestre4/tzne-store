@@ -126,13 +126,12 @@ nav.menu-principal ul li a:hover {
 
 #menu_toggle{
     position: absolute;
-    left: 25px;
-    top: 23px;
+    left: 20px;
+    top: 36px;
     cursor: pointer;
     float: left;
-    width: 26px;
-    height: 23px;
-    padding: 20px 0;
+    width: 23px;
+    height: 20px;
 }
 
 #menu_toggle button{
@@ -140,7 +139,7 @@ nav.menu-principal ul li a:hover {
     left: 0;
     top: 50%;
     background: #355474;
-    height: 3px;
+    height: 2px;
     margin: 0;
     padding: 0;
     border: none;
@@ -156,9 +155,9 @@ nav.menu-principal ul li a:hover {
     content: '';
     position: absolute;
     left: 0;
-    top: -9px;
-    width: 26px;
-    height: 3px;
+    top: -7px;
+    width: 23px;
+    height: 2px;
     background: #355474;
     -webkit-transform-origin: 1.5px center;
     -moz-transform-origin: 1.5px center;
@@ -174,9 +173,9 @@ nav.menu-principal ul li a:hover {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -9px;
-    width: 26px;
-    height: 3px;
+    bottom: -7px;
+    width: 23px;
+    height: 2px;
     background: #355474;
     -webkit-transform-origin: 1.5px center;
     -moz-transform-origin: 1.5px center;
@@ -219,21 +218,37 @@ nav.menu-principal ul li a:hover {
 
 /*menu mobile */
 .menu-mobile{
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
     text-align: center;
+    opacity: 0;
+    background: rgba(255, 255, 255, 1);
+    -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
 }
 
 .menu-mobile ul{
-    background: #fff;
+    display: table-cell;
     padding: 0;
-    display: none;
+    list-style: none;
 }
 
 .menu_ativo{
-    display: block !important;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
 
 }
 .menu-mobile ul li{
-    border-bottom: 1px solid #c2c2c2;
     border-radius: 1px;
 }
 .menu-mobile ul li:hover{
@@ -241,7 +256,7 @@ nav.menu-principal ul li a:hover {
     transition-duration: .3s;
 }
 .menu-mobile ul li a{
-    font-size: 1rem;
+    font-size: 0.85rem;
     border: none;
     padding: 20px;
     display: block;
@@ -262,7 +277,19 @@ nav.menu-principal ul li a:hover {
     color: #000 !important;
     border-radius: 2px;
 }
-/*BANNER*/
+.menu-mobile .menu-close{
+    font-size: 25px;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 10px);
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background: #355474;
+    i{
+        color: #fff;
+    }
+}
 
 
 
@@ -467,6 +494,16 @@ div.balet-oferta p:last-of-type{
     .hidden-m{
         display: none !important;
     }
+
+    #menu_toggle{
+        left: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    #menu_toggle{
+        left: 30px;
+    }
 }
 
 /* Extra Small Devices, .visible-xs-* */
@@ -485,5 +522,8 @@ div.balet-oferta p:last-of-type{
             }
         }
         
+    }
+    #menu_toggle{
+        left: 20px;
     }
 }
