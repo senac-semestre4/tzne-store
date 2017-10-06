@@ -144,6 +144,7 @@ a:link{
     float: left;
 }
 
+@import "scss/helpers";
 .nowrap {
     white-space: nowrap;
     width: 100%;
@@ -154,6 +155,24 @@ a:link{
 
 img{
     width: 100%;
+}
+
+/* titulo */
+h2.titulo{
+    text-transform: uppercase;
+    font-family: "PT Sans",sans-serif !important;
+    letter-spacing: 1px;
+    color: #5d5d5d;
+    font-size: 1.2rem;
+    margin: 20px 0 10px 0;
+    &:after{
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: #ccc;
+        margin: 15px auto;
+        display: block;
+    }
 }
 
 
@@ -177,5 +196,12 @@ h3.titulo{
 @media (min-width: 992px){
     .container {
         width: 95%;
+    }
+}
+
+/* para o produto não ficar tão grande na tela */
+@media (max-width: 668px) {
+    h2.titulo{
+        font-size: 1rem;
     }
 }
