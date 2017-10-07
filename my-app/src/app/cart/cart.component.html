@@ -6,13 +6,13 @@
     <div class="col-xs-12">
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-left-sm" role="group">
-          <a href="" class="btn btn-adicionar-sacola">Adicionar mais à sacola</a>
+          <a href="" class="btn btn-continuar-comprando">Continuar comprando</a>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-right-sm" role="group">
             <!-- <button type="button" class="btn btn-default left">comprar</button> -->
-            <a href="" class="btn btn-adicionar-comprar">Comprar</a>
+            <a href="" class="btn btn-finalizar-compra">Finalizar compra</a>
         </div>
       </div>
     </div>
@@ -27,6 +27,7 @@
               <th class="small text-muted">Valor</th>
               <th class="small text-muted">Quantidade</th>
               <th class="small text-muted">Total</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +45,7 @@
               <td class="small">R$ 75,00</td>
               <td class="small">2</td>
               <td class="small">R$ 150,00</td>
+              <td><button class="btn"><i class="ion-close-round"></i></button></td>
             </tr>
             <tr>
               <td class="small">
@@ -59,6 +61,7 @@
               <td class="small">R$ 60,00</td>
               <td class="small">1</td>
               <td class="small">R$ 60,00</td>
+              <td><button class="btn"><i class="ion-close-round"></i></button></td>
             </tr>
           </tbody>
         </table><!-- tablete e desktop -->
@@ -123,26 +126,24 @@
   </div>
   <div class="row">
     <div class="col-sm-12">
-        <div class="col-sm-6 cep">
+        <div class="col-xs-12 col-sm-6 cep">
           <p class="text-center">Simular o calculo de frete</p>
-        <div class="col-sm-12 ">
+        <div class="col-sm-12">
           <input type="text" class="form-control input-sm" placeholder="CEP">
         </div>
           <p class="text-center">Valor:</p>
       </div>
-        <div class="col-sm-6">
-         <table class="table table-resumo-compra">
-            <thead class="table-header align-center">
-              <tr>
-                <th class="text-muted">Resumo da Compra</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>R$ 210,00</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-xs-12 col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h3>Resumo da Compra</h3>
+            </div>
+            <div class="card-body">
+              <h3>Valor Total</h3>
+                <p>R$ 210,00</p>
+                <p>em até 3x R$ 70,00 sem juros</p>
+            </div>
+          </div>
        </div>
     </div>
     </div>
