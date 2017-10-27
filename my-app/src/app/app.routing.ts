@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
-import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component'
 
 export const routes: Routes = [
   {
@@ -12,12 +11,18 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: '',
+    redirectTo: 'home',
+    component: HomeComponent,
+    pathMatch: 'full',
+  },
+/*   {
     path: 'store',
     component: AppComponent,
     data: {
       title: "Store"
     },
-  }
+  } */
 ];
 
 @NgModule({

@@ -1,14 +1,14 @@
 import { Component, ViewChild } from '@angular/core';
 import { TabsetComponent } from 'ngx-bootstrap';
 
-import { ProductService } from '../services/product.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.scss']
 })
-export class ProductComponent{
+export class ProductDetailsComponent{
   private products;
   private id: number;
   private nome: string;

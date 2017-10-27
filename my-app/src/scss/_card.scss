@@ -1,0 +1,19 @@
+.card{
+    .card-header{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1rem;
+        vertical-align: middle;
+        background: #5d5d5d;
+        h3{
+            color: #fff;
+            letter-spacing: 1px;
+            font-weight: 400;
+            padding: 15px 10px;
+        }
+    }
+    .card-body{
+        border: 1px solid #878887;
+        padding: 10px;
+    }
+}

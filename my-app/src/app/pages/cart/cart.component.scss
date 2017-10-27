@@ -1,35 +1,24 @@
 .left{
   float: right;
 }
-
-input{
-  right: 0px;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-}
-.cep{
-   border: 1px solid #688;
-   margin-top: 10px;
-}
-  .btn-continuar-comprando{
-        background: #525252;
-        color: #B8B9B8;
-        width: 100%;
-        line-height: 1.125rem;
-        letter-spacing: 1.92px;
-        transition: all .3s linear;
-        border-radius: 2px;
-        border: 1px solid #878887;
-        padding: 8px 20px;
-        text-transform: uppercase;
-        margin-top: 10px;
-        &:hover{
-            background: #878887;
-            color: #fff !important;
-            border-color: #525252;
-        }
+.btn-continuar-comprando{
+    background: #525252;
+    color: #B8B9B8;
+    width: 100%;
+    line-height: 1.125rem;
+    letter-spacing: 1.92px;
+    transition: all .3s linear;
+    border-radius: 2px;
+    border: 1px solid #878887;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    &:hover{
+        background: #878887;
+        color: #fff !important;
+        border-color: #525252;
     }
+}
   .btn-finalizar-compra{
     background: #398439;
     width: 100%;
@@ -223,52 +212,6 @@ h2.titulo-produto{
                     display: inline-block;
                     margin-right: 10px;
                 }
-            }
-        }
-    }
-}
-
-.card{
-    .card-header{
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 1rem;
-        vertical-align: middle;
-        background: #5d5d5d;
-        h3{
-            color: #fff;
-            letter-spacing: 1px;
-            font-weight: 400;
-            padding: 15px 10px;
-        }
-    }
-    .card-body{
-        border: 1px solid #878887;
-        padding: 10px;
-        h3{
-            text-align: center;
-            font-weight: 300;
-            font-size: .9rem;
-            color: #5d5d5d;
-            padding-bottom: 10px;
-            text-transform: uppercase;
-        }
-        p{
-            width: 49%;
-            display: inline-block;
-            text-align: center;
-            padding: 0 20px;
-            &:first-of-type{
-                font-size: 22px;
-                text-decoration: none;
-                color: #901913;
-                font-weight: 300;
-            }
-            &:last-of-type{
-                color: #878887;
-                font-size: 0.9rem;
-                font-weight: 300;
-                border-left: 1px solid;
             }
         }
     }
