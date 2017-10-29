@@ -5,6 +5,7 @@ header{
 }
 /*logo*/
 header h1.logo a{
+    background: white;
     font-size: 3rem;
     letter-spacing: .5rem;
     color: #355474;
@@ -20,7 +21,6 @@ header div.input-pesquisa{
     width: 90%;
     margin-top: 10px;
     position: relative;
-
 }
 header .input-pesquisa input{
     width: 100%;
@@ -30,6 +30,7 @@ header .input-pesquisa input{
     -webkit-border-radius: 2px;
     border: 1px solid #355474;
     color: #355474;
+    background: #f5f2f2 !important;
 }
 header .input-pesquisa i{
     position: absolute;
@@ -47,15 +48,15 @@ header .input-pesquisa input:focus{
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #355474;  
+   color: #355474;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #355474;  
+   color: #355474;
 }
 
-:-ms-input-placeholder {  
-   color: #355474;  
+:-ms-input-placeholder {
+   color: #355474;
 }
 /*conta e carrinho*/
 header .conta-carrinho{
@@ -111,7 +112,7 @@ nav.menu-principal ul li a{
     color: #355474;
 }
 nav.menu-principal ul li a:hover {
-    transition-duration: .2s; 
+    transition-duration: .2s;
     border-bottom: 2px solid #355474;
 }
 
@@ -435,7 +436,7 @@ div.balet-oferta p:last-of-type{
     header div.input-pesquisa{
         margin: 0 0 0 20px;
     }
-    
+
     /* conta e carrinho */
     header .conta-carrinho {
         width: 25%;
@@ -463,7 +464,7 @@ div.balet-oferta p:last-of-type{
     header h1.logo a{
         font-size: 2.4rem;
     }
-    
+
     header div.input-pesquisa{
         width: 100%
     }
@@ -521,9 +522,12 @@ div.balet-oferta p:last-of-type{
                 font-size: 1.6rem;
             }
         }
-        
+
     }
     #menu_toggle{
         left: 20px;
     }
 }
+  .topo{
+     background: #e9e9e9 !important;
+  }

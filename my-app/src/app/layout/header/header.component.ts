@@ -1,3 +1,4 @@
+import {ActivatedRoute} from '@angular/router';
 import {Component, trigger, state, style, transition, animate} from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import {Component, trigger, state, style, transition, animate} from '@angular/co
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent{
-  constructor() { }
+  constructor(route: ActivatedRoute) { }
 
   toggleMenu: boolean = false;
 

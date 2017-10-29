@@ -1,8 +1,8 @@
-<div class="linha">
+<div class="linha topo">
     <header>
         <div class="col-1 hidden-ld hidden-d hidden-t">
             <!-- toggle -->
-            <div id="menu_toggle" class="hidden-d hidden-t hidden-ld" 
+            <div id="menu_toggle" class="hidden-d hidden-t hidden-ld"
             (click) = "menuToggle()">
                 <button></button>
             </div>
@@ -19,7 +19,7 @@
         <div class="col-4 conta-carrinho">
             <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
             <h2 class="hidden-t hidden-m"><a href="#">Entre</a> ou <a href="#">cadastre-se</a></h2>
-            <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+            <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']" ><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" ></i></a>
         </div>
     </header>
 </div>
@@ -30,10 +30,10 @@
             <li><a href="#">Homem</a></li>
             <li><a href="#">Mulher</a></li>
             <li><a href="#">Infantil</a></li>
-            <li><a href="#">Acessórios</a></li>                         
+            <li><a href="#">Acessórios</a></li>
         </ul>
     </nav>
-    <nav class="col-12 menu-mobile hidden-ld hidden-d hidden-t" 
+    <nav class="col-12 menu-mobile hidden-ld hidden-d hidden-t"
     [ngClass]="{'menu_ativo': toggleMenu }">
         <ul>
             <header>

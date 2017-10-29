@@ -3,26 +3,51 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component'
+import { CartComponent } from './pages/cart/cart.component';
+import { P404Component } from './shared/404/404.component';
+import { SimpleLayoutComponent } from './layout/simpleLayout/simple-layout.component';
+import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
 
 export const routes: Routes = [
-  {
+   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: '',
-    redirectTo: 'home',
+    path: 'home',
     component: HomeComponent,
     pathMatch: 'full',
   },
-/*   {
-    path: 'store',
-    component: AppComponent,
+   {
+    path: 'cart',
+    component: CartComponent,
+    pathMatch: 'full',
+  },
+
+  //page 404
+  {
+    path: '',
+    component: SimpleLayoutComponent,
     data: {
-      title: "Store"
+      title: ''
     },
-  } */
+    children: [
+      {
+        path: '404',
+        component: P404Component,
+        data: {
+          title: '404'
+        }
+      }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+    pathMatch: 'full',
+  },
+
 ];
 
 @NgModule({
@@ -30,3 +55,16 @@ export const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
+
+
+ /* {
+    path: 'home',
+    component: FullLayoutComponent,
+    pathMatch: 'full',
+      children: [
+       {
+        path: 'pages',
+        loadChildren: './pages/pages.module#PagesModule',
+      }
+     ]
+  }, */

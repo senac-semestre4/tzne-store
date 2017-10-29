@@ -12,24 +12,27 @@ import { PagesModule } from './pages/pages.module';
 import { ServicesModule } from './services/services.module';
 import { SharedModule } from './shared/shared.module';
 
-//import { AppRoutingModule } from './app.routing';
+import { AppRoutingModule, routes } from './app.routing';
+import { RouterModule } from '@angular/router';
+import { SimpleLayoutComponent } from './layout/simpleLayout/simple-layout.component';
+import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
 
 @NgModule({
   declarations: [
-    //AppRoutingModule,
     AppComponent,
-    
+    FullLayoutComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpModule, 
+    HttpModule,
     LayoutModule,
     PagesModule,
     ServicesModule,
-    SharedModule  
+    SharedModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [/* AppComponent */FullLayoutComponent]
 })
 export class AppModule { }
