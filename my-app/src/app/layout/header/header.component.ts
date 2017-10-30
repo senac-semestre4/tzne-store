@@ -1,4 +1,5 @@
-import {Component, trigger, state, style, transition, animate} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, trigger, state, style, transition, animate, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +7,20 @@ import {Component, trigger, state, style, transition, animate} from '@angular/co
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent{
-  constructor() { }
 
-  toggleMenu: boolean = false;
+  @Input() totalCartItems: number;
+
+
+  constructor(
+    private routeParams: ActivatedRoute,
+    private router: Router
+  ) { }
+
+
+  private toggleMenu: boolean = false;
+  private quantidadeEmCarrinho: number;
+
+
 
   menuToggle(){
     this.toggleMenu = !this.toggleMenu;
@@ -17,5 +29,14 @@ export class HeaderComponent{
   menuClose(){
     this.toggleMenu = false;
   }
+
+  private cadastrar( id ): void {
+    console.log(id)
+    this.router.navigate(['/cadastre/' + id])
+  }
+  private login(): void {
+    this.router.navigate(['/login'])
+  }
+
 
 }

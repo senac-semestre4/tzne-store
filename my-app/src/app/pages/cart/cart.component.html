@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="(totalCartItems$) > 0 else emptyCart">
   <div class="row">
     <div class="col-xs-12">
       <h2 class="titulo">Meu Carrinho</h2>
@@ -6,132 +6,153 @@
     <div class="col-xs-12">
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-left-sm" role="group">
-          <a href="" class="btn btn-continuar-comprando">Continuar comprando</a>
+          <a href="" class="btn btn-continuar-comprando" routerLinkActive="active" [routerLink]="['']">Continuar comprando</a>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-right-sm" role="group">
-            <!-- <button type="button" class="btn btn-default left">comprar</button> -->
-            <a href="" class="btn btn-finalizar-compra">Finalizar compra</a>
+          <!-- <button type="button" class="btn btn-default left">comprar</button> -->
+          <a href="" class="btn btn-finalizar-compra">Finalizar compra</a>
         </div>
       </div>
     </div>
   </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <!-- tablete e desktop -->
-        <table class="table table-produtos-carrinho hidden-xs">
-          <thead class="table-header">
-            <tr>
-              <th class="small text-muted">Produto(s)</th>
-              <th class="small text-muted">Valor</th>
-              <th class="small text-muted">Quantidade</th>
-              <th class="small text-muted">Total</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="small">
-                <div class="miniatura">
-                  <a href="#!"><img src="../../assets/images/produtos/1.jpg" alt=""></a>
-                </div>
-                <a href="#!" class="descricao-produto">
-                  <h3>Camiseta Homem-aranha</h3>
-                  <p>Tamanho: M</p>
-                  <p>Cor: vermelho</p>
-                </a>
-              </td>
-              <td class="small">R$ 75,00</td>
-              <td class="small">2</td>
-              <td class="small">R$ 150,00</td>
-              <td><button class="btn"><i class="ion-close-round"></i></button></td>
-            </tr>
-            <tr>
-              <td class="small">
-                <div class="miniatura">
-                  <a href="#!"><img src="../../assets/images/produtos/2.jpg" alt=""></a>
-                </div>
-                <a href="#!" class="descricao-produto">
-                  <h3>Camiseta Capitão América</h3>
-                  <p>Tamanho: P</p>
-                  <p>Cor: Azul</p>
-                </a>
-              </td>
-              <td class="small">R$ 60,00</td>
-              <td class="small">1</td>
-              <td class="small">R$ 60,00</td>
-              <td><button class="btn"><i class="ion-close-round"></i></button></td>
-            </tr>
-          </tbody>
-        </table><!-- tablete e desktop -->
-
-        <!-- mobile -->
-        <div class="row container-produto-mobile visible-xs">
-          <div class="col-xs-5">
-              <div class="imagem-produto">
-                  <a href="#!"><img src="../../assets/images/produtos/1.jpg" alt=""></a>
-                  <a href="#!">Excluir</a>
+  <div class="row">
+    <div class="col-sm-12">
+      <!-- tablete e desktop -->
+      <table class="table table-produtos-carrinho hidden-xs">
+        <thead class="table-header">
+          <tr>
+            <th class="small text-muted">Produto(s)</th>
+            <th class="small text-muted">Valor</th>
+            <th class="small text-muted">Quantidade</th>
+            <th class="small text-muted">Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="small">
+              <div class="miniatura">
+                <a href="#!"><img src="../../assets/images/produtos/1.jpg" alt=""></a>
               </div>
-          </div>
-          <div class="col-xs-7">
-            <div class="descricao-produto">
               <a href="#!" class="descricao-produto">
-                  <h3>Camiseta Homem-aranha</h3>
-                  <p>Tamanho: M</p>
-                  <p>Cor: vermelho</p>
+                <h3>Camiseta Homem-aranha</h3>
+                <p>Tamanho: M</p>
+                <p>Cor: vermelho</p>
               </a>
-              <p>R$ 75,00</p>
-            </div>
-            <div class="quantidade-produto">
-              <div class="box-input-quantidade">
-                  <input type="text" id="quantidade" value="2">
+            </td>
+            <td class="small">R$ 75,00</td>
+            <td class="small">2</td>
+            <td class="small">R$ 150,00</td>
+            <td><button class="btn"><i class="ion-close-round"></i></button></td>
+          </tr>
+          <tr>
+            <td class="small">
+              <div class="miniatura">
+                <a href="#!"><img src="../../assets/images/produtos/2.jpg" alt=""></a>
               </div>
-            </div>
-            <div class="valor-total-produto">
-              <p>R$ 150,00</p>
-            </div>
-          </div>
-        </div><!-- mobile -->
-
-        <div class="row container-produto-mobile visible-xs">
-          <div class="col-xs-5">
-              <div class="imagem-produto">
-                  <a href="#!"><img src="../../assets/images/produtos/2.jpg" alt=""></a>
-                  <a href="#!">Excluir</a>
-              </div>
-          </div>
-          <div class="col-xs-7">
-            <div class="descricao-produto">
               <a href="#!" class="descricao-produto">
-                  <h3>Camiseta Capitão América</h3>
-                  <p>Tamanho: P</p>
-                  <p>Cor: Azul</p>
+                <h3>Camiseta Capitão América</h3>
+                <p>Tamanho: P</p>
+                <p>Cor: Azul</p>
               </a>
-              <p>R$ 60,00</p>
-            </div>
-            <div class="quantidade-produto">
-              <div class="box-input-quantidade">
-                  <input type="text" id="quantidade" value="1">
-              </div>
-            </div>
-            <div class="valor-total-produto">
-              <p>R$ 60,00</p>
-            </div>
+            </td>
+            <td class="small">R$ 60,00</td>
+            <td class="small">1</td>
+            <td class="small">R$ 60,00</td>
+            <td><button class="btn"><i class="ion-close-round"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- tablete e desktop -->
+
+      <!-- mobile -->
+      <div class="row container-produto-mobile visible-xs">
+        <div class="col-xs-5">
+          <div class="imagem-produto">
+            <a href="#!"><img src="../../assets/images/produtos/1.jpg" alt=""></a>
+            <a href="#!">Excluir</a>
           </div>
         </div>
+        <div class="col-xs-7">
+          <div class="descricao-produto">
+            <a href="#!" class="descricao-produto">
+              <h3>Camiseta Homem-aranha</h3>
+              <p>Tamanho: M</p>
+              <p>Cor: vermelho</p>
+            </a>
+            <p>R$ 75,00</p>
+          </div>
+          <div class="quantidade-produto">
+            <div class="box-input-quantidade">
+              <input type="text" id="quantidade" value="2">
+            </div>
+          </div>
+          <div class="valor-total-produto">
+            <p>R$ 150,00</p>
+          </div>
+        </div>
+      </div>
+      <!-- mobile -->
 
+      <div class="row container-produto-mobile visible-xs">
+        <div class="col-xs-5">
+          <div class="imagem-produto">
+            <a href="#!"><img src="../../assets/images/produtos/2.jpg" alt=""></a>
+            <a href="#!">Excluir</a>
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="descricao-produto">
+            <a href="#!" class="descricao-produto">
+              <h3>Camiseta Capitão América</h3>
+              <p>Tamanho: P</p>
+              <p>Cor: Azul</p>
+            </a>
+            <p>R$ 60,00</p>
+          </div>
+          <div class="quantidade-produto">
+            <div class="box-input-quantidade">
+              <input type="text" id="quantidade" value="1">
+            </div>
+          </div>
+          <div class="valor-total-produto">
+            <p>R$ 60,00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-6 align-center">
+          <div class="btn-group pull-left-sm" role="group">
+            <a href="" class="btn btn-continuar-comprando" routerLinkActive="active" [routerLink]="['']">Continuar comprando</a>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 align-center">
+          <div class="btn-group pull-right-sm" role="group">
+            <!-- <button type="button" class="btn btn-default left">comprar</button> -->
+            <a href="" class="btn btn-finalizar-compra">Finalizar compra</a>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
-        <div class="col-xs-12 col-sm-6">
-          <app-search-cep></app-search-cep>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <app-cart-summary></app-cart-summary>
-       </div>
+      <div class="col-xs-12 col-sm-6">
+        <app-search-cep></app-search-cep>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <app-cart-summary></app-cart-summary>
+      </div>
     </div>
-    </div>
+  </div>
+
+</div>
+<div class="container">
+  <ng-template #emptyCart>
+    <app-empty-cart></app-empty-cart>
+  </ng-template>
 </div>

@@ -3,6 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component'
+import { CartComponent } from './pages/cart/cart.component';
+import { P404Component } from './shared/404/404.component';
+import { SimpleLayoutComponent } from './layout/simpleLayout/simple-layout.component';
+import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { MyCadastreComponent } from './pages/client/my-cadastre/my-cadastre.component';
+import { MyAccountComponent } from './pages/client/my-account/my-account.component';
+import { Erro404Component } from './pages/erro-404/erro-404.component';
 
 export const routes: Routes = [
   {
@@ -11,22 +19,59 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: '',
-    redirectTo: 'home',
+    path: 'home',
     component: HomeComponent,
     pathMatch: 'full',
   },
-/*   {
-    path: 'store',
-    component: AppComponent,
+  {
+    path: 'cart',
+    component: CartComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'details/:id',
+    component: ProductDetailsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'cadastre/:id',
+    component: MyCadastreComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: MyAccountComponent,
+    pathMatch: 'full',
+  },
+
+  //page 404
+  {
+    path: '',
+    component: SimpleLayoutComponent,
     data: {
-      title: "Store"
+      title: ''
     },
-  } */
+    children: [
+      {
+        path: '404',
+        component: Erro404Component,
+        data: {
+          title: '404'
+        }
+      }
+    ]
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+    pathMatch: 'full',
+  },
+
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
+

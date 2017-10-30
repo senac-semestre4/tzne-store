@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 //service
@@ -11,14 +12,20 @@ import { ProductService } from '../../../services/product.service';
 })
 export class ShowcaseComponent implements OnInit {
 
+  private id: any;
   private products: any;
   private boxComprar: boolean = false;
 
 
-  constructor(private produtos: ProductService) {
+  constructor(
+    private produtos: ProductService,
+    private routeParams: ActivatedRoute,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
+    this.id = this.routeParams.params.subscribe(params => this.id = params['id'] )
     this.products = this.produtos.getProdutosEmDestaque();
   }
 
@@ -31,4 +38,7 @@ export class ShowcaseComponent implements OnInit {
     this.boxComprar = false;
   }
 
+  private details( id:number ): void {
+    this.router.navigate(['/details/' + id])
+  }
 }
