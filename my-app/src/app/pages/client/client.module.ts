@@ -19,5 +19,12 @@ import { MyCadastreComponent } from "./my-cadastre/my-cadastre.component";
   imports: [
     CommonModule,
   ],
+  exports:[
+    ClientComponent,
+    MyAccessComponent,
+    MyAccountComponent,
+    MyAdressesComponent,
+    MyCadastreComponent
+  ]
 })
 export class ClientModule { }

@@ -17,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
 
 // service
 import { ProductService } from '../services/product.service';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProductService } from '../services/product.service';
     ShowcaseComponent,
     ProductDetailsComponent,
     CartComponent,
-    SearchCepComponent
+    SearchCepComponent,
+    OrderDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,12 @@ import { ProductService } from '../services/product.service';
     ClientModule,
     SharedModule
   ],
-  providers:[ProductService]
+  exports:[
+    ClientModule,
+    OrderDetailsComponent
+  ],
+  providers:[
+    ProductService
+  ]
 })
 export class PagesModule { }
