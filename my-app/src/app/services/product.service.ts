@@ -100,4 +100,7 @@ export class ProductService {
   public getProdutosEmDestaque(){
     return this.produtosEmDestaque;
   }
+  public getProduto(id){
+    return this.produtosEmDestaque.filter(i => i['id'] == id);
+  }
 }

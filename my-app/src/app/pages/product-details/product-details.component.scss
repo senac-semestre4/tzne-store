@@ -1,13 +1,13 @@
 article{
     padding: 10px;
     img{
-
+      width: 80%
     }
 
     header, footer{
         text-align: center;
         margin-bottom: 40px;
-        
+
         .valor-produto{
             text-align: center;
             margin: 20px 0;
@@ -177,7 +177,7 @@ article{
 
 /* Small Devices, .visible-sm-* */
 @media (max-width: 668px) {
-    
+
     article.img-produto{
         padding: 0 50px;
     }
@@ -185,7 +185,7 @@ article{
 
 /* Small Devices, .visible-sm-* */
 @media (max-width: 568px) {
-    
+
     article.img-produto{
         padding: 0;
     }

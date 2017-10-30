@@ -1,0 +1,87 @@
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+.panel{
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 15px rgba(0,0,0,.1);
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+h1, h3{
+    text-align: center;
+    font-size: 18px;
+
+}
+input, select{
+  &:hover {
+    border: 1px solid;
+    box-shadow: 0.5px 0.5px 0.5px;
+  }
+}
+.panel-title {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 28px;
+      color: #666;
+      font-weight: 400;
+}
+.panel-sub-title{
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 23px;
+      color: #666;
+      font-weight: 400;
+}
+#container {
+    padding: 5px 15px;
+}
+
+#enviar {
+    display: ruby-base-group;
+    padding: 8px 65px;
+    alignment-adjust: central;
+}
+  label{
+        margin-top: 13px
+  }
+
+@media (min-width: 768px){
+  .form-horizontal .form-group {
+      padding-top: 7px;
+      margin-bottom: 0;
+      text-align: right;
+      margin-left: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+    .form-horizontal .form-group {
+       margin-right: 35%;
+      margin-left: 35%;
+  }
+    label{
+      width: 100%;
+      display: block;
+    }
+    .btn{
+      margin-left: -10%;
+    }
+}
+@media (max-width: 380px) {
+    .form-horizontal .form-group {
+      margin-right: 22%;
+      margin-left: 22%;
+  }
+    label{
+      width: 100%;
+      display: block;
+    }
+    .btn{
+      margin-left: -30px;
+    }
+}

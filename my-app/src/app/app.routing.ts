@@ -7,14 +7,33 @@ import { CartComponent } from './pages/cart/cart.component';
 import { P404Component } from './shared/404/404.component';
 import { SimpleLayoutComponent } from './layout/simpleLayout/simple-layout.component';
 import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { MyCadastreComponent } from './pages/client/my-cadastre/my-cadastre.component';
+import { MyAccountComponent } from './pages/client/my-account/my-account.component';
 
 export const routes: Routes = [
-   {
+    {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  {
+
+  /* {
+    path: '',
+    component: FullLayoutComponent,
+     pathMatch: 'full',
+    data: {
+      title: 'Pages'
+    },
+      children: [
+       {
+        path: 'pages',
+        loadChildren: './pages/pages.module#PagesModule',
+      }
+     ]
+  }, */
+
+   {
     path: 'home',
     component: HomeComponent,
     pathMatch: 'full',
@@ -22,6 +41,21 @@ export const routes: Routes = [
    {
     path: 'cart',
     component: CartComponent,
+    pathMatch: 'full',
+  },
+    {
+    path: 'details/:id',
+    component: ProductDetailsComponent,
+    pathMatch: 'full',
+  },
+    {
+    path: 'cadastre/:id',
+    component: MyCadastreComponent,
+    pathMatch: 'full',
+  },
+    {
+    path: 'login',
+    component: MyAccountComponent,
     pathMatch: 'full',
   },
 

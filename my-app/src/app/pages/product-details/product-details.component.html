@@ -9,19 +9,19 @@
     </div>
         <div class="col-xs-12 col-sm-7">
             <article class="img-produto">
-                <img src="../../assets/images/produtos/1.jpg" alt="">
+                <img [src]="prod[0].imagem" alt="">
             </article>
         </div>
         <div class="col-xs-12 col-sm-5">
             <article>
                 <header class="hidden-xs hidden-sm">
                     <div class="nome-produto">
-                        <h2 id="nome_produto">Camiseta Homem-Aranha manga longa</h2>
+                        <h2 id="nome_produto">{{prod[0].nome}}</h2>
                     </div>
                     <div class="valor-produto hidden-xs hidden-sm">
                         <div class="valor">
-                            <span class="valor-antigo">R$ 69,90</span>
-                            <span class="valor-atual">R$ 59,41</span>
+                            <span class="valor-antigo">R$ {{prod[0].valorAntigo | currency:'BRL':true }}</span>
+                            <span class="valor-atual">{{prod[0].valorAtual | currency:'BRL':true }}</span>
                         </div>
                         <div class="parcelas">
                             <span class="valor-parcelas"><strong>2x</strong> de <strong>R$ 29,70</strong> sem juros</span>
@@ -39,8 +39,8 @@
                     </div>
                     <div class="valor-produto hidden-md hidden-lg">
                         <div class="valor">
-                            <span class="valor-antigo">R$ 69,90</span>
-                            <span class="valor-atual">R$ 59,41</span>
+                            <span class="valor-antigo">R$ {{prod[0].valorAntigo | currency:'BRL':true }}</span>
+                            <span class="valor-atual">{{prod[0].valorAtual | currency:'BRL':true }}</span>
                         </div>
                         <div class="parcelas">
                             <span class="valor-parcelas"><strong>2x</strong> de <strong>R$ 29,70</strong> sem juros</span>
@@ -52,8 +52,8 @@
                     <div class="box-descricao-especificacao hidden-sm">
                         <div>
                             <tabset>
-                              <tab heading="Descrição"><p>{{ descricao }}</p></tab>
-                              <tab heading="Especificação"><p>{{ especificacao }}</p></tab>
+                              <tab heading="Descrição"><p>{{ prod[0].descricao }}</p></tab>
+                              <tab heading="Especificação"><p>{{ prod[0].especificacao }}</p></tab>
                             </tabset>
                           </div>
                     </div>

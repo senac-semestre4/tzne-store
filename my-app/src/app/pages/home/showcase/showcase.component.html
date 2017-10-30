@@ -7,11 +7,11 @@
       <article class="box-produto">
         <article class="produto">
           <header>
-            <img [src]="p.imagem" alt="" id="imagem_produto">
+            <img (click)="details(p.id)" [src]="p.imagem" alt="" id="imagem_produto">
           </header>
           <footer>
             <div class="nome-produto">
-              <a href="" id="nome_produto" class="nowrap">{{p.nome}}</a>
+              <a href="" id="nome_produto" (click)="details(p.id)" class="nowrap">{{p.nome}}</a>
             </div>
             <div class="valor-produto">
               <a href="">
@@ -26,7 +26,7 @@
               </a>
             </div>
             <div class="box-btn">
-              <a href="" class="btn btn-adicionar-sacola">Adicionar a sacola</a>
+              <a class="btn btn-adicionar-sacola">Adicionar a sacola</a>
           </div>
           </footer>
         </article>

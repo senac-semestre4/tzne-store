@@ -22,13 +22,13 @@ import { ProductService } from '../services/product.service';
 
 @NgModule({
   declarations: [
-    EmptyCartComponent,
     HomeComponent,
     BannerHomeComponent,
     ShowcaseComponent,
     ProductDetailsComponent,
     CartComponent,
-    SearchCepComponent
+    SearchCepComponent,
+    EmptyCartComponent
   ],
   exports: [
     HomeComponent,
