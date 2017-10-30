@@ -35,7 +35,7 @@
                             <label class="col-sm-4 col-md-3 control-label">Sexo:</label>
                             <div class="col-sm-4 col-md-8 control-label">
                                 <select class="form-control" id="client_sex" name="client_sex">
-                                    <option  value="">Selecione</option>
+                                    <option value="">Selecione</option>
                                     <option value="0" >Masculino</option>
                                     <option value="1">Feminino</option>
                                 </select>
@@ -59,18 +59,24 @@
                                 <input class="form-control" type="text" id="client_cel" name="client_cel" placeholder="(__) _____ - _____" maxlength="18">
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="client_direct_mail" class="col-sm-4 col-md-3 control-label">Mala Direta:</label>
                             <div class="col-sm-4 col-md-8">
                                 <select class="form-control" id="client_direct_mail" name="client_direct_mail">
-                                    <option  value="">Selecione</option>
+                                    <option value="">Selecione</option>
                                     <option value="1" >Sim</option>
                                     <option value="0">Não</option>
                                 </select>
                             </div>
+                        </div> -->
+                          <div class="form-group">
+                            <label for="client_adress_cep" class="col-sm-4 col-md-3 control-label">CEP:</label>
+                            <div class="col-sm-4 col-md-8">
+                                <input class="form-control" type="text" id="client_adress_cep" name="client_adress_cep" placeholder="00000-000">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="client_adress_type" class="col-sm-4 col-md-3 control-label">Tipo de enderço do Cliente:</label>
+                            <label for="client_adress_type" class="col-sm-4 col-md-3 control-label">Endereço</label>
                             <div class="col-sm-4 col-md-8">
                                 <select class="form-control" id="client_adress_type" name="client_adress_type">
                                     <option  value="">Selecione</option>
@@ -144,12 +150,6 @@
                                     <option value="SP">São Paulo</option>
                                     <option value="TO">Tocantins</option>
                                 </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_adress_cep" class="col-sm-4 col-md-3 control-label">CEP:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_adress_cep" name="client_adress_cep" placeholder="00.000-000">
                             </div>
                         </div>
                         <!--  button submit -->

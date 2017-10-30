@@ -11,23 +11,22 @@
           </header>
           <footer>
             <div class="nome-produto">
-              <a href="" id="nome_produto" (click)="details(p.id)" class="nowrap">{{p.nome}}</a>
+              <a id="nome_produto" style="cursor: pointer" (click)="details(p.id)" class="nowrap">{{p.nome}}</a>
             </div>
             <div class="valor-produto">
-              <a href="">
+              <a>
                 <div class="valor">
-                    <span *ngIf="p.porcentagemDesconto !== 0"
-                    class="valor-antigo">R$ {{p.valorAntigo | currency:'BRL':true }}</span>
-                    <span class="valor-atual">{{p.valorAtual | currency:'BRL':true }}</span>
+                  <span *ngIf="p.porcentagemDesconto !== 0" class="valor-antigo">R$ {{p.valorAntigo | currency:'BRL':true }}</span>
+                  <span class="valor-atual">{{p.valorAtual | currency:'BRL':true }}</span>
                 </div>
                 <div class="parcelas">
-                    <span class="valor-parcelas"><strong>3x</strong> de <strong>{{ p.valorAtual / 3 | currency:'BRL':true }}</strong> sem juros</span>
+                  <span class="valor-parcelas"><strong>3x</strong> de <strong>{{ p.valorAtual / 3 | currency:'BRL':true }}</strong> sem juros</span>
                 </div>
               </a>
             </div>
             <div class="box-btn">
               <a class="btn btn-adicionar-sacola">Adicionar a sacola</a>
-          </div>
+            </div>
           </footer>
         </article>
       </article>
