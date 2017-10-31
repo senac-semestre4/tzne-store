@@ -12,7 +12,7 @@
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-right-sm" role="group">
           <!-- <button type="button" class="btn btn-default left">comprar</button> -->
-          <a href="" class="btn btn-finalizar-compra">Finalizar compra</a>
+          <a class="btn btn-finalizar-compra" (click)="detalhesCompra()">Finalizar compra</a>
         </div>
       </div>
     </div>
@@ -34,17 +34,17 @@
           <tr *ngFor="let p of produtosNoCarrinho, let i = index">
             <td class="small" >
               <div class="miniatura">
-                <a><img [src]="p[i].imagem" alt=""></a>
+                <a><img [src]="p[0].imagem" alt=""></a>
               </div>
               <a class="descricao-produto">
-                <h3>{{p[i].nome}} i</h3>
+                <h3>{{p[0].nome}} i</h3>
                 <p>Tamanho: M</p>
                 <p>Cor: vermelho</p>
               </a>
             </td>
-            <td class="small">{{p[i].valorAtual | currency:'BRL':true }}</td>
+            <td class="small">{{p[0].valorAtual | currency:'BRL':true }}</td>
             <td class="small">1</td>
-            <td class="small">{{p[i].valorAtual | currency:'BRL':true }}</td>
+            <td class="small">{{p[0].valorAtual | currency:'BRL':true }}</td>
             <td><button class="btn"><i class="ion-close-round"></i></button></td>
           </tr>
           <!-- <tr>
@@ -132,7 +132,7 @@
         <div class="col-xs-12 col-sm-6 align-center">
           <div class="btn-group pull-right-sm" role="group">
             <!-- <button type="button" class="btn btn-default left">comprar</button> -->
-            <a href="" class="btn btn-finalizar-compra">Finalizar compra</a>
+            <a class="btn btn-finalizar-compra" (click)="detalhesCompra()">Finalizar compra</a>
           </div>
         </div>
       </div>

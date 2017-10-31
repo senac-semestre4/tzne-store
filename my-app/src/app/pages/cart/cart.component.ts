@@ -7,7 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 	selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
-
 })
 
 export class CartComponent implements OnInit {
@@ -29,7 +28,12 @@ export class CartComponent implements OnInit {
     this.totalCartValue$ = 1;
     this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
     this.totalCartItems$ = this.produtosNoCarrinho.length;
+
     console.log(this.produtosNoCarrinho, "Cart")
     console.log(this.totalCartItems$, "Tamanho do Carrinho")
+  }
+
+  private detalhesCompra(): void {
+    this.router.navigate(['/cart/details/'])
   }
 }

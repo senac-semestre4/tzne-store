@@ -1,3 +1,4 @@
+import {OrderDetailsComponent} from './pages/order-details/order-details.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -31,6 +32,11 @@ export const routes: Routes = [
   {
     path: 'details/:id',
     component: ProductDetailsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'cart/details',
+    component: OrderDetailsComponent,
     pathMatch: 'full',
   },
   {
