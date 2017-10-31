@@ -33,7 +33,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     SearchCepComponent,
     EmptyCartComponent,
     Erro404Component,
-    Erro500Component
+    Erro500Component,
+    OrderDetailsComponent
   ],
   imports: [
     RouterModule,
@@ -52,7 +53,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     SearchCepComponent,
     EmptyCartComponent,
     Erro404Component,
-    Erro500Component
+    Erro500Component,
+    OrderDetailsComponent
     
   ],
   providers:[

@@ -1,0 +1,100 @@
+.detalhes-compra{
+    width: 100%;
+    p{
+        
+    }
+    .detalhes-produtos, .detalhes-endereco{
+        width: 49%;
+        display: inline-block;
+        padding: 10px 20px;
+        p:first-of-type{
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: block;
+            text-align: left !important;
+        }
+        p{
+            color: #355474;
+            font-size: .9rem;
+            letter-spacing: .02rem;
+            white-space: inherit;
+            line-height: 1.4rem;
+        }
+    }
+    .detalhes-produtos{
+        .produtos{
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .total{
+            p{
+                font-size: .9rem;
+                font-weight: 600;
+                display: inline-block;
+                &:nth-of-type(odd){
+                    text-align: left;
+                }
+                &:nth-of-type(even){
+                    text-align: right;
+                } 
+            }
+        }
+        p{
+            display: inline-block;
+            span{
+                text-decoration: underline;
+                cursor: pointer;
+                &:hover{
+                    color: #d1d147;
+                }
+            }
+            width: 49%;
+            &:nth-of-type(even){
+                text-align: left;
+            }
+            &:nth-of-type(odd){
+                text-align: right;
+            }
+        }
+    }
+    .detalhes-endereco{
+        width: 49%;
+        border-left: 1px solid #ddd;
+    }
+}
+
+.entrega{
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid #355474;
+    padding: 10px;
+    font-size: .9rem;
+    text-align: center;
+    p{
+        color: #355474;
+        font-size: .9rem;
+        letter-spacing: .02rem;
+        white-space: inherit;
+        line-height: 1.4rem;
+        &:first-of-type{
+            font-weight: 600;
+        }
+    }
+}
+
+@media screen and(max-width: 768px){
+    .detalhes-produtos, .detalhes-endereco{
+        width: 100% !important;
+    }
+    .detalhes-produtos{
+        margin-bottom: 35px;
+    }
+    .detalhes-endereco{
+        width: 100%;
+        border: none !important;
+    }
+    .box-forma-entrega{
+        text-align: center;
+    }
+}
