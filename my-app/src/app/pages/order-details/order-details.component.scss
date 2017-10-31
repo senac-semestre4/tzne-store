@@ -64,21 +64,75 @@
     }
 }
 
-.entrega{
-    display: inline-block;
-    margin: 20px;
-    border: 1px solid #355474;
-    padding: 10px;
-    font-size: .9rem;
+.box-forma-entrega{
     text-align: center;
-    p{
-        color: #355474;
+    .entrega{
+        display: inline-block;
+        margin: 20px;
+        border: 1px solid #355474;
+        padding: 10px;
         font-size: .9rem;
-        letter-spacing: .02rem;
-        white-space: inherit;
-        line-height: 1.4rem;
-        &:first-of-type{
+        text-align: center;
+        p{
+            color: #355474;
+            font-size: .9rem;
+            letter-spacing: .02rem;
+            white-space: inherit;
+            line-height: 1.4rem;
+            &:first-of-type{
+                font-weight: 600;
+            }
+        }
+    }
+}
+form{
+    .form-group{
+        label{
+            width: 50%;
+            text-align: right;
+            text-transform: uppercase;
+            font-size: 1rem;
+            padding: 5px;
+            color: #355474;
+            font-weight: 400;
+        }
+        input{
+            width: 250px;
+        }
+        input, select{
+            height: 35px;
+        }
+        select{
+            width: 125px;
+        }
+    }
+    .form-group:last-of-type{
+        text-align: center;
+        span{
+            text-align: right;
+            text-transform: uppercase;
+            font-size: 1rem;
+            padding: 5px;
+            color: #355474;
             font-weight: 600;
+        }
+        button{
+            background: #d1d147;
+            width: 300px;
+            line-height: 1.125rem;
+            height: 50px;
+            color: #fff;
+            letter-spacing: 1.3px;
+            transition: all .3s linear;
+            border-radius: 1px;
+            padding: 8px 5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            border: none;
+            &:hover{
+                background: #5d5d5d;
+            
+            }
         }
     }
 }
@@ -94,7 +148,28 @@
         width: 100%;
         border: none !important;
     }
-    .box-forma-entrega{
-        text-align: center;
+    form{
+        .form-group{
+            text-align: left;
+            label{
+                width: 100%;
+                text-align: left;
+                font-size: 0.8rem;
+                padding: 5px;
+            }
+            input{
+                width: 100%;
+            }
+            select{
+                width: 49.2%;
+            }
+        }
+        .form-group:last-of-type{
+            margin-top: 40px;
+            button{
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
     }
 }
