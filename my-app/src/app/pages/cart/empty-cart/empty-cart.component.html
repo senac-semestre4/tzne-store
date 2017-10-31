@@ -1,8 +1,11 @@
 <div class="cart-empty">
   <div class="empty-cart-icon"></div>
-  <div class="empty-cart-message">O seu carrinho de compras está vazio</div>
-  <a class="wishlist-link">
-          <span class="icon"></span>
-          <span class="" [routerLink]="['']">Adicione mais itens no carrinho</span>
-        </a>
+  <i class="fa fa-shopping-bag fa-4x" aria-hidden="true" ></i>
+  <div class="empty-cart-message panel-title">A sua sacola de compras está vazia!</div>
+  <a class="botao">
+    <span class="icon"></span>
+    <div class="button-place">
+        <a [routerLink]="['']" class="btn btn-default btn-lg waves-effect">Adicione mais itens no carrinho</a>
+    </div>
+  </a>
 </div>

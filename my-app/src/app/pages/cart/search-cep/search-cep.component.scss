@@ -25,4 +25,17 @@ table{
         color: #5d5d5d;
         line-height: 1.5rem;
     }
+    td{
+        //float: right;
+        text-align: right;
+        font-weight: 300;
+        font-size: .9rem;
+        color: #5d5d5d;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+        //padding-right: 75px
+    }
+    th{
+        //padding-left: 75px
+    }
 }

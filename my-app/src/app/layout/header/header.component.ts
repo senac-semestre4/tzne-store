@@ -1,26 +1,30 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, trigger, state, style, transition, animate, Input } from '@angular/core';
+import { Component, trigger, state, style, transition, animate, Input, OnInit } from '@angular/core';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent{
+export class HeaderComponent implements OnInit{
+
 
   @Input() totalCartItems: number;
-
-
-  constructor(
-    private routeParams: ActivatedRoute,
-    private router: Router
-  ) { }
-
 
   private toggleMenu: boolean = false;
   private quantidadeEmCarrinho: number;
 
+  constructor(
+    private routeParams: ActivatedRoute,
+    private produtos: ProductService,
+    private router: Router
+  ) { }
 
+  ngOnInit(): void {
+    this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length
+    console.log(this.quantidadeEmCarrinho, "Quantidade")
+  }
 
   menuToggle(){
     this.toggleMenu = !this.toggleMenu;

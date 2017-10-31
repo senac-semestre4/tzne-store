@@ -5,6 +5,7 @@ export class ProductService {
 
   constructor(){ }
 
+  private produtosCarrinho = [];
   private produtosEmDestaque = [
     {
       "id" : 1,
@@ -102,5 +103,15 @@ export class ProductService {
   }
   public getProduto(id){
     return this.produtosEmDestaque.filter(i => i['id'] == id);
+  }
+
+  public setProdutoCarrinho(produto: object){
+    console.log(produto, "parametro do serviço")
+    this.produtosCarrinho.push(produto);
+    console.log(this.produtosCarrinho, "produto no carrinho")
+
+  }
+  public getProdutoCarrinho(){
+    return this.produtosCarrinho
   }
 }

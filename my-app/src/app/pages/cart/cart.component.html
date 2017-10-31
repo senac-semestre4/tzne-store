@@ -31,23 +31,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="small">
+          <tr *ngFor="let p of produtosNoCarrinho, let i = index">
+            <td class="small" >
               <div class="miniatura">
-                <a href="#!"><img src="../../assets/images/produtos/1.jpg" alt=""></a>
+                <a><img [src]="p[i].imagem" alt=""></a>
               </div>
-              <a href="#!" class="descricao-produto">
-                <h3>Camiseta Homem-aranha</h3>
+              <a class="descricao-produto">
+                <h3>{{p[i].nome}} i</h3>
                 <p>Tamanho: M</p>
                 <p>Cor: vermelho</p>
               </a>
             </td>
-            <td class="small">R$ 75,00</td>
-            <td class="small">2</td>
-            <td class="small">R$ 150,00</td>
+            <td class="small">{{p[i].valorAtual | currency:'BRL':true }}</td>
+            <td class="small">1</td>
+            <td class="small">{{p[i].valorAtual | currency:'BRL':true }}</td>
             <td><button class="btn"><i class="ion-close-round"></i></button></td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td class="small">
               <div class="miniatura">
                 <a href="#!"><img src="../../assets/images/produtos/2.jpg" alt=""></a>
@@ -62,7 +62,7 @@
             <td class="small">1</td>
             <td class="small">R$ 60,00</td>
             <td><button class="btn"><i class="ion-close-round"></i></button></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
       <!-- tablete e desktop -->

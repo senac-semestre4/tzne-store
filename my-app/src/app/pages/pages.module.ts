@@ -12,6 +12,7 @@ import { BannerHomeComponent } from './home/banner-home/banner-home.component';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
 import { SearchCepComponent } from './cart/search-cep/search-cep.component';
 import { EmptyCartComponent } from './cart/empty-cart/empty-cart.component';
+import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
 import { Erro404Component } from './erro-404/erro-404.component';
 import { Erro500Component } from './erro-500/erro-500.component';
 
@@ -30,6 +31,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     ShowcaseComponent,
     ProductDetailsComponent,
     CartComponent,
+    CartSummaryComponent,
     SearchCepComponent,
     EmptyCartComponent,
     Erro404Component,
@@ -48,12 +50,13 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     BannerHomeComponent,
     ShowcaseComponent,
     ProductDetailsComponent,
+    CartSummaryComponent,
     CartComponent,
     SearchCepComponent,
     EmptyCartComponent,
     Erro404Component,
     Erro500Component
-    
+
   ],
   providers:[
     ProductService
