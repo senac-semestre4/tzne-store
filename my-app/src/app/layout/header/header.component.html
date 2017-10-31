@@ -19,7 +19,7 @@
         <div class="col-4 conta-carrinho">
             <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
             <h2 class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()" >Entre</a> ou <a style="cursor: pointer" (click)="cadastrar( 0 )">cadastre-se</a></h2>
-            <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']" ><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" ></i><span class="badge badge-danger">{{totalCartItems}}</span></a>
+            <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']" ><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" ></i><span class="badge badge-danger">{{quantidadeEmCarrinho}}</span></a>
         </div>
     </header>
 </div>

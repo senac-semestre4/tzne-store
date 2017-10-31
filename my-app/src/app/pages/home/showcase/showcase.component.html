@@ -17,7 +17,7 @@
               <a>
                 <div class="valor">
                   <span *ngIf="p.porcentagemDesconto !== 0" class="valor-antigo">R$ {{p.valorAntigo | currency:'BRL':true }}</span>
-                  <span class="valor-atual">{{p.valorAtual | currency:'BRL':true }}</span>
+                  <span class="valor-atual">R$ {{p.valorAtual | currency:'BRL':true }}</span>
                 </div>
                 <div class="parcelas">
                   <span class="valor-parcelas"><strong>3x</strong> de <strong>{{ p.valorAtual / 3 | currency:'BRL':true }}</strong> sem juros</span>
@@ -25,7 +25,7 @@
               </a>
             </div>
             <div class="box-btn">
-              <a class="btn btn-adicionar-sacola">Adicionar a sacola</a>
+              <a class="btn btn-adicionar-sacola" (click)="adicionarSacola(p.id)">Adicionar a sacola</a>
             </div>
           </footer>
         </article>

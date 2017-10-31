@@ -27,6 +27,7 @@ export class ShowcaseComponent implements OnInit {
   ngOnInit() {
     this.id = this.routeParams.params.subscribe(params => this.id = params['id'] )
     this.products = this.produtos.getProdutosEmDestaque();
+    console.log(this.products, "produtos")
   }
 
 
@@ -36,6 +37,11 @@ export class ShowcaseComponent implements OnInit {
 
   ocultaBoxComprar() {
     this.boxComprar = false;
+  }
+
+  private adicionarSacola(id){
+    console.log(this.products.filter(i=> i['id'] == id), "produtos")
+    this.produtos.setProdutoCarrinho(this.products.filter(p => p['id'] == id))
   }
 
   private details( id:number ): void {

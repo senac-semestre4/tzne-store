@@ -30,10 +30,7 @@ export class ProductDetailsComponent implements OnInit{
     private produtos: ProductService,
     private routeParams: ActivatedRoute,
     private router: Router
-  ){
-    this.descricao = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever sin";
-    this.especificacao = "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy";
-  }
+  ){ }
 
   ngOnInit(): void {
     this.api = this.routeParams.params.subscribe(params => {
@@ -41,5 +38,9 @@ export class ProductDetailsComponent implements OnInit{
     });
     this.prod = this.produtos.getProduto( this.id );
     console.log(this.prod);
+  }
+
+  private adicionarSacola(){
+    this.produtos.setProdutoCarrinho(this.prod);
   }
 }
