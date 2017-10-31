@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length
+    this.quantidadeEmCarrinho = 3;
     console.log(this.quantidadeEmCarrinho, "Quantidade")
   }
 
@@ -35,9 +36,9 @@ export class HeaderComponent implements OnInit{
   }
 
   private cadastrar( id ): void {
-    console.log(id)
     this.router.navigate(['/cadastre/' + id])
   }
+
   private login(): void {
     this.router.navigate(['/login'])
   }
