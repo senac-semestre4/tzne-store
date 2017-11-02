@@ -31,18 +31,18 @@
     <h3>Opções de entrega</h3>
   </div>
   <div class="card box-forma-entrega">
-    <div class="entrega">
-      <input type="radio" id="tzne" name="entrega">
+    <a type="button" class="entrega" (click) = "selecionaEntrega($event)">
+      <input type="radio" id="tzne" name="entrega" checked>
       <p>Entrega TZNE</p>
       <p>Em até 7 dias</p>
       <p>R$ 27,00</p>
-    </div>
-    <div class="entrega">
+    </a>
+    <a type="button" class="entrega" (click) = "selecionaEntrega($event)">
       <input type="radio" id="loja" name="entrega">
       <p>Retira na Loja</p>
       <p>Em até 2 dias</p>
       <p>R$ 0,00</p>
-    </div>
+    </a>
   </div>
 
   <div class="header-card">

@@ -73,6 +73,14 @@
         padding: 10px;
         font-size: .9rem;
         text-align: center;
+        position: relative;
+        cursor: pointer;
+        &:hover{
+            text-decoration: none;
+        }
+        input{
+            /* display: none; */
+        }
         p{
             color: #355474;
             font-size: .9rem;
@@ -83,6 +91,9 @@
                 font-weight: 600;
             }
         }
+    }
+    .entrega.selecionada{
+        border: 2px solid #d1d147;
     }
 }
 form{
