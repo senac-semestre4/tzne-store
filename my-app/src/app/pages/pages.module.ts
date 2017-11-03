@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TabsModule, CarouselModule } from "ngx-bootstrap";
-import { RouterModule } from '@angular/router';
 
 //Component
 import { HomeComponent } from "./home/home.component";
@@ -39,7 +38,6 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     OrderDetailsComponent,
   ],
   imports: [
-    RouterModule,
     CommonModule,
     TabsModule.forRoot(),
     CarouselModule.forRoot(),

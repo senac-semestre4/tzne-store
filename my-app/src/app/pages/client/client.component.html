@@ -10,23 +10,35 @@
           <a href="#!">Sair</a>
         </div>
       </div>
-      <li class="ativo">
-        <a href="#!" (click) = "setTitulo('Minha Conta')">Minha Conta</a>
+      <li>
+        <a [routerLink]="[ 'minha-conta' ]" 
+        routerLinkActive="ativo"
+        (click) = "setTitulo('Minha Conta')">Minha Conta</a>
       </li>
       <li>
-        <a href="#!" (click) = "setTitulo('Meus Pedidos')">Meus Pedidos</a>
+        <a [routerLink]="[ 'meus-pedidos' ]" 
+        routerLinkActive="ativo"
+        (click) = "setTitulo('Meus Pedidos')">Meus Pedidos</a>
       </li>
       <li>
-        <a href="#!" (click) = "setTitulo('Meus Dados')">Meus Dados</a>
+        <a [routerLink]="[ 'meu-cadastro' ]" 
+        routerLinkActive="ativo"
+        (click) = "setTitulo('Meus Dados')">Meus Dados</a>
       </li>
       <li>
-        <a href="#!" (click) = "setTitulo('Meu Acesso')">Meu Acesso</a>
+        <a [routerLink]="[ 'meu-acesso' ]" 
+        routerLinkActive="ativo"
+        (click) = "setTitulo('Meu Acesso')">Meu Acesso</a>
       </li>
       <li>
-        <a href="#!" (click) = "setTitulo('Meu Endereço')">Meu Endereço</a>
+        <a [routerLink]="[ 'meu-endereco' ]" 
+        routerLinkActive="ativo"
+        (click) = "setTitulo('Meu Endereço')">Meu Endereço</a>
       </li>
       <li>
-        <a href="#!" (click) = "setTitulo('Atendimento')">Atendimento</a>
+        <a [routerLink]="[ 'atendimento' ]" 
+        routerLinkActive="ativo"
+        (click) = "setTitulo('Atendimento')">Atendimento</a>
       </li>
     </ul>
   </div>
@@ -36,7 +48,7 @@
         <h3>{{ titulo }}</h3>
       </div>
       <div>
-        <app-my-account></app-my-account>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

@@ -31,30 +31,34 @@ ul{
                 text-decoration: underline;
                 color: #a5a536;
                 font-weight: 400;
+                &:hover{
+                    color: #355474;
+                    transition-duration: .3s;
+                }
             }
         }
     }
     
     li{
         border-bottom: 1px solid #ccc;
-        padding: 0 10px;
+        padding-left: 10px;
         a{
             color: #355474;
             font-size: .9rem;
             font-weight: 300;
             display: block;
             padding: 20px 0;
+            &:hover{
+                border-right: 4px solid #355474;
+                transition-duration: .3s;
+            }
+        }
+        a.ativo{
+            border-right: 4px solid #355474;
         }
         &:first-of-type{
             border-top: 1px solid #ccc;
         }
-        &:hover{
-            border-right: 4px solid #355474;
-            transition-duration: .3s;
-        }
-    }
-    li.ativo{
-        border-right: 4px solid #355474;
     }
 }
 

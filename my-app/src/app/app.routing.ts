@@ -1,4 +1,4 @@
-import {OrderDetailsComponent} from './pages/order-details/order-details.component';
+import { OrderDetailsComponent } from './pages/order-details/order-details.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -28,7 +28,15 @@ export const routes: Routes = [
   {
     path: 'client',
     component: ClientComponent,
-    pathMatch: 'full',
+    data: {
+      title: "Cliente"
+    },
+    children: [
+      {
+        path: '',
+        loadChildren: './pages/client/client.module#ClientModule',
+      }
+    ]
   },
   {
     path: 'cart',

@@ -1,0 +1,54 @@
+li.pedido{
+    margin-bottom: 20px;
+    padding: 0px 0px 15px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.17);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    table{
+        width: 100%;
+        background: #d1d147;
+        color: #355474;
+        tr{
+            th,td{
+                text-align: center;
+                vertical-align: middle;
+                text-transform: uppercase;
+            }
+            th{
+                font-size: .8rem;
+                font-weight: 300;
+                padding: 10px 5px;
+            }
+            td{
+                font-size: 1.3rem;
+                line-height: 1.8rem;
+                padding: 10px 5px 25px;
+                font-weight: 400;
+            }
+        }
+    }
+    &:hover{
+        text-decoration: none;
+    }
+    div{
+        padding: 10px;
+    }
+}
+
+a.detalhes{
+    display: inline-block;
+    font-size: .8rem;
+    background: #5d5d5d;
+    line-height: 1.125rem;
+    color: #fff;
+    letter-spacing: 1.3px;
+    transition: all .3s linear;
+    border-radius: 1px;
+    padding: 6px 10px;
+    text-transform: uppercase;
+    &:hover{
+        background: #d1d147;
+        color: #355474;
+        transition-duration: .3s;
+    }
+}
