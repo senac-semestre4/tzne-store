@@ -21,8 +21,7 @@ export class CartComponent implements OnInit {
     private produtos: ProductService,
     private routeParams: ActivatedRoute,
     private router: Router
-  ) {
-  }
+  ) { }
 
 	ngOnInit() {
     this.totalCartValue$ = 1;

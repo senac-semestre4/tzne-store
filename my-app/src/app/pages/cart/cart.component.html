@@ -6,7 +6,7 @@
     <div class="col-xs-12">
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-left-sm" role="group">
-          <a href="" class="btn btn-continuar-comprando" routerLinkActive="active" [routerLink]="['']">Continuar comprando</a>
+          <a class="btn btn-continuar-comprando" routerLinkActive="active" [routerLink]="['']">Continuar comprando</a>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 align-center">
@@ -34,17 +34,17 @@
           <tr *ngFor="let p of produtosNoCarrinho, let i = index">
             <td class="small" >
               <div class="miniatura">
-                <a><img [src]="p[0].imagem" alt=""></a>
+                <a><img [src]="p.imagem" alt=""></a>
               </div>
               <a class="descricao-produto">
-                <h3>{{p[0].nome}} i</h3>
+                <h3>{{p.nome}}</h3>
                 <p>Tamanho: M</p>
                 <p>Cor: vermelho</p>
               </a>
             </td>
-            <td class="small">{{p[0].valorAtual | currency:'BRL':true }}</td>
+            <td class="small">{{p.valorAtual | currency:'BRL':true }}</td>
             <td class="small">1</td>
-            <td class="small">{{p[0].valorAtual | currency:'BRL':true }}</td>
+            <td class="small">{{p.valorAtual | currency:'BRL':true }}</td>
             <td><button class="btn"><i class="ion-close-round"></i></button></td>
           </tr>
           <!-- <tr>
@@ -58,7 +58,7 @@
                 <p>Cor: Azul</p>
               </a>
             </td>
-            <td class="small">R$ 60,00</td>
+            <td class="small">R$ i,00</td>
             <td class="small">1</td>
             <td class="small">R$ 60,00</td>
             <td><button class="btn"><i class="ion-close-round"></i></button></td>
@@ -68,21 +68,21 @@
       <!-- tablete e desktop -->
 
       <!-- mobile -->
-      <div class="row container-produto-mobile visible-xs">
+      <div class="row container-produto-mobile visible-xs" *ngFor="let pm of produtosNoCarrinho, let i = index">
         <div class="col-xs-5">
-          <div class="imagem-produto">
-            <a href="#!"><img src="../../assets/images/produtos/1.jpg" alt=""></a>
+          <div class="imagem-produto"  >
+            <a href="#!"><img [src]="pm.imagem" alt=""></a>
             <a href="#!">Excluir</a>
           </div>
         </div>
         <div class="col-xs-7">
           <div class="descricao-produto">
             <a href="#!" class="descricao-produto">
-              <h3>Camiseta Homem-aranha</h3>
+              <h3>{{pm.nome}}</h3>
               <p>Tamanho: M</p>
               <p>Cor: vermelho</p>
             </a>
-            <p>R$ 75,00</p>
+            <p>{{pm.valorAtual | currency:'BRL':true }}</p>
           </div>
           <div class="quantidade-produto">
             <div class="box-input-quantidade">
@@ -90,13 +90,13 @@
             </div>
           </div>
           <div class="valor-total-produto">
-            <p>R$ 150,00</p>
+            <p>{{pm.valorAtual | currency:'BRL':true }}</p>
           </div>
         </div>
       </div>
       <!-- mobile -->
 
-      <div class="row container-produto-mobile visible-xs">
+      <!-- <div class="row container-produto-mobile visible-xs">
         <div class="col-xs-5">
           <div class="imagem-produto">
             <a href="#!"><img src="../../assets/images/produtos/2.jpg" alt=""></a>
@@ -121,7 +121,7 @@
             <p>R$ 60,00</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="col-xs-12">
         <div class="col-xs-12 col-sm-6 align-center">

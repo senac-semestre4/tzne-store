@@ -15,6 +15,8 @@ export class ShowcaseComponent implements OnInit {
   private id: any;
   private products: any;
   private boxComprar: boolean = false;
+  private teste = [];
+  private obj: Object;
 
 
   constructor(
@@ -40,8 +42,10 @@ export class ShowcaseComponent implements OnInit {
   }
 
   private adicionarSacola(id){
+
     console.log(this.products.filter(i=> i['id'] == id), "produtos")
     this.produtos.setProdutoCarrinho(this.products.filter(p => p['id'] == id))
+
   }
 
   private details( id:number ): void {
