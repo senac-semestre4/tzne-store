@@ -7,6 +7,7 @@ import { MyAccessComponent } from "./my-access/my-access.component";
 import { MyAccountComponent } from "./my-account/my-account.component";
 import { MyAdressesComponent } from "./my-adresses/my-adresses.component";
 import { MyCadastreComponent } from "./my-cadastre/my-cadastre.component";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MyCadastreComponent } from "./my-cadastre/my-cadastre.component";
     MyAccessComponent,
     MyAccountComponent,
     MyAdressesComponent,
-    MyCadastreComponent
+    MyCadastreComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { MyCadastreComponent } from "./my-cadastre/my-cadastre.component";
     MyAccessComponent,
     MyAccountComponent,
     MyAdressesComponent,
-    MyCadastreComponent
+    MyCadastreComponent,
+    LoginComponent
   ],
 })
 export class ClientModule { }

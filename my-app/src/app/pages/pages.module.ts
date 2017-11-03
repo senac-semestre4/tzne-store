@@ -36,7 +36,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     EmptyCartComponent,
     Erro404Component,
     Erro500Component,
-    OrderDetailsComponent
+    OrderDetailsComponent,
   ],
   imports: [
     RouterModule,
