@@ -13,13 +13,16 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { MyCadastreComponent } from './pages/client/my-cadastre/my-cadastre.component';
 import { MyAccountComponent } from './pages/client/my-account/my-account.component';
 import { Erro404Component } from './pages/erro-404/erro-404.component';
+import { LoginComponent } from './pages/client/login/login.component';
 
 export const routes: Routes = [
+  // For empty routes
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  // Routes for components
   {
     path: 'home',
     component: HomeComponent,
@@ -52,11 +55,16 @@ export const routes: Routes = [
   },
   {
     path: 'login',
+    component: LoginComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'account/cart/details',
     component: MyAccountComponent,
     pathMatch: 'full',
   },
 
-  //page 404
+  // Route for page 404
   {
     path: '',
     component: SimpleLayoutComponent,

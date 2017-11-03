@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ModalModule } from 'ngx-bootstrap';
 
 //rota principal
 import { AppRoutingModule } from './app.routing';
@@ -24,6 +25,7 @@ import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
     FullLayoutComponent
   ],
   imports: [
+    ModalModule.forRoot(),
     AppRoutingModule,
     BrowserModule,
     FormsModule,
