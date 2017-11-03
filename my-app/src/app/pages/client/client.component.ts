@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
+  private titulo = "Minha Conta";
   constructor() { }
 
   ngOnInit() {
+  }
+
+  setTitulo(titulo){
+    this.titulo = titulo;
   }
 
 }

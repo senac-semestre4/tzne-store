@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component'
+import { HomeComponent } from './pages/home/home.component';
+import { ClientComponent } from './pages/client/client.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { P404Component } from './shared/404/404.component';
 import { SimpleLayoutComponent } from './layout/simpleLayout/simple-layout.component';
@@ -22,6 +23,11 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'client',
+    component: ClientComponent,
     pathMatch: 'full',
   },
   {
