@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
     <h3>Valor Total</h3>
-      <p>R$ 210,00</p>
-      <p>em até 3x R$ 70,00 sem juros</p>
+      <p>{{valorTotal | currency:'BRL':true }}</p>
+      <p>em até 3x {{parcelas | number:0  | currency:'BRL':true }}</p>
   </div>
 </div>
