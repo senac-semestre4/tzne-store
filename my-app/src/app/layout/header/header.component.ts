@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length
-    this.quantidadeEmCarrinho = 3;
     console.log(this.quantidadeEmCarrinho, "Quantidade")
   }
 
