@@ -151,6 +151,10 @@ form{
       margin-left: -33px;
   }
 
+template .modal-dialog{
+  width: 80% !important;
+}
+
 @media screen and(max-width: 768px){
     .detalhes-produtos, .detalhes-endereco{
         width: 100% !important;
