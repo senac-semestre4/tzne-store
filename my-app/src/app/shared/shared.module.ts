@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { MyRequestsComponent } from "./my-requests/my-requests.component";
 import { P404Component } from '../shared/404/404.component';
 import { RouterModule } from '@angular/router';
+import { CollapseComponent } from './collapse/collapse.component';
 
 @NgModule({
   declarations: [
     MyRequestsComponent,
-    P404Component
+    P404Component,
+    CollapseComponent,
   ],
   imports: [
     CommonModule,

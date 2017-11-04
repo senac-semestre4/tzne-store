@@ -11,41 +11,67 @@
         </div>
       </div>
       <li>
-        <a [routerLink]="[ 'minha-conta' ]" 
-        routerLinkActive="ativo"
-        (click) = "setTitulo('Minha Conta')">Minha Conta</a>
+        <a [routerLink]="[ 'minha-conta' ]" routerLinkActive="ativo" (click)="setTitulo('Minha Conta')">Minha Conta</a>
       </li>
       <li>
-        <a [routerLink]="[ 'meus-pedidos' ]" 
-        routerLinkActive="ativo"
-        (click) = "setTitulo('Meus Pedidos')">Meus Pedidos</a>
+        <a [routerLink]="[ 'meus-pedidos' ]" routerLinkActive="ativo" (click)="setTitulo('Meus Pedidos')">Meus Pedidos</a>
       </li>
       <li>
-        <a [routerLink]="[ 'meu-cadastro' ]" 
-        routerLinkActive="ativo"
-        (click) = "setTitulo('Meus Dados')">Meus Dados</a>
+        <a [routerLink]="[ 'meu-cadastro' ]" routerLinkActive="ativo" (click)="setTitulo('Meus Dados')">Meus Dados</a>
       </li>
       <li>
-        <a [routerLink]="[ 'meu-acesso' ]" 
-        routerLinkActive="ativo"
-        (click) = "setTitulo('Meu Acesso')">Meu Acesso</a>
+        <a [routerLink]="[ 'meu-acesso' ]" routerLinkActive="ativo" (click)="setTitulo('Meu Acesso')">Meu Acesso</a>
       </li>
       <li>
-        <a [routerLink]="[ 'meu-endereco' ]" 
-        routerLinkActive="ativo"
-        (click) = "setTitulo('Meu Endereço')">Meu Endereço</a>
+        <a [routerLink]="[ 'meu-endereco' ]" routerLinkActive="ativo" (click)="setTitulo('Meu Endereço')">Meu Endereço</a>
       </li>
       <li>
-        <a [routerLink]="[ 'atendimento' ]" 
-        routerLinkActive="ativo"
-        (click) = "setTitulo('Atendimento')">Atendimento</a>
+        <a [routerLink]="[ 'atendimento' ]" routerLinkActive="ativo" (click)="setTitulo('Atendimento')">Atendimento</a>
       </li>
+    </ul>
+  </div>
+  <div class="menu-cliente-mobile visible-xs">
+    <ul id="accordion">
+      <div class="menu-ativo">
+        <a data-toggle="collapse" data-parent="#accordion" href="#menu_cliente">{{ menuAtivo }} 
+          <i class="ion-chevron-right pull-right"></i>
+        </a>
+      </div>
+      <ul id="menu_cliente" class="collapse">
+        <div class="cliente">
+          <div class="circulo">
+            <i class="ion-person"></i>
+          </div>
+          <div class="texto">
+            <p>Everton</p>
+            <a href="#!">Sair</a>
+          </div>
+        </div>
+        <li>
+          <a [routerLink]="[ 'minha-conta' ]" routerLinkActive="ativo" (click)="menuClienteClose()">Minha Conta</a>
+        </li>
+        <li>
+          <a [routerLink]="[ 'meus-pedidos' ]" routerLinkActive="ativo" (click)="menuClienteClose()">Meus Pedidos</a>
+        </li>
+        <li>
+          <a [routerLink]="[ 'meu-cadastro' ]" routerLinkActive="ativo" (click)="menuClienteClose()">Meus Dados</a>
+        </li>
+        <li>
+          <a [routerLink]="[ 'meu-acesso' ]" routerLinkActive="ativo" (click)="menuClienteClose()">Meu Acesso</a>
+        </li>
+        <li>
+          <a [routerLink]="[ 'meu-endereco' ]" routerLinkActive="ativo" (click)="menuClienteClose()">Meu Endereço</a>
+        </li>
+        <li>
+          <a [routerLink]="[ 'atendimento' ]" routerLinkActive="ativo" (click)="menuClienteClose()">Atendimento</a>
+        </li>
+      </ul>
     </ul>
   </div>
   <div class="col-xs-12 col-sm-9 col-md-9">
     <div class="card container-cliente">
       <div class="header">
-        <h3>{{ titulo }}</h3>
+        <!-- <h3>{{ titulo }}</h3> -->
       </div>
       <div>
         <router-outlet></router-outlet>

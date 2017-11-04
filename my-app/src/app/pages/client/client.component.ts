@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ClientComponent implements OnInit {
 
   private titulo = "Minha Conta";
+  private menuAtivo = "Minha Conta";
   constructor() { }
 
   ngOnInit() {
@@ -15,6 +16,11 @@ export class ClientComponent implements OnInit {
 
   setTitulo(titulo){
     this.titulo = titulo;
+  }
+
+  menuClienteClose(){
+    var menu = document.querySelector("#menu_cliente");
+    menu.classList.remove("in");
   }
 
 }
