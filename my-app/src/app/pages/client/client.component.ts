@@ -9,6 +9,7 @@ export class ClientComponent implements OnInit {
 
   private titulo = "Minha Conta";
   private menuAtivo = "Minha Conta";
+  private menuClose : boolean = true;
   constructor() { }
 
   ngOnInit() {
@@ -21,6 +22,13 @@ export class ClientComponent implements OnInit {
   menuClienteClose(){
     var menu = document.querySelector("#menu_cliente");
     menu.classList.remove("in");
+    this.fechaMenu();
   }
+
+
+  fechaMenu(){
+    this.menuClose = !this.menuClose;
+  }
+
 
 }

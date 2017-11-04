@@ -33,8 +33,15 @@
   <div class="menu-cliente-mobile visible-xs">
     <ul id="accordion">
       <div class="menu-ativo">
-        <a data-toggle="collapse" data-parent="#accordion" href="#menu_cliente">{{ menuAtivo }} 
-          <i class="ion-chevron-right pull-right"></i>
+        <a data-toggle="collapse" data-parent="#accordion" href="#menu_cliente"
+        (click) = "fechaMenu()">{{ menuAtivo }}
+          <ng-container *ngIf="menuClose; else elseTemplate">
+            <i class="ion-chevron-right pull-right"></i>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <i class="ion-chevron-down pull-right"></i>
+          </ng-template>
+
         </a>
       </div>
       <ul id="menu_cliente" class="collapse">
