@@ -22,6 +22,7 @@ import { SharedModule } from '../shared/shared.module';
 // service
 import { ProductService } from '../services/product.service';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { ApiService } from '../services/api.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     OrderDetailsComponent
   ],
   providers:[
-    ProductService
+    ProductService,
+    ApiService
   ]
 })
 export class PagesModule { }
