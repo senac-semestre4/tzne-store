@@ -1,0 +1,58 @@
+.titulo{
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    i{
+        font-size: 3rem;
+        margin-right: 10px;
+        color: #355474;
+    }
+    p{
+        font-size: 1.3rem;
+        color: #355474;
+        font-weight: bolder;
+        display: inline-block;
+    }
+}
+
+.panel-group{
+    margin-bottom: 35px;
+    .panel{
+        border-radius: 1px;
+        .panel-heading{
+            padding: 0;
+            .panel-title{
+                a{
+                font-size: .9rem;
+                color: #7b7b7b;
+                font-weight: 400;
+                padding: 10px 15px;
+                display: block;
+                }
+            }
+        }
+        .panel-body{
+            font-size: .9rem;
+            letter-spacing: .02rem;
+            line-height: 1.2rem;
+            color: #355474;
+        }
+    }
+}
+
+.canais-atendimento{
+    padding: 10px;
+    .container-atendimento{
+        margin-bottom: 10px;
+        i{
+            font-size: 1.4rem;
+            color: #7b7b7b;
+            margin-right: 10px;
+        }
+        p{
+            display: inline-block;
+            color: #355474;
+            font-size: .9rem;
+        }
+    }
+}
