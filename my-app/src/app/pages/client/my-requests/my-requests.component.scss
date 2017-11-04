@@ -20,10 +20,10 @@ li.pedido{
                 padding: 10px 5px;
             }
             td{
-                font-size: 1.3rem;
-                line-height: 1.8rem;
+                font-size: 1.2rem;
+                line-height: 1.7rem;
                 padding: 10px 5px 25px;
-                font-weight: 400;
+                font-weight: 800;
             }
         }
     }
@@ -34,21 +34,73 @@ li.pedido{
         padding: 10px;
     }
 }
+.container-ver-detalhes{
+    width: 100%;
+    a.detalhes{
+        display: inline-block;
+        font-size: .8rem;
+        background: #5d5d5d;
+        line-height: 1.125rem;
+        color: #fff;
+        letter-spacing: 1.3px;
+        transition: all .3s linear;
+        border-radius: 1px;
+        padding: 6px 10px;
+        text-transform: uppercase;
+        &:hover{
+            background: #d1d147;
+            color: #355474;
+            transition-duration: .3s;
+        }
+    }
+}
+@media screen and(max-width: 677px){
+    table{
+        thead{
+            display: inline-block;
+            tr{
+                th{
+                    font-size: .8rem !important;
+                    padding: 10px 5px !important;
+                    display: block !important;
+                    text-align: right !important;
+                }
+            }
+        }
+        tbody{
+            display: inline-block;
+            tr{
+                td{
+                    font-size: .9rem !important;
+                    line-height: 1rem !important;
+                    padding: 8px 5px !important;
+                    display: block !important;
+                    text-align: left !important;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
 
-a.detalhes{
-    display: inline-block;
-    font-size: .8rem;
-    background: #5d5d5d;
-    line-height: 1.125rem;
-    color: #fff;
-    letter-spacing: 1.3px;
-    transition: all .3s linear;
-    border-radius: 1px;
-    padding: 6px 10px;
-    text-transform: uppercase;
-    &:hover{
-        background: #d1d147;
-        color: #355474;
-        transition-duration: .3s;
+@media screen and(max-width: 400px){
+    table{
+        thead{
+            display: none;
+        }
+        tbody{
+            display: block;
+            tr{
+                width: 100%;
+                display: block;
+                td{
+                    text-align: center !important;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    .container-ver-detalhes{
+        text-align: center;
     }
 }
