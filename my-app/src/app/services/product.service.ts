@@ -1,4 +1,4 @@
-import { Headers, Http } from '@angular/http';
+import {RequestOptions, Headers,  Http} from '@angular/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 
@@ -7,6 +7,8 @@ export class ProductService {
 
   constructor( private http: Http, private apiService: ApiService ){}
   private headers = new Headers({'Content-Type': 'application/json'});
+  //private headers = new Headers({ 'Access-Control-Allow-Origin': true });
+
   private produtosAPI: any;
   private produtosCarrinho = [];
   private produtosEmDestaque = [
@@ -113,26 +115,34 @@ export class ProductService {
     this.produtosCarrinho.push(produto[0]);
     console.log(this.produtosCarrinho, "produto no carrinho")
   }
+
   public getProdutoCarrinho(){
     return this.produtosCarrinho
   }
 
 
+  // Implementação de API's
+
   public insertCEP( obj ): Promise<{}> {
-    console.log(obj)
-    return this.http.post( this.apiService.getUrl() + 'Teste/TesteFrete/recebedadosfrete.html', JSON.stringify( obj ), {headers: this.headers} )
+    return this.http.post( this.apiService.getUrl() + 'Teste/TesteFrete/recebedadosfrete.html', JSON.stringify( obj )/* , {headers: this.headers} */ )
                .toPromise()
                .then( response => response.json() )
                .catch(this.handleError);
   }
 
-  public buscarProdutos(): Promise<object[]> {
-        return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos')
+   public buscarDezProdutos() {
+    return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos/10/10')
                   .toPromise()
                   .then( response => this.produtosAPI = response.json() )
                   .catch(this.handleError);
   }
 
+   public buscarProdutos() {
+    return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos')
+                  .toPromise()
+                  .then( response => this.produtosAPI = response.json() )
+                  .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);

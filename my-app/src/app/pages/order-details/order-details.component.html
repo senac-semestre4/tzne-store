@@ -7,7 +7,7 @@
       <div class="produtos">
         <p>Produtos</p>
         <p>
-          <span (click)="openModal(template)" >{{precoTotal.length}} Produtos</span>
+          <span (click)="openModal(template)">{{precoTotal.length}} Produtos</span>
         </p>
 
         <template class="modal-dialog" #template>
@@ -18,7 +18,71 @@
             </button>
           </div>
           <div class="modal-body">
-            <app-cart></app-cart>
+            <!-- <app-cart></app-cart> -->
+            <div class="row">
+              <div class="col-sm-12">
+                <!-- tablete e desktop -->
+                <table class="table table-produtos-carrinho hidden-xs">
+                  <thead class="table-header">
+                    <tr>
+                      <th class="small text-muted">Produto(s)</th>
+                      <th class="small text-muted">Valor</th>
+                      <th class="small text-muted">Quantidade</th>
+                      <th class="small text-muted">Total</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let p of produtosNoCarrinho, let i = index">
+                      <td class="small">
+                        <div class="miniatura">
+                          <a><img [src]="p.imagem" alt=""></a>
+                        </div>
+                        <a class="descricao-produto">
+                          <h3>{{p.nome}}</h3>
+                          <p>Tamanho: M</p>
+                          <p>Cor: vermelho</p>
+                        </a>
+                      </td>
+                      <td class="small">{{p.valorAtual | currency:'BRL':true }}</td>
+                      <td class="small">1</td>
+                      <td class="small">{{p.valorAtual | currency:'BRL':true }}</td>
+
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- tablete e desktop -->
+
+                <!-- mobile -->
+                <div class="row container-produto-mobile visible-xs" *ngFor="let pm of produtosNoCarrinho, let i = index">
+                  <div class="col-xs-5">
+                    <div class="imagem-produto">
+                      <a href="#!"><img [src]="pm.imagem" alt=""></a>
+
+                    </div>
+                  </div>
+                  <div class="col-xs-7">
+                    <div class="descricao-produto">
+                      <a href="#!" class="descricao-produto">
+                        <h3>{{pm.nome}}</h3>
+                        <p>Tamanho: M</p>
+                        <p>Cor: vermelho</p>
+                      </a>
+                      <p>{{pm.valorAtual | currency:'BRL':true }}</p>
+                    </div>
+                    <div class="quantidade-produto">
+                      <div class="box-input-quantidade">
+                        <input type="text" id="quantidade" value="2">
+                      </div>
+                    </div>
+                    <div class="valor-total-produto">
+                      <p>{{pm.valorAtual | currency:'BRL':true }}</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- mobile -->
+              </div>
+            </div>
           </div>
         </template>
 
@@ -44,13 +108,13 @@
     <h3>Opções de entrega</h3>
   </div>
   <div class="card box-forma-entrega">
-    <a type="button" class="entrega" (click) = "selecionaEntrega($event)">
+    <a type="button" class="entrega" (click)="selecionaEntrega($event)">
       <input type="radio" id="tzne" name="entrega" checked>
       <p>Entrega TZNE</p>
       <p>Em até 7 dias</p>
       <p>R$ 27,00</p>
     </a>
-    <a type="button" class="entrega" (click) = "selecionaEntrega($event)">
+    <a type="button" class="entrega" (click)="selecionaEntrega($event)">
       <input type="radio" id="loja" name="entrega">
       <p>Retira na Loja</p>
       <p>Em até 2 dias</p>

@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, trigger, state, style, transition, animate, Input, OnInit } from '@angular/core';
+import { Component, trigger, state, style, transition, animate, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -7,10 +7,9 @@ import { ProductService } from '../../services/product.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit /* OnChanges */{
 
-
-  @Input() totalCartItems: number;
+  @Input() totalCartItens: any;
 
   private toggleMenu: boolean = false;
   private quantidadeEmCarrinho: number;
@@ -22,9 +21,14 @@ export class HeaderComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-    this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length
-    console.log(this.quantidadeEmCarrinho, "Quantidade")
+    this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length;
+    console.log(this.quantidadeEmCarrinho, "Quantidade");
   }
+
+  /* ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges: ', changes.totalCartItens.currentValue);
+    this.quantidadeEmCarrinho = changes.totalCartItens.currentValue
+  } */
 
   menuToggle(){
     this.toggleMenu = !this.toggleMenu;
@@ -41,6 +45,5 @@ export class HeaderComponent implements OnInit{
   private login(): void {
     this.router.navigate(['/login'])
   }
-
 
 }

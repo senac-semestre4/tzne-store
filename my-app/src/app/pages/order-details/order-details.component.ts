@@ -10,6 +10,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 })
 export class OrderDetailsComponent implements OnInit {
 
+  //dados para o modal
+  private produtosNoCarrinho: any;
+
   private formaEntrega : string = "";
   private precoTotal: any
   private valorTotal: number = 0;
@@ -30,6 +33,7 @@ export class OrderDetailsComponent implements OnInit {
   ngOnInit() {
     this.precoTotal = this.produtos.getProdutoCarrinho();
     this.precoTotal.map(i => this.valorTotal = this.valorTotal + i['valorAtual']);
+    this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
   }
 
   selecionaEntrega(event){

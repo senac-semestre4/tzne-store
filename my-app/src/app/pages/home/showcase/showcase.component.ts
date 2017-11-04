@@ -1,9 +1,8 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
+import { HeaderComponent } from '../../../layout/header/header.component';
 //service
-
-
 
 @Component({
   selector: 'app-showcase',
@@ -17,20 +16,20 @@ export class ShowcaseComponent implements OnInit {
   private boxComprar: boolean = false;
   private teste = [];
   private obj: Object;
-  private teste2: any;
+  private ListaProdutos: any;
+  private ListaDezProdutos: any;
+  private resultCEP: any;
 
   private cep = {
     'sCepDestino': '04372100',
-    'Quantidade': 2
+    'Quantidade': '2'
   }
-
 
   constructor(
     private produtos: ProductService,
     private routeParams: ActivatedRoute,
-    private router: Router
-  ) {
-  }
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.id = this.routeParams.params.subscribe(params => this.id = params['id'] )
@@ -38,31 +37,44 @@ export class ShowcaseComponent implements OnInit {
     console.log(this.products, "produtos")
 
     this.buscarProdutosAPI();
+    this.buscarDezProdutosAPI();
+    //this.buscarCepAPI();
   }
 
+// API'S
   buscarCepAPI(){
     this.produtos.insertCEP(this.cep)
       .then( result => {
         console.log(result);
-        this.teste2 = result;
+        this.resultCEP = result;
       })
       .catch( error => {
         console.log(error);
     });
   }
-
 
   buscarProdutosAPI(){
     this.produtos.buscarProdutos()
-      .then( result => {
+        .then( result => {
         console.log(result);
-        this.teste2 = result;
+        this.ListaProdutos = result;
       })
       .catch( error => {
         console.log(error);
     });
   }
 
+  buscarDezProdutosAPI(){
+    this.produtos.buscarDezProdutos()
+        .then( result => {
+        console.log(result);
+        this.ListaDezProdutos = result;
+      })
+      .catch( error => {
+        console.log(error);
+    });
+  }
+  //Fim das API's
 
   mostraBoxComprar(event) {
     this.boxComprar = true;

@@ -1,56 +1,55 @@
 <div class="linha topo">
-    <header>
-        <div class="col-1 hidden-ld hidden-d hidden-t">
-            <!-- toggle -->
-            <div id="menu_toggle" class="hidden-d hidden-t hidden-ld"
-            (click) = "menuToggle()">
-                <button></button>
-            </div>
-        </div>
-        <div class="col-3 box-logo">
-            <h1 class="logo"><a [routerLink]="['']">TZNE</a></h1><!-- href="index.html" -->
-        </div>
-        <div class="col-5 box-pesquisa hidden-m">
-            <div class="input-pesquisa">
-                <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </div>
-        </div>
-        <div class="col-4 conta-carrinho">
-            <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
-            <h2 class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()" >Entre</a> ou <a style="cursor: pointer" (click)="cadastrar( 0 )">cadastre-se</a></h2>
-            <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']" ><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" ></i><span class="badge badge-danger">{{quantidadeEmCarrinho}}</span></a>
-        </div>
-    </header>
+  <header>
+    <div class="col-1 hidden-ld hidden-d hidden-t">
+      <!-- toggle -->
+      <div id="menu_toggle" class="hidden-d hidden-t hidden-ld" (click)="menuToggle()">
+        <button></button>
+      </div>
+    </div>
+    <div class="col-3 box-logo">
+      <h1 class="logo"><a [routerLink]="['']">TZNE</a></h1>
+      <!-- href="index.html" -->
+    </div>
+    <div class="col-5 box-pesquisa hidden-m">
+      <div class="input-pesquisa">
+        <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="col-4 conta-carrinho">
+      <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
+      <h2 class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()">Entre</a> ou <a style="cursor: pointer" (click)="cadastrar( 0 )">cadastre-se</a></h2>
+      <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" ></i><span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span></a>
+    </div>
+  </header>
 </div>
 <div class="linha">
-    <nav class="col-12 menu-principal hidden-m">
-        <ul>
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="#">Masculino</a></li>
-            <li><a href="#">Feminino</a></li>
-            <li><a href="#">Infantil</a></li>
-            <li><a href="#">Acessórios</a></li>
-        </ul>
-    </nav>
-    <nav class="col-12 menu-mobile hidden-ld hidden-d hidden-t"
-    [ngClass]="{'menu_ativo': toggleMenu }">
-        <ul>
-            <header>
-                <div class="input-pesquisa">
-                <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </div>
-            </header>
-            <li><a href="#">Ofertas</a></li>
-            <li><a href="#">Homem</a></li>
-            <li><a href="#">Mulher</a></li>
-            <li><a href="#">Infantil</a></li>
-            <li><a href="#">Acessórios</a></li>
-        </ul>
-        <a href="#!" class="menu-close" (click) = "menuClose()">
+  <nav class="col-12 menu-principal hidden-m">
+    <ul>
+      <li><a href="#">Ofertas</a></li>
+      <li><a href="#">Masculino</a></li>
+      <li><a href="#">Feminino</a></li>
+      <li><a href="#">Infantil</a></li>
+      <li><a href="#">Acessórios</a></li>
+    </ul>
+  </nav>
+  <nav class="col-12 menu-mobile hidden-ld hidden-d hidden-t" [ngClass]="{'menu_ativo': toggleMenu }">
+    <ul>
+      <header>
+        <div class="input-pesquisa">
+          <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+      </header>
+      <li><a href="#">Ofertas</a></li>
+      <li><a href="#">Homem</a></li>
+      <li><a href="#">Mulher</a></li>
+      <li><a href="#">Infantil</a></li>
+      <li><a href="#">Acessórios</a></li>
+    </ul>
+    <a href="#!" class="menu-close" (click)="menuClose()">
             <i class="fa fa-reply" aria-hidden="true"></i>
         </a>
-    </nav>
+  </nav>
 </div>
 <div class="separador"></div>

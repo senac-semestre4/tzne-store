@@ -26,6 +26,7 @@ import { ApiService } from './services/api.service';
     FullLayoutComponent
   ],
   imports: [
+    FormsModule,
     ModalModule.forRoot(),
     AppRoutingModule,
     BrowserModule,
