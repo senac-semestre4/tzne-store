@@ -1,165 +1,40 @@
-<div class="col-md-6 col-centered">
-<div class="panel panel-default">
-            <div class="row">
-                <div id="container">
-                    <div> <h3 class="panel-title">Cadastre-se a TZNE-E-commerce</h3></div>
-                    <hr class="no-bordered col-sm-12 "> <!-- hidden-md -->
-                    <!-- <div><h3 class="panel-sub-title">Dados Cadastrais</h3></div> -->
-                    <!-- inicio da form-horizontal -->
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="client_nome" class="col-sm-4 col-md-3 control-label">Nome:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_nome" name="client_name" placeholder="Nome Completo">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_email" class="col-sm-4 col-md-3 control-label">Email:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_email" name="client_email" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_password" class="col-sm-4 col-md-3 control-label">Senha:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="password" id="client_password" name="client_password" placeholder="Senha">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_cpf" class="col-sm-4 col-md-3 control-label">CPF:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text"  id="client_cpf" name="client_cpf" placeholder="000.000.000-00">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-4 col-md-3 control-label">Sexo:</label>
-                            <div class="col-sm-4 col-md-8 control-label">
-                                <select class="form-control" id="client_sex" name="client_sex">
-                                    <option value="">Selecione</option>
-                                    <option value="0" >Masculino</option>
-                                    <option value="1">Feminino</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_birthday" class="col-sm-4 col-md-3 control-label">Data de Nasc:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input  class="form-control" type="date" id="client_birthday" name="client_birthday">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_tel" class="col-sm-4 col-md-3 control-label">Telefone Res.:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_tel" name="client_tel" placeholder="(__) ____ - _____" maxlength="17">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_cel" class="col-sm-4 col-md-3 control-label">Telefone Cel.:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_cel" name="client_cel" placeholder="(__) _____ - _____" maxlength="18">
-                            </div>
-                        </div>
-                        <!-- <div class="form-group">
-                            <label for="client_direct_mail" class="col-sm-4 col-md-3 control-label">Mala Direta:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <select class="form-control" id="client_direct_mail" name="client_direct_mail">
-                                    <option value="">Selecione</option>
-                                    <option value="1" >Sim</option>
-                                    <option value="0">Não</option>
-                                </select>
-                            </div>
-                        </div> -->
-                          <div class="form-group">
-                            <label for="client_adress_cep" class="col-sm-4 col-md-3 control-label">CEP:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_adress_cep" name="client_adress_cep" placeholder="00000-000">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_adress_type" class="col-sm-4 col-md-3 control-label">Endereço</label>
-                            <div class="col-sm-4 col-md-8">
-                                <select class="form-control" id="client_adress_type" name="client_adress_type">
-                                    <option  value="">Selecione</option>
-                                    <option value="1" >Apartamento</option>
-                                    <option value="3">Casa</option>
-                                    <option value="3">Comercial</option>
-                                    <option value="4">Outros</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_adress_logradouro" class="col-sm-4 col-md-3 control-label">Logradouro:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_adress_logradouro" name="client_adress_logradouro" placeholder="Logradouro">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_adress_number" class="col-sm-4 col-md-3 control-label">Numero:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_adress_number" name="client_adress_number" placeholder="numero">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_adress_complements" class="col-sm-4 col-md-3 control-label">Complemento:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_adress_complements" name="client_adress_complements" placeholder="Complemento">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_adress_district" class="col-sm-4 col-md-3 control-label">Bairro:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_adress_district" name="client_adress_district" placeholder="Bairro">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_adress_city" class="col-sm-4 col-md-3 control-label">Cidade:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <input class="form-control" type="text" id="client_adress_city" name="client_adress_city" placeholder="Cidade">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="client_adress_state" class="col-sm-4 col-md-3 control-label">Estado:</label>
-                            <div class="col-sm-4 col-md-8">
-                                <select class="form-control" id="client_adress_state" name="client_adress_state">
-                                    <option value="">Selecione</option>
-                                    <option value="AC">Acre</option>
-                                    <option value="AL">Alagoas</option>
-                                    <option value="AM">Amazonas</option>
-                                    <option value="AP">Amapá</option>
-                                    <option value="BA">Bahia</option>
-                                    <option value="CE">Ceará</option>
-                                    <option value="DF">Distrito Federal</option>
-                                    <option value="ES">Espirito Santo</option>
-                                    <option value="GO">Goiás</option>
-                                    <option value="MA">Maranhão</option>
-                                    <option value="MG">Minas Gerais</option>
-                                    <option value="MS">Mato Grosso do Sul</option>
-                                    <option value="MT">Mato Grosso</option>
-                                    <option value="PA">Pará</option>
-                                    <option value="PB">Paraiba</option>
-                                    <option value="PE">Pernambuco</option>
-                                    <option value="PI">Piaui</option>
-                                    <option value="PR">Paraná</option>
-                                    <option value="RJ">Rio de Janeiro</option>
-                                    <option value="RN">Rio Grande do Norte</option>
-                                    <option value="RS">Rio Grande do Sul</option>
-                                    <option value="RO">Rondonia</option>
-                                    <option value="RR">Roraima</option>
-                                    <option value="SC">Santa Catarina</option>
-                                    <option value="SE">Sergipe</option>
-                                    <option value="SP">São Paulo</option>
-                                    <option value="TO">Tocantins</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!--  button submit -->
-                        <div class="col-sm-12 form-group">
-                            <div class="">
-                                <button class="btn-finalizar-cadastro">Cadastrar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<div class="col-xs-12 col-centered">
+    <div class="form-group">
+        <label for="">Nome Completo*</label>
+        <input type="text" class="form-control" placeholder="João Fonseca">
+    </div>
+    <div class="form-group menor">
+        <label for="">Apelido *</label>
+        <input type="text" class="form-control" placeholder="Apelido">
+    </div>
+    <div class="form-group menor">
+        <label for="">CPF *</label>
+        <input type="text" class="form-control" placeholder="123.456.789-9">
+    </div>
+    <div class="form-group menor">
+        <label for="">Sexo *</label>
+        <select name="" id="" class="form-control">
+            <option value="">Feminino</option>
+            <option value="">Masculino</option>
+        </select>
+    </div>
+    <div class="form-group menor">
+        <label for="">Data Nascimento *</label>
+        <input type="text" class="form-control" placeholder="09/08/1992">
+    </div>
+    <div class="form-group menor">
+        <label for="">Telefone *</label>
+        <input type="text" class="form-control" placeholder="(11)5521-2222">
+    </div>
+    <div class="form-group menor">
+        <label for="">Celular (opcional)</label>
+        <input type="text" class="form-control" placeholder="(11)91234-1234">
+    </div>
+    <div class="form-group email-promocional">
+        <label for="">E-mails promocionais</label>
+        <input type="checkbox">
+    </div>
+    <div class="container-salvar">
+        <a type="button" class="btn-salvar">Salvar</a>
+    </div>
 </div>
