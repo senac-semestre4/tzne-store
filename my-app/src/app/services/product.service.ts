@@ -113,4 +113,6 @@ export class ProductService {
   public getProdutoCarrinho(){
     return this.produtosCarrinho
   }
+
+
 }
