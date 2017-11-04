@@ -11,12 +11,30 @@ import { AttendanceComponent } from './attendance/attendance.component';
 
 
 const clienteRoutes: Routes = [
-    { path: 'minha-conta', component: MyAccountComponent,  },
-    { path: 'meus-pedidos', component: MyRequestsComponent },
-    { path: 'meu-cadastro', component: MyCadastreComponent },
-    { path: 'meu-acesso', component: MyAccessComponent },
-    { path: 'meu-endereco', component: MyAdressesComponent },
-    { path: 'atendimento', component: AttendanceComponent },
+    {
+      path: 'minha-conta',
+      component: MyAccountComponent,
+    },
+    {
+      path: 'meus-pedidos',
+      component: MyRequestsComponent
+    },
+    {
+      path: 'meu-cadastro',
+      component: MyCadastreComponent
+    },
+    {
+      path: 'meu-acesso',
+      component: MyAccessComponent
+    },
+    {
+      path: 'meu-endereco',
+      component: MyAdressesComponent
+    },
+    {
+      path: 'atendimento',
+      component: AttendanceComponent
+    },
 ];
 
 @NgModule({

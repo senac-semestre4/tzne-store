@@ -18,6 +18,7 @@ import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { SimpleLayoutComponent } from './layout/simpleLayout/simple-layout.component';
 import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
     ServicesModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [/* AppComponent */FullLayoutComponent]
 })
 export class AppModule { }
