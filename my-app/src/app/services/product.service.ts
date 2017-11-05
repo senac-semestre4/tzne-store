@@ -124,7 +124,8 @@ export class ProductService {
   // Implementação de API's
 
   public insertCEP( obj ): Promise<{}> {
-    return this.http.post( this.apiService.getUrl() + 'Teste/TesteFrete/recebedadosfrete.html', JSON.stringify( obj )/* , {headers: this.headers} */ )
+    console.log(obj)
+    return this.http.post( this.apiService.getUrl() + 'api/frete/calculafrete', JSON.stringify( obj )/* , {headers: this.headers} */ ) /* api/frete/calculafrete */ /* JSON.stringify( obj ) */
                .toPromise()
                .then( response => response.json() )
                .catch(this.handleError);
