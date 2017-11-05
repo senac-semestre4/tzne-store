@@ -5,10 +5,10 @@ import { ApiService } from './api.service';
 @Injectable()
 export class ProductService {
 
-  constructor( private http: Http, private apiService: ApiService ){}
-  private headers = new Headers({'Content-Type': 'application/json'});
   //private headers = new Headers({ 'Access-Control-Allow-Origin': true });
-
+  private headers = new Headers({'Content-Type': 'application/json'});
+  private valorFrete: any;
+  private verificarFrete = false;
   private produtosAPI: any;
   private produtosCarrinho = [];
   private produtosEmDestaque = [
@@ -102,6 +102,8 @@ export class ProductService {
     }
   ];
 
+  constructor( private http: Http, private apiService: ApiService ){}
+
 
   public getProdutosEmDestaque(){
     return this.produtosEmDestaque;
@@ -120,6 +122,18 @@ export class ProductService {
     return this.produtosCarrinho
   }
 
+  public setValorFrete(valor, boolean){
+    this.valorFrete = valor;
+    this.verificarFrete = boolean;
+  }
+
+  public getValorFrete(){
+    return this.valorFrete;
+  }
+
+  public getverificarFrete(){
+    return this.verificarFrete;
+  }
 
   // Implementação de API's
 

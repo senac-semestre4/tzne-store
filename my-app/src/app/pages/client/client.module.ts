@@ -13,6 +13,7 @@ import { AttendanceComponent } from './attendance/attendance.component';
 
 // rota
 import { ClientRoutingModule } from './client.routing';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ClientRoutingModule } from './client.routing';
     AttendanceComponent
   ],
   imports: [
+    //FormsModule,
     CommonModule,
     ClientRoutingModule
   ],

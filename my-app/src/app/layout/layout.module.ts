@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 // Component
 import { FooterComponent } from "./footer/footer.component";
@@ -17,6 +18,7 @@ import { SimpleLayoutComponent } from './simpleLayout/simple-layout.component';
     SimpleLayoutComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     RouterModule
   ],

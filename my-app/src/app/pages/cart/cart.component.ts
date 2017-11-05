@@ -27,12 +27,17 @@ export class CartComponent implements OnInit {
     this.totalCartValue$ = 1;
     this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
     this.totalCartItems$ = this.produtosNoCarrinho.length;
-
     console.log(this.produtosNoCarrinho, "Cart")
     console.log(this.totalCartItems$, "Tamanho do Carrinho")
   }
 
   private detalhesCompra(): void {
-    this.router.navigate(['/cart/details/'])
+    if(this.produtos.getverificarFrete()){
+      this.router.navigate(['/cart/details/'])
+    }
+    else{
+      console.log("PREENCHA O CEP")
+    }
+
   }
 }

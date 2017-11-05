@@ -19,6 +19,7 @@ export class ShowcaseComponent implements OnInit {
   private ListaProdutos: any;
   private ListaDezProdutos: any;
   private resultCEP: any;
+  private resultCEPapi: any;
 
   private cep = {
     'sCepDestino': '04372100',
@@ -38,21 +39,20 @@ export class ShowcaseComponent implements OnInit {
 
     this.buscarProdutosAPI();
     this.buscarDezProdutosAPI();
-    this.buscarCepAPI();
+    //this.buscarCepAPI();
   }
 
 // API'S
   buscarCepAPI(){
-   this.produtos.insertCEP(this.cep)
+   this.resultCEPapi = this.produtos.insertCEP(this.cep)
       .then( result => {
         console.log(result, "API CEP");
         this.resultCEP = result;
-        console.log(this.resultCEP, "CEP result")
+        console.log(this.resultCEP['cServico']['Valor'], "CEP result")
       })
       .catch( error => {
         console.log(error);
     });
-
   }
 
   buscarProdutosAPI(){

@@ -87,12 +87,12 @@
         </template>
 
         <p>{{valorTotal | currency:'BRL':true }}</p>
-        <p>Frete - Retira na loja</p>
-        <p>R$ 0,00</p>
+        <p>Frete</p>
+        <p>R$ {{ frete }}</p>
       </div>
       <div class="total">
         <p>Total à pagar</p>
-        <p>{{valorTotal | currency:'BRL':true }}</p>
+        <p>{{ valortotalCompra | currency:'BRL':true }}</p>
       </div>
     </div>
     <div class="detalhes-endereco">
@@ -112,7 +112,7 @@
       <input type="radio" id="tzne" name="entrega" checked>
       <p>Entrega TZNE</p>
       <p>Em até 7 dias</p>
-      <p>R$ 27,00</p>
+      <p>{{ frete }}</p>
     </a>
     <a type="button" class="entrega" (click)="selecionaEntrega($event)">
       <input type="radio" id="loja" name="entrega">
@@ -129,63 +129,70 @@
     <form>
       <div class="form-group">
         <label for="">Número do cartão</label>
-        <input type="text">
+        <input type="text" id="numCartao" name="numCartao" [(ngModel)]="dadosCartao.numeroCartao.value">
+        <div class="validation-label" [hidden]="!dadosCartao.numeroCartao.error">Campo obrigatório.</div>
       </div>
       <div class="form-group">
         <label for="">Nome Impresso no cartão</label>
-        <input type="text">
+        <input type="text" id="numImpCartao" name="numImpCartao" [(ngModel)]="dadosCartao.numeroimpressoCartao.value">
+        <div class="validation-label" [hidden]="!dadosCartao.numeroimpressoCartao.error">Campo obrigatório.</div>
       </div>
       <div class="form-group">
         <label for="">validade</label>
-        <select name="mes" id="mes">
-          <option value="">01</option>
-          <option value="">02</option>
-          <option value="">03</option>
-          <option value="">04</option>
-          <option value="">05</option>
-          <option value="">06</option>
-          <option value="">07</option>
-          <option value="">08</option>
-          <option value="">09</option>
-          <option value="">10</option>
-          <option value="">11</option>
-          <option value="">12</option>
+        <select name="mes" id="mes" [(ngModel)]="dadosCartao.validade.mes">
+          <!-- <option [disabled]="true">Mês</option> -->
+          <option [value]="01">01</option>
+          <option [value]="02">02</option>
+          <option [value]="03">03</option>
+          <option [value]="04">04</option>
+          <option [value]="05">05</option>
+          <option [value]="06">06</option>
+          <option [value]="07">07</option>
+          <option [value]="08">08</option>
+          <option [value]="09">09</option>
+          <option [value]="10">10</option>
+          <option [value]="11">11</option>
+          <option [value]="12">12</option>
         </select>
-        <select name="ano" id="ano">
-          <option value="">2017</option>
-          <option value="">2018</option>
-          <option value="">2019</option>
-          <option value="">2020</option>
-          <option value="">2021</option>
-          <option value="">2022</option>
-          <option value="">2023</option>
-          <option value="">2024</option>
-          <option value="">2025</option>
-          <option value="">2026</option>
-          <option value="">2027</option>
-          <option value="">2028</option>
-          <option value="">2029</option>
-          <option value="">2030</option>
+        <select name="ano" id="ano" [(ngModel)]="dadosCartao.validade.ano">
+          <!-- <option [disabled]="true">Ano</option> -->
+          <option [value]="2017">2017</option>
+          <option [value]="2018">2018</option>
+          <option [value]="2019">2019</option>
+          <option [value]="2020">2020</option>
+          <option [value]="2021">2021</option>
+          <option [value]="2022">2022</option>
+          <option [value]="2023">2023</option>
+          <option [value]="2024">2024</option>
+          <option [value]="2025">2025</option>
+          <option [value]="2026">2026</option>
+          <option [value]="2027">2027</option>
+          <option [value]="2028">2028</option>
+          <option [value]="2029">2029</option>
+          <option [value]="2030">2030</option>
         </select>
+        <!-- <div class="validation-label" [hidden]="!dadosCartao.validade.error">Campo obrigatório.</div> -->
       </div>
       <div class="form-group">
         <label for="">Código de Segurança</label>
-        <input type="text">
+        <input type="text" id="codigoSeguranca" name="codigoSeguranca" [(ngModel)]="dadosCartao.codigoSeguranca.value">
+        <div class="validation-label" [hidden]="!dadosCartao.codigoSeguranca.error">Campo obrigatório.</div>
       </div>
       <div class="form-group">
         <label for="">Parcelas</label>
-        <select name="parcelas" id="parcelas">
-          <option value="">01</option>
-          <option value="">02</option>
-          <option value="">03</option>
-          <option value="">04</option>
-          <option value="">05</option>
-          <option value="">06</option>
+        <select name="parcelas" id="parcelas" [(ngModel)]="dadosCartao.parcelas" >
+          <option [value]="01">01</option>
+          <option [value]="02">02</option>
+          <option [value]="03">03</option>
+          <option [value]="04">04</option>
+          <option [value]="05">05</option>
+          <option [value]="06">06</option>
         </select>
+        <div class="validation-label" [hidden]="!dadosCartao.parcelas.error">Campo obrigatório.</div>
       </div>
       <div class="form-group">
-        <span for="" class="valor-total">Total <span>{{valorTotal | currency:'BRL':true }}</span></span>
-        <button class="efetuar-pagamento" type="button">Efetuar pagamento</button>
+        <span for="" class="valor-total">Total <span>{{valortotalCompra | currency:'BRL':true }}</span></span>
+        <button class="efetuar-pagamento" type="button" (click)="finalizarPagamento()">Efetuar pagamento</button>
       </div>
     </form>
   </div>
