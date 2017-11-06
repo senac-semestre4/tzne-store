@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit /* OnChanges */{
 
   private toggleMenu: boolean = false;
   private quantidadeEmCarrinho: number;
+  private sair$: boolean = true;
 
   constructor(
     private routeParams: ActivatedRoute,
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit /* OnChanges */{
   ) { }
 
   ngOnInit(): void {
+    this.sair$ = true;
     this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length;
     console.log(this.quantidadeEmCarrinho, "Quantidade");
   }
@@ -40,6 +42,23 @@ export class HeaderComponent implements OnInit /* OnChanges */{
 
   private cadastrar( id ): void {
     this.router.navigate(['/cadastre/' + id])
+  }
+
+  private minhaConta(): void {
+    this.router.navigate(['/client/minha-conta/'])
+  }
+
+  private meusPedidos(): void {
+    this.router.navigate(['/client/meus-pedidos/'])
+  }
+
+  private meuCadastro(): void {
+    this.router.navigate(['/client/meu-acesso/'])
+  }
+
+  private sair(): void {
+    this.sair$ = false;
+    console.log("aqui")
   }
 
   private login(): void {

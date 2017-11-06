@@ -1,0 +1,116 @@
+.form-group{
+  label{
+    width: 24%;
+    text-align: right;
+    padding-right: 10px;
+    font-weight: 400;
+    font-size: .9rem;
+    color: #878791;
+  }
+  input, select{
+    width: 60%;
+    display: inline-block;
+    max-width: 550px;
+    color: #355474;
+    border-radius: 1px;
+  }
+  input[type=checkbox]{
+    width: auto;
+  }
+}
+.container-salvar{
+  width: 100%;
+  text-align: center;
+  a{
+    display: inline-block;
+    font-size: .8rem;
+    background: #5d5d5d;
+    line-height: 1.125rem;
+    color: #fff;
+    letter-spacing: 1.3px;
+    transition: all .3s linear;
+    border-radius: 1px;
+    padding: 6px 40px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 10px;
+    &:hover{
+        background: #d1d147;
+        color: #355474;
+        transition-duration: .3s;
+    }
+  }
+}
+.form-group.menor{
+  input, select{
+    width: 40%;
+  }
+}
+@media screen and(min-width:1200px){
+
+  .form-group{
+    label{
+      width: 35%;
+    }
+    input, select{
+      width: 50%;
+    }
+  }
+  .form-group.menor{
+    input, select{
+      width: 30%;
+    }
+  }
+}
+@media screen and(max-width: 992px) and (min-width:768px){
+  .form-group{
+    label{
+      width: 35%;
+    }
+  }
+}
+@media screen and(max-width: 767px) and (min-width: 550px){
+  .form-group{
+    label{
+      width: 40% !important;
+    }
+    input:not([type=checkbox]), select{
+      width: 50% !important;
+    }
+  }
+}
+
+@media screen and(max-width: 549px){
+  .form-group{
+    label{
+      font-size: .8rem;
+      width: 100%;
+      text-align: left;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input:not([type=checkbox]), select{
+      width: 100% !important;
+    }
+  }
+  .container-salvar{
+    a{
+      width: 100%;
+      padding: 10px 20px;
+    }
+  }
+  .form-group.email-promocional{
+    label{
+      font-size: .8rem;
+      display: inline-block;
+      width: auto;
+      margin-bottom: 0px;
+      margin-top: 5px;
+    }
+    input{
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}

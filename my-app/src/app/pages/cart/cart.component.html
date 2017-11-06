@@ -6,13 +6,13 @@
     <div class="col-xs-12">
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-left-sm" role="group">
-          <a class="btn btn-continuar-comprando" routerLinkActive="active" [routerLink]="['']">Continuar comprando</a>
+          <a class="btn btn-continuar-comprando" routerLinkActive="active" [routerLink]="['']" tooltip="Volte a vitrine e escolha mais produtos">Continuar comprando</a>
         </div>
       </div>
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-right-sm" role="group">
           <!-- <button type="button" class="btn btn-default left">comprar</button> -->
-          <a class="btn btn-finalizar-compra" (click)="detalhesCompra()">Finalizar compra</a>
+          <a class="btn btn-finalizar-compra" (click)="detalhesCompra()" tooltip="Selecionar a forma de pagamento.">Efetuar Pagamento</a>
         </div>
       </div>
     </div>
@@ -42,9 +42,9 @@
                 <p>Cor: vermelho</p>
               </a>
             </td>
-            <td class="small">{{p.valorAtual | currency:'BRL':true }}</td>
-            <td class="small">1</td>
-            <td class="small">{{p.valorAtual | currency:'BRL':true }}</td>
+            <td class="small">{{ p.valorAntigo | currency:'BRL':true }}</td>
+            <td class="small">{{ p.quantidade }}</td>
+            <td class="small">{{ p.valorAtual | currency:'BRL':true }}</td>
             <td><button class="btn"><i class="ion-close-round"></i></button></td>
           </tr>
         </tbody>
@@ -70,7 +70,7 @@
           </div>
           <div class="quantidade-produto">
             <div class="box-input-quantidade">
-              <input type="text" id="quantidade" value="2">
+              <input type="text" id="quantidade" value="pm.quantidade">
             </div>
           </div>
           <div class="valor-total-produto">
@@ -83,13 +83,13 @@
       <div class="col-xs-12">
         <div class="col-xs-12 col-sm-6 align-center">
           <div class="btn-group pull-left-sm" role="group">
-            <a href="" class="btn btn-continuar-comprando" routerLinkActive="active" [routerLink]="['']">Continuar comprando</a>
+            <a href="" class="btn btn-continuar-comprando" routerLinkActive="active" [routerLink]="['']" tooltip="Volte a vitrine e escolha mais produtos">Continuar comprando</a>
           </div>
         </div>
         <div class="col-xs-12 col-sm-6 align-center">
           <div class="btn-group pull-right-sm" role="group">
             <!-- <button type="button" class="btn btn-default left">comprar</button> -->
-            <a class="btn btn-finalizar-compra" (click)="detalhesCompra()">Finalizar compra</a>
+            <a class="btn btn-finalizar-compra" (click)="detalhesCompra()" tooltip="Selecionar a forma de pagamento.">Efetuar Pagamento</a>
           </div>
         </div>
       </div>

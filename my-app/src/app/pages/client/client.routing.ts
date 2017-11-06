@@ -8,6 +8,7 @@ import { MyCadastreComponent } from './my-cadastre/my-cadastre.component';
 import { MyAccessComponent } from './my-access/my-access.component';
 import { MyAdressesComponent } from './my-adresses/my-adresses.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { MyCadastreInitialComponent } from './my-cadastre-initial/my-cadastre-initial.component';
 
 
 const clienteRoutes: Routes = [
@@ -22,6 +23,10 @@ const clienteRoutes: Routes = [
     {
       path: 'meu-cadastro',
       component: MyCadastreComponent
+    },
+    {
+      path: 'cadastro',
+      component: MyCadastreInitialComponent
     },
     {
       path: 'meu-acesso',

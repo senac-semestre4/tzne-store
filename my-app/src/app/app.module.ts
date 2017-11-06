@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ModalModule } from 'ngx-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap';
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 //rota principal
 import { AppRoutingModule } from './app.routing';
@@ -18,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { SimpleLayoutComponent } from './layout/simpleLayout/simple-layout.component';
 import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
+//service
 import { ApiService } from './services/api.service';
 
 @NgModule({
@@ -26,6 +29,8 @@ import { ApiService } from './services/api.service';
     FullLayoutComponent
   ],
   imports: [
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
     ModalModule.forRoot(),
     AppRoutingModule,
     BrowserModule,

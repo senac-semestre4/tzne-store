@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
@@ -53,7 +54,8 @@ export class OrderDetailsComponent implements OnInit {
 
   constructor(
     private produtos: ProductService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -80,25 +82,40 @@ export class OrderDetailsComponent implements OnInit {
     this.modalRef = this.modalService.show(template, Object.assign({}, this.config, {class: 'gray modal-lg'}));
   }
 
-  public finalizarPagamento(){
+  public veriricarPreenchimento(){
     let listaError = []
     this.dadosCartaoNames = Object.keys(this.dadosCartao);
 
-    /* for (var i = 0; i < this.dadosCartaoNames.length; i++) {
-      this.dadosCartao[ this.dadosCartaoNames[ i] ][ 'value' ] === '' || this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'value' ] === null
-      ? this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'error' ] = true : this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'error' ] = false;
-      console.log(this.dadosCartao[ this.dadosCartaoNames[ i] ][ 'value' ])
+     for (var i = 0; i < this.dadosCartaoNames.length; i++) {
+       if(this.dadosCartaoNames != 'validade'){
+      this.dadosCartao[ this.dadosCartaoNames[ i] ][ 'value' ] === '' ||
+      this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'value' ] === null
+      ? this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'error' ] = true
+      : this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'error' ] = false
+       }
     };
 
+      this.dadosCartao[ 'validade'][ 'mes' ] === '' ||
+      this.dadosCartao[ 'validade' ][ 'mes' ] === null
+      this.dadosCartao[ 'validade'][ 'ano' ] === '' ||
+      this.dadosCartao[ 'validade' ][ 'ano' ] === null
+      ? this.dadosCartao[ 'validade' ][ 'error' ] = true
+      : this.dadosCartao[ 'validade' ][ 'error' ] = false;
+
     for (var i = 0; i < this.dadosCartaoNames.length; i++) {
-      if (this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'errors' ] === true) {
-          listaError.push( this.dadosCartao[ this.dadosCartaoNames[ i ] ]);
+      if (this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'error' ] === true) {
+          return false
       }
-    } */
-    /* if(listaError.length > 0){
-      return true;
     }
-    return false; */
+    return true;
   }
 
+
+  public finalizarPagamento(){
+    if(this.veriricarPreenchimento()){
+      this.produtos.setPagamento(true);
+      this.router.navigate(['/client/meus-pedidos/'])
+    }
+
+  }
 }

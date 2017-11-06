@@ -14,6 +14,7 @@ import { MyCadastreComponent } from './pages/client/my-cadastre/my-cadastre.comp
 import { MyAccountComponent } from './pages/client/my-account/my-account.component';
 import { Erro404Component } from './pages/erro-404/erro-404.component';
 import { LoginComponent } from './pages/client/login/login.component';
+import { MyCadastreInitialComponent } from './pages/client/my-cadastre-initial/my-cadastre-initial.component';
 
 export const routes: Routes = [
   // For empty routes
@@ -58,9 +59,14 @@ export const routes: Routes = [
   },
   {
     path: 'cadastre/:id',
-    component: MyCadastreComponent,
+    component: MyCadastreInitialComponent,
     pathMatch: 'full',
   },
+  /* {
+    path: 'cadastre/:id',
+    component: MyCadastreComponent,
+    pathMatch: 'full',
+  }, */
   {
     path: 'login',
     component: LoginComponent,

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TabsModule, CarouselModule } from "ngx-bootstrap";
+import { TooltipModule } from 'ngx-bootstrap';
 
 //Component
 import { HomeComponent } from "./home/home.component";
@@ -41,6 +42,7 @@ import { ApiService } from '../services/api.service';
     OrderDetailsComponent,
   ],
   imports: [
+    TooltipModule.forRoot(),
     FormsModule,
     CommonModule,
     TabsModule.forRoot(),

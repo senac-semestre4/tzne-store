@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap';
 
 // Component
 import { FooterComponent } from "./footer/footer.component";
@@ -18,6 +20,8 @@ import { SimpleLayoutComponent } from './simpleLayout/simple-layout.component';
     SimpleLayoutComponent
   ],
   imports: [
+    TooltipModule.forRoot(),
+    BsDropdownModule.forRoot(),
     FormsModule,
     CommonModule,
     RouterModule

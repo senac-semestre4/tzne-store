@@ -43,7 +43,7 @@ export class ShowcaseComponent implements OnInit {
   }
 
 // API'S
-  buscarCepAPI(){
+  /* buscarCepAPI(){
    this.resultCEPapi = this.produtos.insertCEP(this.cep)
       .then( result => {
         console.log(result, "API CEP");
@@ -53,7 +53,7 @@ export class ShowcaseComponent implements OnInit {
       .catch( error => {
         console.log(error);
     });
-  }
+  } */
 
   buscarProdutosAPI(){
     this.produtos.buscarProdutos()

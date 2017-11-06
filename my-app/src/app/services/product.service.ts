@@ -9,6 +9,7 @@ export class ProductService {
   private headers = new Headers({'Content-Type': 'application/json'});
   private valorFrete: any;
   private verificarFrete = false;
+  private verificarPagamento: boolean = false;
   private produtosAPI: any;
   private produtosCarrinho = [];
   private produtosEmDestaque = [
@@ -21,7 +22,8 @@ export class ProductService {
       "valorAtual" : 69.00,
       "valorAntigo" : 69.00,
       "porcentagemDesconto" : 0,
-      "emDestaque" : true
+      "emDestaque" : true,
+      'quantidade': 1
     },
     {
       "id" : 2,
@@ -32,7 +34,8 @@ export class ProductService {
       "valorAtual" : 69.00,
       "valorAntigo" : 69.00,
       "porcentagemDesconto" : 0,
-      "emDestaque" : true
+      "emDestaque" : true,
+      'quantidade': 1
     },
     {
       "id" : 3,
@@ -41,9 +44,10 @@ export class ProductService {
       "descricao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat quis quam at tempus. Duis mattis mauris id tellus lacinia auctor. Suspendisse vulp",
       "especificacao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat quis quam at tempus. Duis mattis mauris id tellus lacinia auctor. Suspendisse vulp",
       "valorAtual" : 89.00,
-      "valorAntigo" : 100.00,
+      "valorAntigo" : 89.00,
       "porcentagemDesconto" : 11,
-      "emDestaque" : true
+      "emDestaque" : true,
+      'quantidade': 1
     },
     {
       "id" : 4,
@@ -52,9 +56,10 @@ export class ProductService {
       "descricao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat quis quam at tempus. Duis mattis mauris id tellus lacinia auctor. Suspendisse vulp",
       "especificacao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat quis quam at tempus. Duis mattis mauris id tellus lacinia auctor. Suspendisse vulp",
       "valorAtual" : 56.00,
-      "valorAntigo" : 65.00,
+      "valorAntigo" : 56.00,
       "porcentagemDesconto" : 15,
-      "emDestaque" : true
+      "emDestaque" : true,
+      'quantidade': 1
     },
     {
       "id" : 5,
@@ -63,9 +68,10 @@ export class ProductService {
       "descricao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat quis quam at tempus. Duis mattis mauris id tellus lacinia auctor. Suspendisse vulp",
       "especificacao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat quis quam at tempus. Duis mattis mauris id tellus lacinia auctor. Suspendisse vulp",
       "valorAtual" : 59.00,
-      "valorAntigo" : 69.00,
+      "valorAntigo" : 59.00,
       "porcentagemDesconto" : 15,
-      "emDestaque" : true
+      "emDestaque" : true,
+      'quantidade': 1
     },
     {
       "id" : 6,
@@ -76,7 +82,8 @@ export class ProductService {
       "valorAtual" : 69.00,
       "valorAntigo" : 69.00,
       "porcentagemDesconto" : 0,
-      "emDestaque" : true
+      "emDestaque" : true,
+      'quantidade': 1
     },
     {
       "id" : 7,
@@ -87,7 +94,8 @@ export class ProductService {
       "valorAtual" : 89.00,
       "valorAntigo" : 89.00,
       "porcentagemDesconto" : 0,
-      "emDestaque" : true
+      "emDestaque" : true,
+      'quantidade': 1
     },
     {
       "id" : 8,
@@ -96,9 +104,10 @@ export class ProductService {
       "descricao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat quis quam at tempus. Duis mattis mauris id tellus lacinia auctor. Suspendisse vulp",
       "especificacao" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed placerat quis quam at tempus. Duis mattis mauris id tellus lacinia auctor. Suspendisse vulp",
       "valorAtual" : 65.00,
-      "valorAntigo" : 56.00,
+      "valorAntigo" : 65.00,
       "porcentagemDesconto" : 15,
-      "emDestaque" : true
+      "emDestaque" : true,
+      'quantidade': 1
     }
   ];
 
@@ -114,9 +123,22 @@ export class ProductService {
 
   public setProdutoCarrinho(produto: object){
     console.log(produto, "parametro do serviço")
+    for(let i = 0; i < this.produtosCarrinho.length; i++){
+      if(this.produtosCarrinho[i]['id'] == produto[0]['id']){
+        this.produtosCarrinho[i]['valorAtual'] += parseInt(produto[0]['valorAntigo']);
+        this.produtosCarrinho[i]['quantidade'] ++;
+        return
+      }
+    }
     this.produtosCarrinho.push(produto[0]);
     console.log(this.produtosCarrinho, "produto no carrinho")
   }
+
+  /* public setProdutoCarrinho(produto: object){
+    console.log(produto, "parametro do serviço")
+    this.produtosCarrinho.push(produto[0]);
+    console.log(this.produtosCarrinho, "produto no carrinho")
+  } */
 
   public getProdutoCarrinho(){
     return this.produtosCarrinho
@@ -134,6 +156,14 @@ export class ProductService {
   public getverificarFrete(){
     return this.verificarFrete;
   }
+
+  public setPagamento(pagamento){
+    this.verificarPagamento = pagamento;
+  }
+  public getPagamento(){
+    return this.verificarPagamento;
+  }
+
 
   // Implementação de API's
 
