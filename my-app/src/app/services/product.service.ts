@@ -165,7 +165,7 @@ export class ProductService {
   }
 
 
-  // Implementação de API's
+  // Implementação de API's funcionais
 
   public insertCEP( obj ): Promise<{}> {
     console.log(obj)
@@ -188,6 +188,22 @@ export class ProductService {
                   .then( response => this.produtosAPI = response.json() )
                   .catch(this.handleError);
   }
+
+// api's que estão passando por refactory
+  /* public addCart( obj ): Promise<{}> {
+    console.log(obj)
+    return this.http.post( this.apiService.getUrl() + 'api/cart/addCart', JSON.stringify( obj ) )
+               .toPromise()
+               .then( response => response.json() )
+               .catch(this.handleError);
+  }
+
+  public getDetailsCart( ): Promise<{}> {
+    return this.http.get( this.apiService.getUrl() + 'api/cart/details')
+               .toPromise()
+               .then( response => response.json() )
+               .catch(this.handleError);
+  } */
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);

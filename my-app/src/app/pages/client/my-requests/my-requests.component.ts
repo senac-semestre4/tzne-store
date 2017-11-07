@@ -20,6 +20,8 @@ export class MyRequestsComponent implements OnInit {
     ignoreBackdropClick: false
   };
 
+  /* private ListaProdutos: any; */
+
   private compraEfetuada: any;
   private date: Date;
   private formaEntrega : string = "";
@@ -47,4 +49,17 @@ export class MyRequestsComponent implements OnInit {
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, Object.assign({}, this.config, {class: 'gray modal-lg'}));
   }
+
+  //api para get details cart
+
+  /* getDetailsCart(){
+    this.produtos.getDetailsCart()
+        .then( result => {
+        console.log(result);
+        this.ListaProdutos = result;
+      })
+      .catch( error => {
+        console.log(error);
+    });
+  } */
 }

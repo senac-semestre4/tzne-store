@@ -21,6 +21,8 @@ export class ShowcaseComponent implements OnInit {
   private resultCEP: any;
   private resultCEPapi: any;
 
+ /*  private addCart: any; */
+
   private cep = {
     'sCepDestino': '04372100',
     'quantidade': '2'
@@ -40,6 +42,7 @@ export class ShowcaseComponent implements OnInit {
     this.buscarProdutosAPI();
     this.buscarDezProdutosAPI();
     //this.buscarCepAPI();
+    //this.insertCart();
   }
 
 // API'S
@@ -49,6 +52,17 @@ export class ShowcaseComponent implements OnInit {
         console.log(result, "API CEP");
         this.resultCEP = result;
         console.log(this.resultCEP['cServico']['Valor'], "CEP result")
+      })
+      .catch( error => {
+        console.log(error);
+    });
+  } */
+
+  /* insertCart(){
+    this.produtos.addCart(this.products.filter(p => p['id'] == id))
+      .then( result => {
+        console.log(result);
+        this.addCart = result;
       })
       .catch( error => {
         console.log(error);
