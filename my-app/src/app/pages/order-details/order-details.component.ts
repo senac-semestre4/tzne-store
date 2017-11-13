@@ -102,12 +102,11 @@ export class OrderDetailsComponent implements OnInit {
 
     for (var i = 0; i < this.dadosCartaoNames.length; i++) {
       if (this.dadosCartao[ this.dadosCartaoNames[ i ] ][ 'error' ] === true) {
-          return false
+          return false;
       }
     }
     return true;
   }
-
 
   public finalizarPagamento(){
     if(this.veriricarPreenchimento()){

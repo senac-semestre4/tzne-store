@@ -23,6 +23,7 @@ import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
 //service
 import { ApiService } from './services/api.service';
 import { MensagensService } from './services/messages.service';
+import { LocalStorageModule } from "angular-2-local-storage/dist";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,10 @@ import { MensagensService } from './services/messages.service';
     PagesModule,
     ServicesModule,
     SharedModule,
+    LocalStorageModule.withConfig({
+            prefix: 'my-app',
+            storageType: 'localStorage'
+        }),
   ],
   providers: [
     ApiService,
