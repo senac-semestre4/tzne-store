@@ -38,7 +38,7 @@ export class MyRequestsComponent implements OnInit {
 
   ngOnInit() {
     this.precoTotal = this.produtos.getProdutoCarrinho();
-    this.precoTotal.map(i => this.valorTotal = this.valorTotal + i['valorAtual']);
+    this.precoTotal.map(i => this.valorTotal = this.valorTotal + parseInt(i['product_purchase_price']));
     this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
     this.frete = this.produtos.getValorFrete();
     this.valortotalCompra = (this.valorTotal + parseInt(this.frete));

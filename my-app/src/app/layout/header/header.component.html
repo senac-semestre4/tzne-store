@@ -10,36 +10,41 @@
       <h1 class="logo"><a [routerLink]="['']" placement="right">TZNE</a></h1>
       <!-- href="index.html" -->
     </div>
-    <div class="col-5 box-pesquisa hidden-m" tooltip="Busque seu produto preferido."  placement="auto">
+    <div class="col-5 box-pesquisa hidden-m" tooltip="Busque seu produto preferido." placement="auto">
       <div class="input-pesquisa">
         <input type="text" name="pesquisa" value="" placeholder="Pesquisar...">
         <i class="fa fa-search" aria-hidden="true"></i>
       </div>
     </div>
-    <div class="col-4 conta-carrinho">
+    <!-- Logout -->
+    <div [hidden]="sair" class="col-4 conta-carrinho">
       <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
-
-        <div class="btn-group" dropdown>
-          <h2><a dropdownToggle class="hidden-t hidden-m" style="cursor: pointer" tooltip="Acesse seu perfil.">Bem Vindo Everton <span class="caret"></span>
+      <div class="btn-group" dropdown>
+        <h2><a dropdownToggle class="hidden-t hidden-m" style="cursor: pointer" tooltip="Acesse seu perfil.">Bem Vindo Everton <span class="caret"></span>
           </a></h2>
-          <ul *dropdownMenu class="dropdown-menu" role="menu">
-            <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="minhaConta()">Minha conta</a></li>
-            <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="meusPedidos()">Meus pedidos</a></li>
-            <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="meuCadastro()">Meu cadastro</a></li>
-            <!-- <li role="menuitem"><a class="dropdown-item">Meu acesso</a></li>
+        <ul *dropdownMenu class="dropdown-menu" role="menu">
+          <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="minhaConta()">Minha conta</a></li>
+          <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="meusPedidos()">Meus pedidos</a></li>
+          <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="meuCadastro()">Meu cadastro</a></li>
+          <!-- <li role="menuitem"><a class="dropdown-item">Meu acesso</a></li>
             <li role="menuitem"><a class="dropdown-item">Meu endereco</a></li> -->
-            <li class="divider dropdown-divider"></li>
-            <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="sair()">Sair</a>
-            </li>
-          </ul>
-        </div>
-
-       <!-- verificar essa função para mostrar a area de login, e esconder a area de login -->
-       <ng-template *ngIf="(sair$) else entrar">
-        <h2 #entrar class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()" tooltip="Entre com sua conta.">Entre</a> ou <a style="cursor: pointer" (click)="cadastrar( 0 )" tooltip="Crie uma conta.">cadastre-se</a></h2>
-       </ng-template>
-
-      <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']" ><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i><!-- <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> --></a>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="logout()">Sair</a>
+          </li>
+        </ul>
+      </div>
+      <!-- verificar essa função para mostrar a area de login, e esconder a area de login -->
+      <!--  <ng-template *ngIf="(sair$) else entrar"> #entrar-->
+      <!-- <h2 [hidden]="!sair" class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()" tooltip="Entre com sua conta.">Entre</a> ou <a style="cursor: pointer" (click)="cadastrar( 0 )" tooltip="Crie uma conta.">cadastre-se</a></h2> -->
+      <!-- </ng-template> -->
+      <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i><!-- <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> --></a>
+    </div>
+    <!-- login -->
+    <div [hidden]="!sair" class="col-4 conta-carrinho">
+      <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
+      <h2 class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()" tooltip="Entre com sua conta.">Entre</a> ou <a style="cursor: pointer"
+          (click)="cadastrar( 0 )" tooltip="Crie uma conta.">cadastre-se</a></h2>
+      <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i><!-- <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> --></a>
     </div>
   </header>
 </div>
@@ -65,7 +70,7 @@
       <li><a href="#">Homem</a></li>
       <li><a href="#">Mulher</a></li>
       <li><a href="#">Infantil</a></li>
-      <li><a href="#">Acessórios</a></li>
+      <!-- <li><a href="#">Acessórios</a></li> -->
     </ul>
     <a href="#!" class="menu-close" (click)="menuClose()">
             <i class="fa fa-reply" aria-hidden="true"></i>

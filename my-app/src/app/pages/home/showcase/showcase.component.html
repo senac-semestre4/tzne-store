@@ -1,31 +1,33 @@
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <h2 class="titulo">Produtos em destaque</h2>
     </div>
-    <div *ngFor="let p of products" class="col-xs-12 col-sm-6 col-md-3">
+    <p-growl [(value)]="msgs"></p-growl>
+    <div *ngFor="let p of ListaProdutos" class="col-xs-12 col-sm-6 col-md-3">
       <article class="box-produto">
         <article class="produto">
           <header>
-            <img (click)="details(p.id)" [src]="p.imagem" alt="" id="imagem_produto">
+            <img (click)="details(p.product_id)" [src]="p.product_img_relative_url" alt="" id="imagem_produto">
           </header>
           <footer>
             <div class="nome-produto">
-              <a id="nome_produto" style="cursor: pointer" (click)="details(p.id)" class="nowrap">{{p.nome}}</a>
+              <a id="nome_produto" style="cursor: pointer" (click)="details(p.product_id)" class="nowrap">{{p.product_name}}</a>
             </div>
             <div class="valor-produto">
               <a>
                 <div class="valor">
-                  <span *ngIf="p.porcentagemDesconto !== 0" class="valor-antigo">R$ {{p.valorAntigo | currency:'BRL':true }}</span>
-                  <span class="valor-atual">R$ {{p.valorAtual | currency:'BRL':true }}</span>
+                  <span *ngIf="p.porcentagemDesconto !== 0" class="valor-antigo">R$ {{p.product_purchase_price | currency:'BRL':true }}</span>
+                  <span class="valor-atual">R$ {{p.product_purchase_price | currency:'BRL':true }}</span>
                 </div>
                 <div class="parcelas">
-                  <span class="valor-parcelas"><strong>3x</strong> de <strong>{{ p.valorAtual / 3 | currency:'BRL':true }}</strong> sem juros</span>
+                  <span class="valor-parcelas"><strong>3x</strong> de <strong>{{ p.product_purchase_price / 3 | currency:'BRL':true }}</strong> sem juros</span>
                 </div>
               </a>
             </div>
             <div class="box-btn">
-              <a class="btn btn-adicionar-sacola" (click)="adicionarSacola(p.id)" >Adicionar a sacola</a>
+              <a class="btn btn-adicionar-sacola" tooltip="Adicione esse produto à sacola." (click)="adicionarSacola(p.product_id)" >Adicionar a sacola</a>
             </div>
           </footer>
         </article>

@@ -1,3 +1,4 @@
+/* import { HttpParams } from '@angular/common/http'; */
 import {RequestOptions, Headers,  Http} from '@angular/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
@@ -121,7 +122,7 @@ export class ProductService {
     return this.produtosEmDestaque.filter(i => i['id'] == id);
   }
 
-  public setProdutoCarrinho(produto: object){
+  /* public setProdutoCarrinho(produto: object){
     console.log(produto, "parametro do serviço")
     for(let i = 0; i < this.produtosCarrinho.length; i++){
       if(this.produtosCarrinho[i]['id'] == produto[0]['id']){
@@ -132,17 +133,11 @@ export class ProductService {
     }
     this.produtosCarrinho.push(produto[0]);
     console.log(this.produtosCarrinho, "produto no carrinho")
-  }
-
-  /* public setProdutoCarrinho(produto: object){
-    console.log(produto, "parametro do serviço")
-    this.produtosCarrinho.push(produto[0]);
-    console.log(this.produtosCarrinho, "produto no carrinho")
   } */
 
-  public getProdutoCarrinho(){
+  /* public getProdutoCarrinho(){
     return this.produtosCarrinho
-  }
+  } */
 
   public setValorFrete(valor, boolean){
     this.valorFrete = valor;
@@ -166,14 +161,25 @@ export class ProductService {
 
 
   // Implementação de API's funcionais
-
-  public insertCEP( obj ): Promise<{}> {
+    /* public insertCEP( obj ) {
     console.log(obj)
-    return this.http.post( this.apiService.getUrl() + 'api/frete/calculafrete', JSON.stringify( obj )/* , {headers: this.headers} */ ) /* api/frete/calculafrete */ /* JSON.stringify( obj ) */
+    return this.http.post( this.apiService.getUrl() + 'api/frete/calculafrete', obj)
+              .subscribe(result => {
+                console.log(result.json())
+                result.json()
+              }, error => {
+                  console.log(error.json());
+              });
+  } */
+
+  //OK
+  /* public insertCEP( obj ): Promise<{}> {
+    console.log(obj)
+    return this.http.post( this.apiService.getUrl() + 'api/frete/calculafrete', JSON.stringify( obj )/* , {headers: this.headers} * ) /* api/frete/calculafrete */ /* JSON.stringify( obj ) *
                .toPromise()
                .then( response => response.json() )
                .catch(this.handleError);
-  }
+  } */
 
    public buscarDezProdutos() {
     return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos/10/10')
@@ -185,29 +191,30 @@ export class ProductService {
    public buscarProdutos() {
     return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos')
                   .toPromise()
-                  .then( response => this.produtosAPI = response.json() )
+                  .then( response => response.json() )
                   .catch(this.handleError);
   }
-
-// api's que estão passando por refactory
-  /* public addCart( obj ): Promise<{}> {
-    console.log(obj)
-    return this.http.post( this.apiService.getUrl() + 'api/cart/addCart', JSON.stringify( obj ) )
-               .toPromise()
-               .then( response => response.json() )
-               .catch(this.handleError);
-  }
-
-  public getDetailsCart( ): Promise<{}> {
-    return this.http.get( this.apiService.getUrl() + 'api/cart/details')
-               .toPromise()
-               .then( response => response.json() )
-               .catch(this.handleError);
-  } */
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
+  }
+
+  public setProdutoCarrinho(produto: object){
+    console.log(produto, "parametro do serviço")
+    for(let i = 0; i < this.produtosCarrinho.length; i++){
+      if(this.produtosCarrinho[i]['product_id'] == produto[0]['product_id']){
+        this.produtosCarrinho[i]['product_price_sale'] += parseInt(produto[0]['product_price_sale']);
+        /* this.produtosCarrinho[i]['quantidade'] ++; */
+        return
+      }
+    }
+    this.produtosCarrinho.push(produto[0])[0];
+    console.log(this.produtosCarrinho, "produto no carrinho");
+  }
+
+  public getProdutoCarrinho(){
+    return this.produtosCarrinho
   }
 
 }

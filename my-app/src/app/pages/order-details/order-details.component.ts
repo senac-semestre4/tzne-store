@@ -60,10 +60,12 @@ export class OrderDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.precoTotal = this.produtos.getProdutoCarrinho();
-    this.precoTotal.map(i => this.valorTotal = this.valorTotal + i['valorAtual']);
+    this.precoTotal.map(i => this.valorTotal = this.valorTotal + parseInt(i['product_purchase_price']));
     this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
     this.frete = this.produtos.getValorFrete();
     this.valortotalCompra = (this.valorTotal + parseInt(this.frete));
+    console.log(this.valortotalCompra);
+
   }
 
   selecionaEntrega(event){
@@ -73,10 +75,6 @@ export class OrderDetailsComponent implements OnInit {
       event.target.parentNode.children["0"].checked = true;
     }
   }
-
-  /* public openModal (template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
-  } */
 
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, Object.assign({}, this.config, {class: 'gray modal-lg'}));

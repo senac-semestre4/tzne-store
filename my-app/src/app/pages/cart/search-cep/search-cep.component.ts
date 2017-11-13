@@ -4,6 +4,8 @@ import {NgForm} from '@angular/forms'; */
 
 import { ProductService } from '../../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { URLSearchParams, Http } from '@angular/http';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-search-cep',
@@ -13,36 +15,55 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchCepComponent implements OnInit {
 
   private resultCEP: any = {
-    'cServico':{
+    'cServico': {
       'Valor': ''
     }
   };
-  private cep = {
-    'sCepDestino': '',
-    'quantidade': '2'
-  }
+  /*  private cep = {
+     'sCepDestino': '',
+     'quantidade': ''
+   } */
+
+  private sCepDestino: any;
+  private quantidade: any;
 
   constructor(
+    private http: Http,
     private produtos: ProductService,
     private routeParams: ActivatedRoute,
     private router: Router,
   ) { }
 
-  ngOnInit() {  }
-
-  buscarCepAPI(){
-   console.log(this.cep)
-   this.produtos.insertCEP(this.cep)
-      .then( result => {
-        console.log(result, "API CEP");
-        this.resultCEP = result;
-        console.log(this.resultCEP['cServico']['Valor'], "CEP result");
-        this.produtos.setValorFrete(this.resultCEP['cServico']['Valor'], true);
-      })
-      .catch( error => {
-        console.log(error);
-    });
-
-
+  ngOnInit() {
+    this.quantidade = this.produtos.getProdutoCarrinho().length;
   }
+
+  //OK usando api do produto service
+  /* buscarCepAPI(){
+  console.log(this.cep)
+  this.produtos.insertCEP(this.cep)
+     .then( result => {
+       console.log(result, "API CEP");
+       this.resultCEP = result;
+       console.log(this.resultCEP['cServico']['Valor'], "CEP result");
+       this.produtos.setValorFrete(this.resultCEP['cServico']['Valor'], true);
+     })
+     .catch( error => {
+       console.log(error);
+   }); */
+
+  //OK sem usar produto service, ja é tudo aqui
+  buscarCepAPI() {
+    let data = new URLSearchParams();
+    data.append('sCepDestino', this.sCepDestino);
+    data.append('quantidade', this.quantidade);
+    this.http.post('http://tzne.kwcraft.com.br/api/frete/calculafrete', data)
+      .subscribe(result => {
+        this.resultCEP = result.json();
+        this.produtos.setValorFrete(this.resultCEP['cServico']['Valor'], true);
+      }, error => {
+        console.log(error.json());
+      });
+  }
+
 }

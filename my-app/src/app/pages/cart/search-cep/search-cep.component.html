@@ -4,7 +4,7 @@
   </div>
   <div class="card-body">
     <div class="form-group">
-      <input type="text" placeholder="Digite seu cep" [(ngModel)]="cep.sCepDestino">
+      <input type="text" placeholder="Digite seu cep" tooltip="Digite seu cep. Ex: 00000-00" [(ngModel)]="sCepDestino">
       <i class="ion-search" style="cursor:pointer" (click)="buscarCepAPI()"></i>
     </div>
     <table>

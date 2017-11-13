@@ -20,6 +20,7 @@ import { Erro500Component } from './erro-500/erro-500.component';
 import { ClientModule } from "./client/client.module";
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { GrowlModule } from 'primeng/primeng';
 
 // service
 import { ProductService } from '../services/product.service';
@@ -48,7 +49,8 @@ import { ApiService } from '../services/api.service';
     TabsModule.forRoot(),
     CarouselModule.forRoot(),
     ClientModule,
-    SharedModule
+    SharedModule,
+    GrowlModule,
   ],
   exports: [
     HomeComponent,

@@ -22,6 +22,7 @@ import { SimpleLayoutComponent } from './layout/simpleLayout/simple-layout.compo
 import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
 //service
 import { ApiService } from './services/api.service';
+import { MensagensService } from './services/messages.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,10 @@ import { ApiService } from './services/api.service';
     ServicesModule,
     SharedModule,
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    MensagensService
+  ],
   bootstrap: [/* AppComponent */FullLayoutComponent]
 })
 export class AppModule { }

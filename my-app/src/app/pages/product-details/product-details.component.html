@@ -2,29 +2,30 @@
     <div class="row">
       <div class="col-xs-12">
       <h2 class="titulo-produto">Detalhe do produto</h2>
+      <p-growl [(value)]="msgs"></p-growl>
 
-      <div class="nome-produto hidden-md hidden-lg">
+     <!--  <div class="nome-produto hidden-md hidden-lg">
         <h2 >Camiseta Homem-Aranha manga longa</h2>
-    </div>
+    </div> -->
     </div>
         <div class="col-xs-12 col-sm-7">
             <article class="img-produto">
-                <img [src]="prod[0].imagem" alt="">
+                <img [src]="ListaProdutos[0].product_img_relative_url" alt="">
             </article>
         </div>
         <div class="col-xs-12 col-sm-5">
             <article>
                 <header class="hidden-xs hidden-sm">
                     <div class="nome-produto">
-                        <h2 id="nome_produto">{{prod[0].nome}}</h2>
+                        <h2 id="nome_produto">{{ListaProdutos[0].product_name}}</h2>
                     </div>
                     <div class="valor-produto hidden-xs hidden-sm">
                         <div class="valor">
-                            <span class="valor-antigo">R$ {{prod[0].valorAntigo | currency:'BRL':true }}</span>
-                            <span class="valor-atual">{{prod[0].valorAtual | currency:'BRL':true }}</span>
+                            <span class="valor-antigo">{{ListaProdutos[0].product_purchase_price | currency:'BRL':true }}</span>
+                            <span class="valor-atual">{{ListaProdutos[0].product_purchase_price | currency:'BRL':true }}</span>
                         </div>
                         <div class="parcelas">
-                            <span class="valor-parcelas"><strong>2x</strong> de <strong>R$ 29,70</strong> sem juros</span>
+                            <span class="valor-parcelas"><strong>2x</strong> de <strong>{{ListaProdutos[0].product_purchase_price / 2 | currency:'BRL':true }}</strong> sem juros</span>
                         </div>
                     </div>
                 </header>
@@ -39,21 +40,21 @@
                     </div>
                     <div class="valor-produto hidden-md hidden-lg">
                         <div class="valor">
-                            <span class="valor-antigo">R$ {{prod[0].valorAntigo | currency:'BRL':true }}</span>
-                            <span class="valor-atual">{{prod[0].valorAtual | currency:'BRL':true }}</span>
+                            <span class="valor-antigo">R$ {{ListaProdutos[0].product_purchase_price | currency:'BRL':true }}</span>
+                            <span class="valor-atual">{{ListaProdutos[0].product_purchase_price | currency:'BRL':true }}</span>
                         </div>
                         <div class="parcelas">
-                            <span class="valor-parcelas"><strong>2x</strong> de <strong>R$ 29,70</strong> sem juros</span>
+                            <span class="valor-parcelas"><strong>2x</strong> de <strong>{{ListaProdutos[0].product_purchase_price / 2| currency:'BRL':true }}</strong> sem juros</span>
                         </div>
                     </div>
                     <div class="box-btn">
-                        <a class="btn btn-adicionar-sacola" (click)="adicionarSacola()">Adicionar a sacola</a>
+                        <a class="btn btn-adicionar-sacola" tooltip="Adicione esse produto à sacola." (click)="adicionarSacola()">Adicionar a sacola</a>
                     </div>
                     <div class="box-descricao-especificacao hidden-sm">
                         <div>
                             <tabset>
-                              <tab heading="Descrição"><p>{{ prod[0].descricao }}</p></tab>
-                              <tab heading="Especificação"><p>{{ prod[0].especificacao }}</p></tab>
+                              <tab heading="Descrição"><p>{{ ListaProdutos[0].product_description }}</p></tab>
+                              <tab heading="Especificação"><p>{{ ListaProdutos[0].product_specification }}</p></tab>
                             </tabset>
                           </div>
                     </div>
@@ -63,8 +64,8 @@
         <div class="box-descricao-especificacao hidden-xs hidden-md hidden-lg col-sm-12">
             <div>
                 <tabset>
-                  <tab heading="Descrição"><p>{{ descricao }}</p></tab>
-                  <tab heading="Especificação"><p>{{ especificacao }}</p></tab>
+                  <tab heading="Descrição"><p>{{ ListaProdutos[0].product_description }}</p></tab>
+                  <tab heading="Especificação"><p>{{ ListaProdutos[0].product_specification }}</p></tab>
                 </tabset>
               </div>
         </div>

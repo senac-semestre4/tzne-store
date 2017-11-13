@@ -48,17 +48,17 @@
                 <tr *ngFor="let p of produtosNoCarrinho, let i = index">
                   <td class="small">
                     <div class="miniatura">
-                      <a><img [src]="p.imagem" alt=""></a>
+                      <a><img [src]="p.product_img_relative_url" alt="Imagem Indisponivel"></a>
                     </div>
                     <a class="descricao-produto">
-                      <h3>{{p.nome}}</h3>
+                      <h3>{{p.product_name}}</h3>
                       <p>Tamanho: M</p>
                       <p>Cor: vermelho</p>
                     </a>
                   </td>
-                  <td class="small">{{ p.valorAntigo | currency:'BRL':true }}</td>
+                  <td class="small">{{ p.product_purchase_price | currency:'BRL':true }}</td>
                   <td class="small">{{ p.quantidade }}</td>
-                  <td class="small">{{ p.valorAtual | currency:'BRL':true }}</td>
+                  <td class="small">{{ p.product_purchase_price | currency:'BRL':true }}</td>
 
                 </tr>
               </tbody>
@@ -69,18 +69,18 @@
             <div class="row container-produto-mobile visible-xs" *ngFor="let pm of produtosNoCarrinho, let i = index">
               <div class="col-xs-5">
                 <div class="imagem-produto">
-                  <a href="#!"><img [src]="pm.imagem" alt=""></a>
+                  <a href="#!"><img [src]="pm.product_img_relative_url" alt="Imagem indisponível"></a>
 
                 </div>
               </div>
               <div class="col-xs-7">
                 <div class="descricao-produto">
                   <a href="#!" class="descricao-produto">
-                    <h3>{{pm.nome}}</h3>
+                    <h3>{{pm.product_name}}</h3>
                     <p>Tamanho: M</p>
                     <p>Cor: vermelho</p>
                   </a>
-                  <p>{{pm.valorAtual | currency:'BRL':true }}</p>
+                  <p>{{pm.product_purchase_price | currency:'BRL':true }}</p>
                 </div>
                 <div class="quantidade-produto">
                   <div class="box-input-quantidade">
@@ -88,7 +88,7 @@
                   </div>
                 </div>
                 <div class="valor-total-produto">
-                  <p>{{pm.valorAtual | currency:'BRL':true }}</p>
+                  <p>{{pm.product_purchase_price | currency:'BRL':true }}</p>
                 </div>
               </div>
             </div>
