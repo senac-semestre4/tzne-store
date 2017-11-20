@@ -23,7 +23,7 @@ export class MyRequestsComponent implements OnInit {
   };
 
   /* private ListaProdutos: any; */
-
+  private bkpCart: any;
   private compraEfetuada: any;
   private date: Date;
   private formaEntrega : string = "";
@@ -41,13 +41,23 @@ export class MyRequestsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.precoTotal = this.produtos.getProdutoCarrinho();
-    this.precoTotal.map(i => this.valorTotal = this.valorTotal + parseInt(i['product_purchase_price']));
-    this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
+    if(this.localStorageService.get('addCart') != []){
+      this.bkpCart = this.localStorageService.get('addCart');
+      this.localStorageService.set('bkpCart', this.bkpCart);
+    } else {
+    this.bkpCart = this.localStorageService.get('bkpCart');
+    }
+    //this.precoTotal = this.produtos.getProdutoCarrinho();
+    this.precoTotal = this.bkpCart;
+    this.precoTotal.map(i => this.valorTotal = this.valorTotal + parseInt(i['product_purchase_price']) * i['quantidade']);
+    this.produtosNoCarrinho = this.bkpCart;//this.produtos.getProdutoCarrinho();
     this.frete = this.produtos.getValorFrete();
     this.valortotalCompra = (this.valorTotal + parseInt(this.frete));
     this.compraEfetuada = this.produtos.getPagamento();
     this.date = new Date();
+
+    //this.bkpCart = this.localStorageService.get('addCart');
+    this.localStorageService.set('addCart', []);
 
     /* this.gravarCarrinho();
     if(this.produtosNoCarrinho.lenght == 0){

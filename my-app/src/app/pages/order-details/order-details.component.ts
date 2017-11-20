@@ -3,6 +3,7 @@ import { ProductService } from '../../services/product.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
   selector: 'app-order-details',
@@ -53,6 +54,7 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   constructor(
+    private localStorageService: LocalStorageService,
     private produtos: ProductService,
     private modalService: BsModalService,
     private router: Router
@@ -60,12 +62,11 @@ export class OrderDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.precoTotal = this.produtos.getProdutoCarrinho();
-    this.precoTotal.map(i => this.valorTotal = this.valorTotal + parseInt(i['product_purchase_price']));
+    this.precoTotal.map(i => this.valorTotal = this.valorTotal + (parseInt(i['product_purchase_price'] ) * i['quantidade'] ));
     this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
     this.frete = this.produtos.getValorFrete();
     this.valortotalCompra = (this.valorTotal + parseInt(this.frete));
     console.log(this.valortotalCompra);
-
   }
 
   selecionaEntrega(event){
@@ -79,6 +80,15 @@ export class OrderDetailsComponent implements OnInit {
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, Object.assign({}, this.config, {class: 'gray modal-lg'}));
   }
+
+   somenteNumeros(num) {
+        var er = /[^0-9.]/;
+        er.lastIndex = 0;
+        var campo = num;
+        if (er.test(campo.value)) {
+          campo.value = "";
+        }
+    }
 
   public veriricarPreenchimento(){
     let listaError = []
@@ -111,8 +121,7 @@ export class OrderDetailsComponent implements OnInit {
   public finalizarPagamento(){
     if(this.veriricarPreenchimento()){
       this.produtos.setPagamento(true);
-      this.router.navigate(['/client/meus-pedidos/'])
+      this.router.navigate(['/client/meus-pedidos/']);
     }
-
   }
 }
