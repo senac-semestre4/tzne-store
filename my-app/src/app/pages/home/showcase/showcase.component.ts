@@ -4,7 +4,9 @@ import { ProductService } from '../../../services/product.service';
 import { HeaderComponent } from '../../../layout/header/header.component';
 import { MensagensService } from '../../../services/messages.service';
 import { Message } from 'primeng/primeng';
-import {URLSearchParams, Http} from '@angular/http';
+import { URLSearchParams, Http } from '@angular/http';
+import { LocalStorageService } from 'angular-2-local-storage';
+
 //service
 
 @Component({
@@ -25,7 +27,6 @@ export class ShowcaseComponent implements OnInit {
   private resultCEPapi: any;
   private resultInsert: any;
 
-  //mensagens de aviso para produto add carrinho
   public msgs: Message[] = [];
 
   constructor(
@@ -34,7 +35,7 @@ export class ShowcaseComponent implements OnInit {
     private routeParams: ActivatedRoute,
     private router: Router,
     private http: Http,
-
+    private localStorageService: LocalStorageService
   ) { }
 
   ngOnInit() {
@@ -42,7 +43,7 @@ export class ShowcaseComponent implements OnInit {
     this.products = this.produtos.getProdutosEmDestaque();
     console.log(this.products, "produtos");
     this.buscarProdutosAPI();
-    this.buscarDezProdutosAPI();
+    //this.buscarDezProdutosAPI();
   }
 
   initMsgs(){
@@ -59,19 +60,6 @@ export class ShowcaseComponent implements OnInit {
   private limparStatus() {
     this.msgs = [];
   }
-
-// API'S
-  /* buscarCepAPI(){
-   this.resultCEPapi = this.produtos.insertCEP(this.cep)
-      .then( result => {
-        console.log(result, "API CEP");
-        this.resultCEP = result;
-        console.log(this.resultCEP['cServico']['Valor'], "CEP result")
-      })
-      .catch( error => {
-        console.log(error);
-    });
-  } */
 
   buscarProdutosAPI(){
     this.produtos.buscarProdutos()
@@ -116,12 +104,36 @@ export class ShowcaseComponent implements OnInit {
   ocultaBoxComprar() {
     this.boxComprar = false;
   }
-
-  private adicionarSacola(id){
+// sem local
+  /* private adicionarSacola(id){
+    console.log(this.ListaProdutos.filter(i=> i['product_id'] == id), "produtos");
+    this.ListaProdutos.map(i=> {
+      if(i[ 'product_id' ] == id){
+        if(i[ 'quantidade' ] == null ){
+          i[ 'quantidade' ] = 1;
+        } else {
+          i[ 'quantidade' ]++;
+        }
+      }
+      });
     console.log(this.ListaProdutos.filter(i=> i['product_id'] == id), "produtos");
     this.produtos.setProdutoCarrinho(this.ListaProdutos.filter(p => p['product_id'] == id));
     this.alertarStatus( 'success', 'Adicionado!', 'Camiseta adicionada na sacola.' );
-    //this.insertCart();
+  } */
+
+  private adicionarSacola(id){
+    console.log(this.ListaProdutos.filter(i=> i['product_id'] == id), "produtos");
+     this.ListaProdutos.map(i=> {
+      if(i[ 'product_id' ] == id){
+        if(i[ 'quantidade' ] == null ){
+          i[ 'quantidade' ] = 1;
+        } else {
+          i[ 'quantidade' ]++;
+        }
+      }
+      });
+    this.produtos.setProdutoCarrinho(this.ListaProdutos.filter(p => p['product_id'] == id));
+    this.alertarStatus( 'success', 'Adicionado!', 'Camiseta adicionada na sacola.' );
   }
 
   private details( id ): void {

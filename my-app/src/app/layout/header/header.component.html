@@ -37,14 +37,14 @@
       <!--  <ng-template *ngIf="(sair$) else entrar"> #entrar-->
       <!-- <h2 [hidden]="!sair" class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()" tooltip="Entre com sua conta.">Entre</a> ou <a style="cursor: pointer" (click)="cadastrar( 0 )" tooltip="Crie uma conta.">cadastre-se</a></h2> -->
       <!-- </ng-template> -->
-      <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i><!-- <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> --></a>
+      <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i> <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> </a>
     </div>
     <!-- login -->
     <div [hidden]="!sair" class="col-4 conta-carrinho">
       <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
       <h2 class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()" tooltip="Entre com sua conta.">Entre</a> ou <a style="cursor: pointer"
           (click)="cadastrar( 0 )" tooltip="Crie uma conta.">cadastre-se</a></h2>
-      <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i><!-- <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> --></a>
+      <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i> <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> </a>
     </div>
   </header>
 </div>

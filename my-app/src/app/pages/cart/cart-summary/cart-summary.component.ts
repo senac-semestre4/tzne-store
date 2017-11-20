@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked } from '@angular/core';
 
 import { ProductService } from '../../../services/product.service';
 
@@ -20,7 +21,14 @@ export class CartSummaryComponent implements OnInit {
   ngOnInit() {
     this.precoTotal = this.produtos.getProdutoCarrinho();
     console.log(this.precoTotal, 'preço')
-    this.precoTotal.map(i => this.valorTotal = this.valorTotal + parseInt(i['product_purchase_price']));
+    this.precoTotal.map(i => this.valorTotal = this.valorTotal + (parseInt(i['product_purchase_price'] ) * i['quantidade'] ));
+    this.parcelas = (this.valorTotal / 3);
+  }
+
+  ngAfterViewChecked(): void{
+    this.valorTotal = 0;
+    this.precoTotal = this.produtos.getProdutoCarrinho();
+    this.precoTotal.map(i => this.valorTotal = this.valorTotal + (parseInt(i['product_purchase_price'] ) * i['quantidade'] ));
     this.parcelas = (this.valorTotal / 3);
   }
 

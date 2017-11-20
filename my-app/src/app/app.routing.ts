@@ -48,6 +48,11 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'cart/empty',
+    component: CartComponent,
+    pathMatch: 'full',
+  },
+  {
     path: 'details/:id',
     component: ProductDetailsComponent,
     pathMatch: 'full',

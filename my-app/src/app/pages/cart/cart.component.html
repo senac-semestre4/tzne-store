@@ -3,6 +3,7 @@
     <div class="col-xs-12">
       <h2 class="titulo">Meu Carrinho</h2>
     </div>
+    <p-growl [(value)]="msgs"></p-growl>
     <div class="col-xs-12">
       <div class="col-xs-12 col-sm-6 align-center">
         <div class="btn-group pull-left-sm" role="group">
@@ -43,11 +44,9 @@
               </a>
             </td>
             <td class="small">{{ p.product_purchase_price | currency:'BRL':true }}</td>
-            <td class="small">
-              <!-- {{  }} -->
-            </td>
-            <td class="small">{{ p.product_purchase_price | currency:'BRL':true }}</td>
-            <td><button class="btn"><i class="ion-close-round"></i></button></td>
+            <td class="small">{{ p.quantidade }}</td>
+            <td class="small">{{ p.product_purchase_price * p.quantidade | currency:'BRL':true }}</td>
+            <td><button class="btn" (click)="removerDoCart(p.product_id)"><i class="ion-close-round"></i></button></td>
           </tr>
         </tbody>
       </table>
@@ -57,13 +56,13 @@
       <div class="row container-produto-mobile visible-xs" *ngFor="let pm of produtosNoCarrinho, let i = index">
         <div class="col-xs-5">
           <div class="imagem-produto">
-            <a href="#!"><img [src]="pm.product_img_relative_url" alt=""></a>
-            <a href="#!">Excluir</a>
+            <a ><img [src]="pm.product_img_relative_url" alt=""></a>
+            <a (click)="removerDoCart(pm.product_id)">Excluir</a>
           </div>
         </div>
         <div class="col-xs-7">
           <div class="descricao-produto">
-            <a href="#!" class="descricao-produto">
+            <a class="descricao-produto">
               <h3>{{pm.product_name}}</h3>
               <p>Tamanho: M</p>
               <p>Cor: vermelho</p>
@@ -72,11 +71,11 @@
           </div>
           <div class="quantidade-produto">
             <div class="box-input-quantidade">
-              <input type="text" id="quantidade" value="pm.quantidade">
+              <input type="text" id="quantidade" [(ngModel)]="pm.quantidade">
             </div>
           </div>
           <div class="valor-total-produto">
-            <p>{{pm.product_purchase_price | currency:'BRL':true }}</p>
+            <p>{{pm.product_purchase_price * pm.quantidade | currency:'BRL':true }}</p>
           </div>
         </div>
       </div>

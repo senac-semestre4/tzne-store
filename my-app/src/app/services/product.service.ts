@@ -2,6 +2,7 @@
 import {RequestOptions, Headers,  Http} from '@angular/http';
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
 export class ProductService {
@@ -112,7 +113,15 @@ export class ProductService {
     }
   ];
 
-  constructor( private http: Http, private apiService: ApiService ){}
+  constructor(
+    private http: Http,
+    private apiService: ApiService,
+    private localStorageService: LocalStorageService
+  ){
+    if(this.localStorageService.get('addCart') == null){
+       this.localStorageService.set('addCart', []);
+    }
+  }
 
 
   public getProdutosEmDestaque(){
@@ -200,12 +209,13 @@ export class ProductService {
     return Promise.reject(error.message || error);
   }
 
-  public setProdutoCarrinho(produto: object){
+  //add produto sem local
+   /* public setProdutoCarrinho(produto: object){
     console.log(produto, "parametro do serviço")
     for(let i = 0; i < this.produtosCarrinho.length; i++){
       if(this.produtosCarrinho[i]['product_id'] == produto[0]['product_id']){
         this.produtosCarrinho[i]['product_price_sale'] += parseInt(produto[0]['product_price_sale']);
-        /* this.produtosCarrinho[i]['quantidade'] ++; */
+        /* this.produtosCarrinho[i]['quantidade'] ++; *
         return
       }
     }
@@ -213,8 +223,35 @@ export class ProductService {
     console.log(this.produtosCarrinho, "produto no carrinho");
   }
 
-  public getProdutoCarrinho(){
+  //get sem local storage
+   public getProdutoCarrinho(){
     return this.produtosCarrinho
+  } */
+
+
+  //add com local storage
+   public setProdutoCarrinho(produto: object){
+    console.log(produto, "parametro do serviço")
+    this.produtosCarrinho = this.localStorageService.get('addCart') as any[];
+    for(let i = 0; i < this.produtosCarrinho.length; i++){
+      if(this.produtosCarrinho[i]['product_id'] == produto[0]['product_id']){
+        this.produtosCarrinho[i]['quantidade'] ++;
+        this.localStorageService.set('addCart', this.produtosCarrinho);
+        return
+      }
+    }
+    this.produtosCarrinho = this.localStorageService.get('addCart') as any[];
+    this.produtosCarrinho.push(produto[0])[0];
+    this.localStorageService.set('addCart', this.produtosCarrinho);
+    console.log(this.produtosCarrinho, "produto no carrinho");
+    console.log(this.localStorageService.get('addCart'), "produto no carrinho TESTE");
+  }
+
+  public getProdutoCarrinho(){
+    this.produtosCarrinho = this.localStorageService.get('addCart') as object[];
+    console.log(this.localStorageService.get('addCart') as object[], 'teste')
+    return this.localStorageService.get('addCart') as object[];
+    //return this.produtosCarrinho;
   }
 
 }

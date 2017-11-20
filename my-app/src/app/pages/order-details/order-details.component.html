@@ -46,7 +46,7 @@
                       </td>
                       <td class="small">{{ p.product_purchase_price | currency:'BRL':true }}</td>
                       <td class="small">{{ p.quantidade }}</td>
-                      <td class="small">{{ p.product_purchase_price | currency:'BRL':true }}</td>
+                      <td class="small">{{ p.product_purchase_price * p.quantidade | currency:'BRL':true }}</td>
 
                     </tr>
                   </tbody>
