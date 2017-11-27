@@ -6,6 +6,7 @@ import { MensagensService } from '../../../services/messages.service';
 import { Message } from 'primeng/primeng';
 import { URLSearchParams, Http } from '@angular/http';
 import { LocalStorageService } from 'angular-2-local-storage';
+import { AfterViewChecked } from '@angular/core';
 
 //service
 
@@ -39,12 +40,22 @@ export class ShowcaseComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.id = this.routeParams.params.subscribe(params => this.id = params['id'] )
-    this.products = this.produtos.getProdutosEmDestaque();
-    console.log(this.products, "produtos");
+    console.log('aqui')
+    //this.id = this.routeParams.params.subscribe(params => this.id = params['id'] )
+
+    //this.products = this.produtos.getProdutosEmDestaque();
+    //console.log(this.products, "produtos");
+    this.id = this.produtos.retornarId();
     this.buscarProdutosAPI();
+    this.router.navigate(['home']);
     //this.buscarDezProdutosAPI();
   }
+
+   /*  ngAfterViewChecked(): void {
+    this.id = this.produtos.retornarId();
+    this.buscarProdutosAPI()
+  }
+ */
 
   initMsgs(){
     let status = this.msg.getStatus();
@@ -65,7 +76,10 @@ export class ShowcaseComponent implements OnInit {
     this.produtos.buscarProdutos()
         .then( result => {
         console.log(result);
-        this.ListaProdutos = result;
+        this.ListaProdutos = result.filter(i => i['product_status'] != 0);
+        if(this.id != 0){
+          this.ListaProdutos = this.ListaProdutos.filter(i => i['departaments_departament_id'] == this.id);
+        }
       })
       .catch( error => {
         console.log(error);

@@ -1,6 +1,6 @@
 <ul [hidden]="!compraEfetuada">
-  <li class="pedido">
-    <table>
+  <li class="pedido" *ngIf="resultvenda">
+    <table> <!-- *ngFor="let venda of resultvenda['SalesItens'], let i = index" -->
       <thead>
         <tr>
           <th>Número do Pedido</th>
@@ -10,11 +10,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr >
           <td>15456</td>
-          <td>{{ date | date:'dd-MM-yyyy HH:mm' }}</td>
-          <td>Produto a ser enviado</td>
-          <td>{{valortotalCompra | currency:'BRL':true }}</td>
+          <td>{{ resultvenda.SalesItens[0].date | date:'dd-MM-yyyy HH:mm' }}</td>
+          <td>{{ resultvenda.SalesItens[0].comment }}</td>
+          <!-- <td>Produto a ser enviado</td> -->
+          <td>{{ resultvenda.totalPartial | currency:'BRL':true }}</td>
         </tr>
       </tbody>
     </table>
@@ -33,6 +34,7 @@
         <!-- <app-cart></app-cart> -->
         <div class="row">
           <div class="col-sm-12">
+
             <!-- tablete e desktop -->
             <table class="table table-produtos-carrinho hidden-xs">
               <thead class="table-header">
@@ -45,7 +47,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let p of produtosNoCarrinho, let i = index">
+                <tr *ngFor="let p of resultvenda['SalesItens'], let i = index">
                   <td class="small">
                     <div class="miniatura">
                       <a><img [src]="p.product_img_relative_url" alt="Imagem Indisponivel"></a>
@@ -56,9 +58,10 @@
                       <p>Cor: vermelho</p>
                     </a>
                   </td>
-                  <td class="small">{{ p.product_purchase_price | currency:'BRL':true }}</td>
-                  <td class="small">{{ p.quantidade }}</td>
-                  <td class="small">{{ p.product_purchase_price * p.quantidade | currency:'BRL':true }}</td>
+                  <td class="small">{{ p.subtotal / p.quantity | currency:'BRL':true }}</td>
+                  <td class="small">{{ p.quantity }}</td>
+                  <!-- <td class="small">{{ p.product_purchase_price * p.quantidade | currency:'BRL':true }}</td> -->
+                  <td class="small">{{ p.subtotal | currency:'BRL':true }}</td>
 
                 </tr>
               </tbody>
@@ -108,7 +111,7 @@
             </div>
             <div class="total">
               <p>Total à pagar</p>
-              <p>{{ valortotalCompra | currency:'BRL':true }}</p>
+              <p>{{ resultvenda.totalPartial | currency:'BRL':true }}</p>
             </div>
           </div>
           <div class="detalhes-endereco">

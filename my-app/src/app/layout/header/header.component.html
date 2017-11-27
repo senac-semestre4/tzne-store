@@ -51,10 +51,10 @@
 <div class="linha">
   <nav class="col-12 menu-principal hidden-m">
     <ul>
-      <li><a href="#" style="cursor:pointer" tooltip="Camisetas em ofertas.">Ofertas</a></li>
-      <li><a href="#" style="cursor:pointer" tooltip="Camisetas masculinas.">Masculino</a></li>
-      <li><a href="#" style="cursor:pointer" tooltip="Camisetas femininas.">Feminino</a></li>
-      <li><a href="#" style="cursor:pointer" tooltip="Camisetas Infantis.">Infantil</a></li>
+      <li><a style="cursor:pointer" (click)="filter(1)" routerLinkActive="active" [routerLink]="['home/type']"  tooltip="Camisetas em ofertas.">Ofertas</a></li>
+      <li><a style="cursor:pointer" (click)="filter(2)" routerLinkActive="active" [routerLink]="['home/type']"  tooltip="Camisetas masculinas.">Masculino</a></li>
+      <li><a style="cursor:pointer" (click)="filter(3)" routerLinkActive="active" [routerLink]="['home/type']"  tooltip="Camisetas femininas.">Feminino</a></li>
+      <li><a style="cursor:pointer" (click)="filter(4)" routerLinkActive="active" [routerLink]="['home/type']"  tooltip="Camisetas Infantis.">Infantil</a></li>
       <!-- <li><a>Acessórios</a></li> -->
     </ul>
   </nav>
@@ -66,11 +66,11 @@
           <i class="fa fa-search" aria-hidden="true"></i>
         </div>
       </header>
-      <li><a href="#">Ofertas</a></li>
-      <li><a href="#">Homem</a></li>
-      <li><a href="#">Mulher</a></li>
-      <li><a href="#">Infantil</a></li>
-      <!-- <li><a href="#">Acessórios</a></li> -->
+      <li><a (click)="filter(1)" [routerLink]="['']" >Ofertas</a></li>
+      <li><a (click)="filter(2)" [routerLink]="['']" >Masculino</a></li>
+      <li><a (click)="filter(3)" [routerLink]="['']" >Feminino</a></li>
+      <li><a (click)="filter(4)" [routerLink]="['']" >Infantil</a></li>
+      <!-- <li><a (click)="filter(1)" [routerLink]="['']" >Acessórios</a></li> -->
     </ul>
     <a href="#!" class="menu-close" (click)="menuClose()">
             <i class="fa fa-reply" aria-hidden="true"></i>

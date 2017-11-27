@@ -30,6 +30,11 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'home/type',
+    component: HomeComponent,
+    pathMatch: 'full',
+  },
+  {
     path: 'client',
     component: ClientComponent,
     data: {

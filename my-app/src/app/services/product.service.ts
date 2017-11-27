@@ -14,6 +14,7 @@ export class ProductService {
   private verificarPagamento: boolean = false;
   private produtosAPI: any;
   private produtosCarrinho = [];
+  private idParams: any = 0;
   private produtosEmDestaque = [
     {
       "id" : 1,
@@ -164,10 +165,23 @@ export class ProductService {
   public setPagamento(pagamento){
     this.verificarPagamento = pagamento;
   }
+
   public getPagamento(){
     return this.verificarPagamento;
   }
+  public adicionarID(id){
+    this.idParams = id
+  }
 
+  public retornarId(){
+    if(this.idParams != 0 || this.idParams != null || this.idParams != undefined ) {
+      return this.idParams;
+    }
+    else{
+      return 0;
+    }
+
+  }
 
   // Implementação de API's funcionais
     /* public insertCEP( obj ) {
@@ -190,6 +204,14 @@ export class ProductService {
                .catch(this.handleError);
   } */
 
+   public venda( obj ): Promise<{}> {
+    console.log(obj)
+    return this.http.post( this.apiService.getUrl() + 'testerecebejson', JSON.stringify( obj ) , {headers: this.headers}  ) /* JSON.stringify( obj ) */
+               .toPromise()
+               .then( response => response.json() )
+               .catch(this.handleError);
+  }
+
    public buscarDezProdutos() {
     return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos/10/10')
                   .toPromise()
@@ -201,6 +223,13 @@ export class ProductService {
     return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos')
                   .toPromise()
                   .then( response => response.json() )
+                  .catch(this.handleError);
+  }
+
+   public buscarProdutosByID(id) {
+    return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos')
+                  .toPromise()
+                  .then( response => response.json().filter(i=> i['departaments_departament_id'] == id) )
                   .catch(this.handleError);
   }
 
@@ -249,7 +278,7 @@ export class ProductService {
 
   public getProdutoCarrinho(){
     this.produtosCarrinho = this.localStorageService.get('addCart') as object[];
-    console.log(this.localStorageService.get('addCart') as object[], 'teste')
+    //console.log(this.localStorageService.get('addCart') as object[], 'teste')
     return this.localStorageService.get('addCart') as object[];
     //return this.produtosCarrinho;
   }

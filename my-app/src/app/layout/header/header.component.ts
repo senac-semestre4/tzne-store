@@ -10,12 +10,12 @@ import { AfterViewChecked } from '@angular/core';
 })
 export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChanges */{
 
-
   @Input() totalCartItens: any;
 
   private toggleMenu: boolean = false;
   private quantidadeEmCarrinho: number;
   private sair: boolean = false;
+  private ListaProdutosID: any;
 
   constructor(
     private routeParams: ActivatedRoute,
@@ -53,6 +53,18 @@ export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChang
 
   menuClose(){
     this.toggleMenu = false;
+  }
+
+  filter(id){
+    this.produtos.buscarProdutosByID(id)
+        .then( result => {
+        console.log(result);
+        this.ListaProdutosID = result;
+      })
+      .catch( error => {
+        console.log(error);
+    });
+      this.produtos.adicionarID(id);
   }
 
   private cadastrar( id ): void {

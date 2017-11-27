@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { ModalModule } from 'ngx-bootstrap';
 import { TooltipModule } from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { ButtonsModule } from 'ngx-bootstrap';
 
 //rota principal
 import { AppRoutingModule } from './app.routing';
@@ -31,6 +32,7 @@ import { LocalStorageModule } from "angular-2-local-storage/dist";
     FullLayoutComponent
   ],
   imports: [
+    ButtonsModule.forRoot(),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
