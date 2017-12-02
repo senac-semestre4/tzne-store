@@ -2,7 +2,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TooltipModule, TabsModule } from 'ngx-bootstrap';
+import { TooltipModule, TabsModule, ButtonsModule, CarouselModule } from 'ngx-bootstrap';
+
 import { DatePipe } from '@angular/common';
 
 //components
@@ -19,9 +20,10 @@ import { MyCadastreInitialComponent } from './my-cadastre-initial/my-cadastre-in
 // rota
 import { ClientRoutingModule } from './client.routing';
 import { SharedModule } from '../../shared/shared.module';
-
-
-
+import { GrowlModule } from 'primeng/primeng';
+import { ApiService } from '../../services/api.service';
+import { ProductService } from '../../services/product.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -36,14 +38,15 @@ import { SharedModule } from '../../shared/shared.module';
     MyCadastreInitialComponent
   ],
   imports: [
-    //TooltipModule.forRoot(),
-    //FormsModule,
-    //CarouselModule.forRoot(),
-    //ClientModule,
-    //SharedModule,
-    TabsModule.forRoot(),
+    ButtonsModule.forRoot(),
+    TooltipModule.forRoot(),
+    FormsModule,
     CommonModule,
-    ClientRoutingModule
+    TabsModule.forRoot(),
+    CarouselModule.forRoot(),
+    SharedModule,
+    GrowlModule,
+    RouterModule
   ],
   exports:[
     ClientComponent,
@@ -57,7 +60,9 @@ import { SharedModule } from '../../shared/shared.module';
     MyCadastreInitialComponent
   ],
   providers: [
-    ClientRoutingModule
+    ClientRoutingModule,
+    ProductService,
+    ApiService
   ]
 })
 export class ClientModule { }

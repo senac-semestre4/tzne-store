@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyAdressesComponent implements OnInit {
 
+  private cliente = {
+    'cep': '',
+    'Logradouro': '',
+    'numero': '',
+    'estado': '',
+    'bairro': '',
+    'cidade': '',
+  }
+
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  salvarCliente(){
+    console.log('aqui');
   }
 
 }

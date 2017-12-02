@@ -35,6 +35,11 @@ export class CartComponent implements OnInit {
     console.log(this.totalCartItems$, "Tamanho do Carrinho")
   }
 
+  private details( id ): void {
+    this.router.navigate(['/details/' + id]);
+  }
+
+
   initMsgs(){
     let status = this.msg.getStatus();
     if ( status != null ) this.alertarStatus( status['tipo'], status['titulo'], status['msg'] );

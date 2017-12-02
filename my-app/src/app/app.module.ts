@@ -25,6 +25,7 @@ import { FullLayoutComponent } from './layout/fullLayout/full-layout.component';
 import { ApiService } from './services/api.service';
 import { MensagensService } from './services/messages.service';
 import { LocalStorageModule } from "angular-2-local-storage/dist";
+import { ClientModule } from './pages/client/client.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { LocalStorageModule } from "angular-2-local-storage/dist";
     FullLayoutComponent
   ],
   imports: [
+    ClientModule,
     ButtonsModule.forRoot(),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),

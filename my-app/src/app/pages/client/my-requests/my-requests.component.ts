@@ -14,6 +14,7 @@ import { Headers, Http } from '@angular/http';
   styleUrls: ['./my-requests.component.scss']
 })
 export class MyRequestsComponent implements OnInit {
+  resultVendaCliente: any[];
 
 
   private produtosNoCarrinho: any;
@@ -53,7 +54,7 @@ export class MyRequestsComponent implements OnInit {
     private http: Http,
   ) { }
 
-  // salvar a venda em um array, verificar, tirar o post daqui e colocar no botão do finalizar compra
+  // tirar o post daqui e colocar no botão do finalizar compra
 
   ngOnInit() {
     this.precoTotal = this.produtos.getProdutoCarrinho();
@@ -65,18 +66,6 @@ export class MyRequestsComponent implements OnInit {
     this.compraEfetuada = this.produtos.getPagamento();
     this.date = new Date();
 
-    /* for(let i = 0; i < this.produtosNoCarrinho.length; i++){
-      this.itensVenda.product_product_has_id = this.produtosNoCarrinho[i]['product_has_id'];
-      this.itensVenda.product_name = this.produtosNoCarrinho[i]['product_name'];
-      this.itensVenda.unit_price = this.produtosNoCarrinho[i]['product_purchase_price'];
-      this.itensVenda.quantity = this.produtosNoCarrinho[i]['quantidade'];
-      this.itensVenda.subtotal = parseInt(this.produtosNoCarrinho[i]['product_purchase_price']) * this.produtosNoCarrinho[i]['quantidade'];
-      this.vendaAPI.push(this.itensVenda);
-      console.log(this.itensVenda, 'api venda')
-      console.log(this.vendaAPI, 'api')
-    } */
-
-
     this.produtosNoCarrinho.filter(i => {
       this.itensVenda = {
         "product_product_has_id": i['product_has_id'],
@@ -85,12 +74,6 @@ export class MyRequestsComponent implements OnInit {
         "quantity": i['quantidade'],
         "subtotal": parseInt(i['product_purchase_price']) * i['quantidade']
       }
-
-      /* this.itensVenda.product_product_has_id = i['product_has_id'];
-      this.itensVenda.product_name = i['product_name'];
-      this.itensVenda.unit_price = i['product_purchase_price'];
-      this.itensVenda.quantity = i['quantidade'];
-      this.itensVenda.subtotal = parseInt(i['product_purchase_price']) * i['quantidade']; */
       this.vendaAPI.push(this.itensVenda)
       console.log(this.itensVenda, 'api venda')
       console.log(this.vendaAPI, 'api venda')
@@ -106,22 +89,7 @@ export class MyRequestsComponent implements OnInit {
       "type_freight": "correios",
       "value_freight": parseInt(this.frete),
       "number_plots": this.produtosNoCarrinho.length,
-      "itens": this.vendaAPI /* [
-        {
-          "product_product_has_id": 153,
-          "product_name": "Camiseta Homem Aranha",
-          "unit_price": 57.5,
-          "quantity": 1,
-          "subtotal": 115
-        },
-        {
-          "product_product_has_id": 178,
-          "product_name": "Camiseta Homem Aranha",
-          "unit_price": 57.5,
-          "quantity": 1,
-          "subtotal": 115
-        }
-      ] */
+      "itens": this.vendaAPI
     };
 
     console.log(this.precoTotal, 'preço')
@@ -132,6 +100,7 @@ export class MyRequestsComponent implements OnInit {
     console.log(this.frete)
 
     this.carrinho();
+    this.vendaFeita()
     this.localStorageService.set('addCart', []);
   }
 
@@ -150,6 +119,31 @@ export class MyRequestsComponent implements OnInit {
         console.log(error.json());
       });
   }
+
+  vendaFeita(){
+    this.produtos.getVenda(1)
+        .then( result => {
+        console.log(result);
+        console.log(result);
+        this.resultVendaCliente = result.json();
+        console.log(result);
+        /* console.log(this.resultVendaCliente) */
+      })
+      .catch( error => {
+        console.log(error);
+    });
+  }
+
+  /* vendaFeita() {
+    this.http.get('http://tzne.kwcraft.com.br/api/venda/listavendacliente/', '1')
+      .subscribe(result => {
+        this.resultVendaCliente = result.json();
+        console.log(this.resultVendaCliente);
+        console.log(result.json());
+      }, error => {
+        console.log(error.json());
+      });
+  } */
 
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, Object.assign({}, this.config, { class: 'gray modal-lg' }));

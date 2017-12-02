@@ -32,8 +32,8 @@ export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChang
   //função de alteração para o numero de quantidade no carrinho
   ngAfterViewChecked(): void {
     this.quantidadeEmCarrinho = 0;
-     this.produtos.getProdutoCarrinho().filter(i=> {
-      if(i['quantidade'] > 1){
+      this.produtos.getProdutoCarrinho().filter(i=> {
+       if(i['quantidade'] > 1){
         this.quantidadeEmCarrinho += i['quantidade'];
         return
       }
