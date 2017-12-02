@@ -10,16 +10,14 @@
             <form class="login-login-form" (ngSubmit)="onSubmit()">
               <fieldset class="login-input-container">
                 <div class="login-input-item">
-                  <input type="email" class="login-user-input-email login-user-input" name="email" placeholder="Digite o seu endereço de email" formControlName="email"
-                    autocomplete="off">
+                  <input type="email" class="login-user-input-email login-user-input" name="email" placeholder="Digite o seu endereço de email">
                   <div *ngIf="signInForm.get('email').errors && signInForm.get('email').touched">
                     <span class="login-error-icon text-danger">!</span>
                     <p class="login-error-message text-danger">{{signInForm.get('email').errors.msg || 'Digite um e-mail válido'}}</p>
                   </div>
                 </div>
                 <div class="login-input-item">
-                  <input type="password" class="login-user-input-password login-user-input" name="password" placeholder="Digite a senha" formControlName="password"
-                    autocomplete="off">
+                  <input type="password" class="login-user-input-password login-user-input" name="password" placeholder="Digite a senha">
                   <div *ngIf="signInForm.get('password').errors && signInForm.get('password').touched">
                     <span class="login-error-icon text-danger">!</span>
                     <p class="login-error-message text-danger">{{signInForm.get('password').errors.msg || 'A senha deve ter pelo menos 6 caracteres'}}</p>

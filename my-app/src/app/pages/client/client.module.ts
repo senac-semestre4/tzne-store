@@ -15,13 +15,11 @@ import { LoginComponent } from './login/login.component';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { MyCadastreInitialComponent } from './my-cadastre-initial/my-cadastre-initial.component';
+import { GrowlModule } from 'primeng/primeng';
 
 // rota
 import { ClientRoutingModule } from './client.routing';
 import { SharedModule } from '../../shared/shared.module';
-
-
-
 
 @NgModule({
   declarations: [
@@ -33,19 +31,19 @@ import { SharedModule } from '../../shared/shared.module';
     LoginComponent,
     MyRequestsComponent,
     AttendanceComponent,
-    MyCadastreInitialComponent
+    MyCadastreInitialComponent,
   ],
   imports: [
-    //TooltipModule.forRoot(),
-    //FormsModule,
+    GrowlModule,
+    FormsModule,
     //CarouselModule.forRoot(),
     //ClientModule,
     //SharedModule,
     TabsModule.forRoot(),
     CommonModule,
-    ClientRoutingModule
+    ClientRoutingModule,
   ],
-  exports:[
+  exports: [
     ClientComponent,
     MyAccessComponent,
     MyAccountComponent,
@@ -54,10 +52,10 @@ import { SharedModule } from '../../shared/shared.module';
     LoginComponent,
     MyRequestsComponent,
     ClientRoutingModule,
-    MyCadastreInitialComponent
+    MyCadastreInitialComponent,
   ],
   providers: [
-    ClientRoutingModule
-  ]
+    ClientRoutingModule,
+  ],
 })
 export class ClientModule { }
