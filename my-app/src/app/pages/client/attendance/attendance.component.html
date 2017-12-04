@@ -1,3 +1,4 @@
+<p-growl [(value)]="msgs"></p-growl>
 <div class="titulo">
   <i class="ion-ios-search-strong"></i>
   <p>Assuntos mais procurados</p>
@@ -130,5 +131,46 @@
       <i class="ion-social-facebook"></i>
       <p>tzneoficial@facebook.com</p>
     </a>
+  </div>
+</div>
+
+<!-- Abertura de chamado -->
+<div class="titulo">
+  <i class="ion-settings"></i>
+  <p >Abrir chamado</p>
+</div>
+<div class="col-xs-12">
+  <div class="form-group">
+    <label for="">Nome Completo*</label>
+    <input type="text" class="form-control" placeholder="João Fonseca" name="nome" [(ngModel)]="chamado.nome" >
+  </div>
+  <div class="form-group">
+    <label for="">E-mail *</label>
+    <input type="email" class="form-control" placeholder="exemplo@email.com" name="email" [(ngModel)]="chamado.email" >
+  </div>
+  <div class="form-group menor">
+    <label for="">Telefone *</label>
+    <input type="text" 
+    class="form-control"
+     placeholder="11 5521-2222" 
+     name="telefone" 
+     [(ngModel)]="chamado.telefone"
+      appMak="99 9999-9999">
+  </div>
+  <div class="form-group menor">
+    <label for="">Assunto *</label>
+    <select class="form-control" name="assunto" [(ngModel)]="chamado.assunto">
+      <option value="">Selecione</option>
+      <option value="elogio">Elogio</option>
+      <option value="reclamacao">Reclamação</option>
+      <option value="sugestao">Sugestão</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="">Mensagem *</label>
+    <textarea name="mensagem" class="form-control" rows="3" [(ngModel)]="chamado.mensagem"></textarea>
+  </div>
+  <div class="container-salvar">
+    <a type="button" class="btn-salvar" (click)="enviar()">Enviar</a>
   </div>
 </div>

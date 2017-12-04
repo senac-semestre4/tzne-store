@@ -89,7 +89,7 @@ export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChang
   }
 
   private login(): void {
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login/0'])
   }
 
 }

@@ -6,8 +6,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Headers, URLSearchParams, Http } from '@angular/http';
-
-
+import { Message } from 'primeng/primeng';
+import { MensagensService } from '../../../services/messages.service';
 
 @Component({
   selector: 'app-my-cadastre-initial',
@@ -16,6 +16,7 @@ import { Headers, URLSearchParams, Http } from '@angular/http';
 })
 export class MyCadastreInitialComponent implements OnInit {
 
+  public msgs: Message[] = [];
   private resultInsertCli: any;
 
   private cliente = {
@@ -34,8 +35,8 @@ export class MyCadastreInitialComponent implements OnInit {
     'client_adress_number': '',
     'client_adress_complements': '',
     'client_adress_district': '',
-    'client_adress_city':'',
-    'client_adress_state':'',
+    'client_adress_city': '',
+    'client_adress_state': '',
     'client_status': ''
   }
   /* private cliente = {
@@ -63,12 +64,12 @@ export class MyCadastreInitialComponent implements OnInit {
     private modalService: BsModalService,
     private localStorageService: LocalStorageService,
     private http: Http,
+    private msg: MensagensService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
   }
-
-
 
   inserirCliente() {
     /* let data = new URLSearchParams();
@@ -116,22 +117,44 @@ export class MyCadastreInitialComponent implements OnInit {
       .subscribe(result => {
         //this.resultInsertCli = result.json();
         console.log(result)
+        //this.alertarStatus('success', 'Sucesso!', 'Sucesso.');
+        return true;
         //console.log(result.json())
       }, error => {
         console.log(error.json());
       });
 
-   /*  this.http.post('http://tzne.kwcraft.com.br/View/TestesViews/ViewCliente/inserecliente.php', data)
-      .subscribe(result => {
-        this.resultInsertCli = result.json();
-        console.log(result.json())
-      }, error => {
-        console.log(error.json());
-      }); */
+    /*  this.http.post('http://tzne.kwcraft.com.br/View/TestesViews/ViewCliente/inserecliente.php', data)
+       .subscribe(result => {
+         this.resultInsertCli = result.json();
+         console.log(result.json())
+       }, error => {
+         console.log(error.json());
+       }); */
   }
 
-  salvar(){
-    console.log(this.cliente);
-    this.inserirCliente();
+  initMsgs() {
+    let status = this.msg.getStatus();
+    if (status != null) this.alertarStatus(status['tipo'], status['titulo'], status['msg']);
+    this.msg.limparStatus();
+  }
+
+  private alertarStatus(tipo: string, titulo: string, msg: string) {
+    this.msgs = [];
+    this.msgs.push({ severity: tipo, summary: titulo, detail: msg });
+  }
+
+  private limparStatus() {
+    this.msgs = [];
+  }
+
+
+  salvar() {
+    if (!this.inserirCliente()) {
+      this.router.navigate(['/login/1']);
+    }
+    else {
+      this.alertarStatus('error', 'OPS!', 'Algo não deu certo');
+    }
   }
 }

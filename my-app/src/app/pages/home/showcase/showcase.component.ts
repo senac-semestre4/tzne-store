@@ -47,6 +47,7 @@ export class ShowcaseComponent implements OnInit {
     //console.log(this.products, "produtos");
     this.id = this.produtos.retornarId();
     this.buscarProdutosAPI();
+    this.buscarCLiente();
     this.router.navigate(['home']);
     //this.buscarDezProdutosAPI();
   }
@@ -80,6 +81,16 @@ export class ShowcaseComponent implements OnInit {
         if(this.id != 0){
           this.ListaProdutos = this.ListaProdutos.filter(i => i['departaments_departament_id'] == this.id);
         }
+      })
+      .catch( error => {
+        console.log(error);
+    });
+  }
+
+  buscarCLiente(){
+    this.produtos.listarClientes()
+        .then( result => {
+        console.log(result);
       })
       .catch( error => {
         console.log(error);

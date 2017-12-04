@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     MyRequestsComponent,
     AttendanceComponent,
-    MyCadastreInitialComponent
+    MyCadastreInitialComponent,
   ],
   imports: [
     ButtonsModule.forRoot(),
@@ -48,7 +48,7 @@ import { RouterModule } from '@angular/router';
     GrowlModule,
     RouterModule
   ],
-  exports:[
+  exports: [
     ClientComponent,
     MyAccessComponent,
     MyAccountComponent,
@@ -57,7 +57,7 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     MyRequestsComponent,
     ClientRoutingModule,
-    MyCadastreInitialComponent
+    MyCadastreInitialComponent,
   ],
   providers: [
     ClientRoutingModule,

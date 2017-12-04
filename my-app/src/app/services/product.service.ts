@@ -234,6 +234,13 @@ export class ProductService {
                   .catch(this.handleError);
   }
 
+   public listarClientes() {
+    return this.http.get( this.apiService.getUrl() + 'api/clientes/listarclientes')
+                  .toPromise()
+                  .then( response => response.json() )
+                  .catch(this.handleError);
+  }
+
    public buscarProdutosByID(id) {
     return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos')
                   .toPromise()

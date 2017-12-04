@@ -112,6 +112,7 @@ export class MyRequestsComponent implements OnInit {
     let body = urlSearchParams.toString()
     this.http.post('http://tzne.kwcraft.com.br/api/venda/inserevenda', body, { headers: headers })
       .subscribe(result => {
+        console.log(result.json());
         this.resultvenda = result.json();
         console.log(this.resultvenda);
         console.log(result.json());
@@ -124,9 +125,8 @@ export class MyRequestsComponent implements OnInit {
     this.produtos.getVenda(1)
         .then( result => {
         console.log(result);
-        console.log(result);
-        this.resultVendaCliente = result.json();
-        console.log(result);
+        this.resultVendaCliente = result;
+        console.log(this.resultVendaCliente);
         /* console.log(this.resultVendaCliente) */
       })
       .catch( error => {
