@@ -1,44 +1,38 @@
 <div class="row login-container" data-hook="">
-    <div id="content" class="col-sm-12" data-hook="">
-      <div class="col-md-5 col-centered">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Entrar em TZNE-E-commerce</h3>
-          </div>
-          <div id="existing-customer" class="panel-body" data-hook="login">
-            <p class="login-info-text">- ENTRE USANDO E-MAIL -</p>
-            <form class="login-login-form" (ngSubmit)="onSubmit()">
-              <fieldset class="login-input-container">
-                <div class="login-input-item">
-                  <input type="email" class="login-user-input-email login-user-input" name="email" placeholder="Digite o seu endereço de email">
-                  <div *ngIf="signInForm.get('email').errors && signInForm.get('email').touched">
-                    <span class="login-error-icon text-danger">!</span>
-                    <p class="login-error-message text-danger">{{signInForm.get('email').errors.msg || 'Digite um e-mail válido'}}</p>
-                  </div>
-                </div>
-                <div class="login-input-item">
-                  <input type="password" class="login-user-input-password login-user-input" name="password" placeholder="Digite a senha">
-                  <div *ngIf="signInForm.get('password').errors && signInForm.get('password').touched">
-                    <span class="login-error-icon text-danger">!</span>
-                    <p class="login-error-message text-danger">{{signInForm.get('password').errors.msg || 'A senha deve ter pelo menos 6 caracteres'}}</p>
-                  </div>
-                </div>
-              </fieldset>
-              <fieldset class="login-login-button-container">
-                <button type="submit" class="btn btn-danger login-login-button">Entrar</button>
-              </fieldset>
-            </form>
-            <div class="login-link-container">
-              <small>
-                <a class="login-link text-danger" routerLink="/">Recuperar senha</a>
+  <p-growl [(value)]="msgs"></p-growl>
+
+  <div id="content" class="col-sm-12" data-hook="">
+    <div class="col-md-5 col-centered">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Entrar em TZNE-E-commerce</h3>
+        </div>
+        <div id="existing-customer" class="panel-body" data-hook="login">
+          <p class="login-info-text">- ENTRE USANDO E-MAIL -</p>
+          <form class="login-login-form">
+            <fieldset class="login-input-container">
+              <div class="login-input-item">
+                <input type="email" class="login-user-input-email login-user-input" name="email" placeholder="Digite o seu endereço de email" [(ngModel)]="cliente.userName">
+              </div>
+              <div class="login-input-item">
+                <input type="password" class="login-user-input-password login-user-input" name="password" placeholder="Digite a senha" [(ngModel)]="cliente.userKey">
+              </div>
+            </fieldset>
+            <fieldset class="login-login-button-container">
+              <button type="submit" class="btn btn-danger login-login-button" (click)="entrar()">Entrar</button>
+            </fieldset>
+          </form>
+          <div class="login-link-container">
+            <small>
+                <!-- <a class="login-link text-danger" routerLink="/">Recuperar senha</a> -->
                 <div class="login-right-links">
                   <span class="text-default">Novo em TZNE-E-commerce?</span>
-                  <a class="login-create-account-link login-link text-danger">Cadastrar-se</a>
+                  <a style="cursor:pointer;"class="login-create-account-link login-link text-danger" (click)="cadastrar( 0 )">Cadastrar-se</a>
                 </div>
               </small>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

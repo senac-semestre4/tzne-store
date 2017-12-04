@@ -1,58 +1,58 @@
 /*RESET*/
 html,
-body, 
-div, 
-span, 
-applet, 
-object, 
+body,
+div,
+span,
+applet,
+object,
 iframe,
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6, 
-p, 
-blockquote, 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
 pre,
-a, 
-address, 
-cite, 
+a,
+address,
+cite,
 code,
 img,
-small, 
-strike, 
-strong, 
-i, 
+small,
+strike,
+strong,
+i,
 center,
-ol, 
-ul, 
+ol,
+ul,
 li,
-fieldset, 
-form, 
-label, 
+fieldset,
+form,
+label,
 legend,
-table, 
-caption, 
-tbody, 
-tfoot, 
-thead, 
-tr, 
-th, 
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
 td,
-article, 
-aside, 
+article,
+aside,
 canvas,
 figure,
 details,
 figcaption,
-blockquote, 
+blockquote,
 q,
-footer, 
-header, 
-hgroup, 
-menu, 
-nav, 
+footer,
+header,
+hgroup,
+menu,
+nav,
 output,
 section{
 	margin: 0;
@@ -61,26 +61,26 @@ section{
     box-sizing: border-box;
     font-size: 100%;
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
-	vertical-align: baseline;
+	/* vertical-align: baseline; */
 }
 /* Restauração da função de exibição HTML5 para navegadores mais antigos */
-article, 
-aside, 
-details, 
-figcaption, 
-figure, 
-footer, 
-header, 
-hgroup, 
-menu, 
-nav, 
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
 section {
 	display: block;
 }
 body {
 	line-height: 1;
 }
-ol, 
+ol,
 ul {
 	list-style: none;
 }
@@ -97,11 +97,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
+h1,
+h2,
+h3,
+h4,
+h5,
 h6,
 a,
 i,
@@ -111,7 +111,7 @@ p{
 a:link{
     text-decoration: none;
     cursor: pointer;
-    
+
 }
 
 /* GRID */

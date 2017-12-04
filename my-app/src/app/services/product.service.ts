@@ -6,6 +6,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
 export class ProductService {
+  vendaCliente: any;
 
   //private headers = new Headers({ 'Access-Control-Allow-Origin': true });
   private headers = new Headers({'Content-Type': 'application/json'});
@@ -219,8 +220,22 @@ export class ProductService {
                   .catch(this.handleError);
   }
 
+   public getVenda( id ) {
+    return this.http.get( this.apiService.getUrl() + 'api/venda/listavendacliente/' + id)
+                  .toPromise()
+                  .then( response => this.vendaCliente = response.json() )
+                  .catch(this.handleError);
+  }
+
    public buscarProdutos() {
     return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos')
+                  .toPromise()
+                  .then( response => response.json() )
+                  .catch(this.handleError);
+  }
+
+   public listarClientes() {
+    return this.http.get( this.apiService.getUrl() + 'api/clientes/listarclientes')
                   .toPromise()
                   .then( response => response.json() )
                   .catch(this.handleError);

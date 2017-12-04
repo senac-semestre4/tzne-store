@@ -78,7 +78,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   }, */
   {
-    path: 'login',
+    path: 'login/:id',
     component: LoginComponent,
     pathMatch: 'full',
   },
