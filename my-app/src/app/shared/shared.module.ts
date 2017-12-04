@@ -1,23 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MyRequestsComponent } from "./my-requests/my-requests.component";
 import { P404Component } from '../shared/404/404.component';
 import { RouterModule } from '@angular/router';
 import { CollapseComponent } from './collapse/collapse.component';
 
+import { 
+  KzMaskDirective,
+  KzMaskCurrencyDirective,
+} from './';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
-    MyRequestsComponent,
     P404Component,
     CollapseComponent,
+    KzMaskDirective,
+    KzMaskCurrencyDirective,
   ],
   imports: [
     CommonModule,
     RouterModule,
+  	FormsModule 
   ],
   exports:[
-    MyRequestsComponent,
-    P404Component
+    P404Component,
+    KzMaskDirective,
+    KzMaskCurrencyDirective,
+    CommonModule, 
+    FormsModule
   ]
 })
 export class SharedModule { }

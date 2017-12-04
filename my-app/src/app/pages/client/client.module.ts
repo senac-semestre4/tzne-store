@@ -36,9 +36,7 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     GrowlModule,
     FormsModule,
-    //CarouselModule.forRoot(),
-    //ClientModule,
-    //SharedModule,
+    SharedModule,
     TabsModule.forRoot(),
     CommonModule,
     ClientRoutingModule,
