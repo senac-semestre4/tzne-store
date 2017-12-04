@@ -2,6 +2,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, trigger, state, style, transition, animate, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { AfterViewChecked } from '@angular/core';
+import { LocalStorageService } from 'angular-2-local-storage';
+import { LocalStorageModule } from 'angular-2-local-storage/dist';
 
 @Component({
   selector: 'app-header',
@@ -16,17 +18,22 @@ export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChang
   private quantidadeEmCarrinho: number;
   private sair: boolean = false;
   private ListaProdutosID: any;
+  private cliente: any;
 
   constructor(
     private routeParams: ActivatedRoute,
     private produtos: ProductService,
-    private router: Router
+    private router: Router,
+    private localStorageService: LocalStorageService
+
   ) { }
 
   ngOnInit(): void {
     this.sair = false;
     this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length;
     console.log(this.quantidadeEmCarrinho, "Quantidade");
+    this.cliente = this.localStorageService.get('cliente') as object;
+    console.log(this.cliente)
   }
 
   //função de alteração para o numero de quantidade no carrinho
@@ -85,7 +92,7 @@ export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChang
 
    private logout(): void {
     this.sair = true;
-    console.log("aqui")
+    this.localStorageService.set('cliente', []);
   }
 
   private login(): void {

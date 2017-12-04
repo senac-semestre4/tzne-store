@@ -3,6 +3,7 @@ import { ProductService } from '../../../services/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MensagensService } from '../../../services/messages.service';
 import { Message } from 'primeng/primeng';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,20 @@ export class LoginComponent implements OnInit {
   private resultInsertCli: any;
   private id: any;
   private api: any;
+  private cliente = {
+    'userName': '',
+    'userKey': ''
+  }
+
+  private getCliente: any[];
+
 
   constructor(
     private produtos: ProductService,
     private routeParams: ActivatedRoute,
     private router: Router,
     private msg: MensagensService,
-
+    private localStorageService: LocalStorageService
   ) { }
 
   ngOnInit(): void {
@@ -31,8 +39,9 @@ export class LoginComponent implements OnInit {
     if (this.id == 1) {
       this.alertarStatus('success', 'Sucesso!', 'Sucesso.');
     }
-  }
 
+    let sessao = this.localStorageService.get('cliente') as object;
+  }
 
   initMsgs() {
     let status = this.msg.getStatus();
@@ -48,5 +57,15 @@ export class LoginComponent implements OnInit {
   private limparStatus() {
     this.msgs = [];
   }
+
+  private cadastrar(id): void {
+    this.router.navigate(['/cadastre/' + id])
+  }
+
+  private entrar() {
+    console.log(this.cliente);
+    this.localStorageService.set('cliente', this.cliente);
+  }
+
 
 }

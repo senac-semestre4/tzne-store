@@ -39,25 +39,6 @@ export class MyCadastreInitialComponent implements OnInit {
     'client_adress_state': '',
     'client_status': ''
   }
-  /* private cliente = {
-    'client_nome': '',
-    'client_password': '',
-    'client_cpf': '',
-    'client_sex': '',
-    'client_birthday': '',
-    'client_tel': '',
-    'client_cel': '',
-    'client_email': '',
-    'client_adress_cep': '',
-    'client_adress_logradouro': '',
-    'client_adress_type': '',
-    'client_adress_complements': '',
-    'client_adress_number': '',
-    'client_adress_city': '',
-    'client_adress_district': '',
-    'client_direct_mail': '',
-    'estado': ''
-  } */
 
   constructor(
     private produtos: ProductService,
@@ -72,26 +53,6 @@ export class MyCadastreInitialComponent implements OnInit {
   }
 
   inserirCliente() {
-    /* let data = new URLSearchParams();
-    var headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    data.append('client_name', 'TESTEeeeeeewada');
-    data.append('client_password', '123456');
-    data.append('client_cpf', '123465');
-    data.append('client_sex', '1');
-    data.append('client_birthday', '2017-10-11 00:00:00');
-    data.append('client_tel', '123456');
-    data.append('client_cel', '123456');
-    data.append('client_email', 'TSETE@TESTE22223');
-    data.append('client_adress_cep', '12345687');
-    data.append('client_adress_logradouro', 'teste');
-    data.append('client_adress_type', 'teste');
-    data.append('client_adress_complements', 'teste');
-    data.append('client_adress_number', '123456');
-    data.append('client_adress_district', 'teste');
-    data.append('client_direct_mail', '0');
-    data.append('client_adress_city', 'teste');
-    data.append('client_adress_state', 'teste'); */
     let data = new URLSearchParams();
     var headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -115,22 +76,12 @@ export class MyCadastreInitialComponent implements OnInit {
 
     this.http.post('http://tzne.kwcraft.com.br/View/TestesViews/ViewCliente/inserecliente.php', data, { headers: headers })
       .subscribe(result => {
-        //this.resultInsertCli = result.json();
         console.log(result)
-        //this.alertarStatus('success', 'Sucesso!', 'Sucesso.');
         return true;
-        //console.log(result.json())
       }, error => {
         console.log(error.json());
       });
 
-    /*  this.http.post('http://tzne.kwcraft.com.br/View/TestesViews/ViewCliente/inserecliente.php', data)
-       .subscribe(result => {
-         this.resultInsertCli = result.json();
-         console.log(result.json())
-       }, error => {
-         console.log(error.json());
-       }); */
   }
 
   initMsgs() {
