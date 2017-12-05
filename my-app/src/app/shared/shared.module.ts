@@ -9,11 +9,13 @@ import {
   KzMaskCurrencyDirective,
 } from './';
 import { FormsModule } from '@angular/forms';
+import { LoadComponent } from './load/load.component';
 
 @NgModule({
   declarations: [
     P404Component,
     CollapseComponent,
+    LoadComponent,
     KzMaskDirective,
     KzMaskCurrencyDirective,
   ],
@@ -27,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     KzMaskDirective,
     KzMaskCurrencyDirective,
     CommonModule, 
-    FormsModule
+    FormsModule,
+    LoadComponent
   ]
 })
 export class SharedModule { }

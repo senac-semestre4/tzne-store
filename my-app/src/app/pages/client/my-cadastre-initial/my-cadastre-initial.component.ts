@@ -8,6 +8,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 import { Headers, URLSearchParams, Http } from '@angular/http';
 import { Message } from 'primeng/primeng';
 import { MensagensService } from '../../../services/messages.service';
+import cep from 'cep-promise';
 
 @Component({
   selector: 'app-my-cadastre-initial',
@@ -18,18 +19,20 @@ export class MyCadastreInitialComponent implements OnInit {
 
   public msgs: Message[] = [];
   private resultInsertCli: any;
+  private cepCompleto: boolean;
+  private loading: boolean;
 
   private cliente = {
     'client_name': '',
     'client_email': '',
     'client_cpf': '',
-    'client_sex': '',
+    'client_sex': '0',
     'client_password': '',
     'client_birthday': '',
     'client_tel': '',
     'client_cel': '',
     'client_direct_mail': '',
-    'client_adress_type': '',
+    'client_adress_type': '0',
     'client_adress_cep': '',
     'client_adress_logradouro': '',
     'client_adress_number': '',
@@ -50,6 +53,8 @@ export class MyCadastreInitialComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.cepCompleto = false;
+    this.loading = false;
   }
 
   inserirCliente() {
@@ -97,6 +102,23 @@ export class MyCadastreInitialComponent implements OnInit {
 
   private limparStatus() {
     this.msgs = [];
+  }
+
+  buscaCep(){
+    if(this.cliente.client_adress_cep.length == 8){
+      this.loading = true;
+      cep(this.cliente.client_adress_cep)
+      .then(response =>{
+        this.cliente.client_adress_logradouro = response.street;
+        this.cliente.client_adress_district = response.neighborhood
+        this.cliente.client_adress_city = response.city;
+        this.cliente.client_adress_state = response.state;
+        this.loading = false;
+      })
+      .catch(response =>{
+        this.loading = false;
+      });
+    }
   }
 
 
