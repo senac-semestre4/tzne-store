@@ -80,7 +80,7 @@ export class MyRequestsComponent implements OnInit {
       i++;
     })
 
-    this.venda = {
+    /* this.venda = {
       "quantidadeAlterada": true,
       "client_client_id": 1,
       "total_partial": this.valortotalCompra,
@@ -91,6 +91,17 @@ export class MyRequestsComponent implements OnInit {
       "number_plots": this.produtosNoCarrinho.length,
       "itens": this.vendaAPI
     };
+ */
+    this.venda = {
+    "client_client_id": 1,
+    "total_partial": 230, //
+    "amount": 115,
+    "discount": 0,
+    "type_freight": "correios",
+    "value_freight": 16, //
+    "number_plots": this.produtosNoCarrinho.length,
+    "itens": this.vendaAPI
+    }
 
     console.log(this.precoTotal, 'preço')
     console.log(this.valortotalCompra, 'preço')
