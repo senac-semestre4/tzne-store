@@ -1,0 +1,26 @@
+.loading-overlay {
+    background: rgba(255, 254, 254, 0.8);
+    position: absolute;
+    text-align: center;
+    z-index: 100000;
+    width: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    > div {
+        margin: auto;
+        width: 100%;
+        img{
+            position: relative;
+            transform: translateY(50%); 
+            width: auto;
+        }
+        h3 {
+            font-size: 15px;
+            margin-top: 50px;
+        }
+
+    }
+}

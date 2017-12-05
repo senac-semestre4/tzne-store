@@ -3,111 +3,167 @@
 
   <div class="form-group menor">
     <label for="nome">Nome Completo*</label>
-    <input [(ngModel)]="cliente.client_name" type="text" id="nome" name="nome" class="form-control" placeholder="Digite seu nome">
+    <input 
+    [(ngModel)]="cliente.client_name" 
+    type="text" 
+    id="nome" 
+    name="nome" 
+    class="form-control" 
+    placeholder="Digite seu nome" maxlength="100">
   </div>
-  <!-- <div class="form-group menor">
-        <label for="apelido">Apelido *</label>
-        <input [(ngModel)]="cliente." type="text" id="apelido" name="apelido" class="form-control" placeholder="Apelido">
-    </div> -->
   <div class="form-group menor">
     <label for="email">E-mail *</label>
-    <input [(ngModel)]="cliente.client_email" type="email" id="email" name="email" class="form-control" placeholder="exemplo@exemplo.com">
+    <input 
+    [(ngModel)]="cliente.client_email" 
+    type="email" 
+    id="email" 
+    name="email" 
+    class="form-control" 
+    placeholder="exemplo@exemplo.com"
+    maxlength="100">
   </div>
   <div class="form-group menor">
     <label for="senha">Senha *</label>
-    <input [(ngModel)]="cliente.client_password" type="password" id="senha" name="senha" class="form-control" placeholder="*******">
+    <input 
+    [(ngModel)]="cliente.client_password" 
+    type="password" 
+    id="senha" 
+    name="senha" 
+    class="form-control" 
+    placeholder="*******"
+    maxlength="20">
   </div>
   <div class="form-group menor">
     <label for="cpf">CPF *</label>
-    <input [(ngModel)]="cliente.client_cpf" type="text" id="cpf" name="cpf" class="form-control" placeholder="xxx.xxx.xxx-x">
+    <input 
+    [(ngModel)]="cliente.client_cpf" 
+    type="text" 
+    id="cpf" 
+    name="cpf" 
+    class="form-control" 
+    placeholder="xxx.xxx.xxx-xx"
+    kzMask="999.999.999-99"
+    maxlength="14">
   </div>
   <div class="form-group menor">
     <label for="sexo">Sexo *</label>
     <select [(ngModel)]="cliente.client_sex" id="sexo" name="sexo" class="form-control">
-            <option value="0">Feminino</option>
-            <option value="1">Masculino</option>
-        </select>
+      <option value="0">Feminino</option>
+      <option value="1">Masculino</option>
+    </select>
   </div>
   <div class="form-group menor">
     <label for="dataNasc">Data Nascimento *</label>
-    <input [(ngModel)]="cliente.client_birthday" type="text" id="dataNasc" name="dataNasc" class="form-control" placeholder="dd/MM/aaaa">
+    <input 
+    [(ngModel)]="cliente.client_birthday" 
+    type="text" 
+    id="dataNasc" 
+    name="dataNasc" 
+    class="form-control" 
+    placeholder="dd/MM/aaaa"
+    kzMask="99/99/9999">
   </div>
   <div class="form-group menor">
     <label for="telefone">Telefone *</label>
-    <input [(ngModel)]="cliente.client_tel" type="text" id="telefone" name="telefone" class="form-control" placeholder="(xx)xxxx-xxxx">
+    <input 
+    [(ngModel)]="cliente.client_tel" 
+    type="text" 
+    id="telefone"
+    name="telefone" 
+    class="form-control" 
+    placeholder="(xx) xxxx-xxxx"
+    kzMask="(99) 9999-9999">
   </div>
   <div class="form-group menor">
     <label for="celular">Celular (opcional)</label>
-    <input [(ngModel)]="cliente.client_cel" type="text" id="telefone" name="telefone" class="form-control" placeholder="(xx)xxxxx-xxxx">
-  </div>
-  <div class="form-group menor">
-    <label for="CEP">CEP *</label>
-    <input [(ngModel)]="cliente.client_adress_cep" type="text" id="CEP" name="CEP" class="form-control" placeholder="xxxxx-xxx">
+    <input 
+    [(ngModel)]="cliente.client_cel" 
+    type="text" 
+    id="telefone" 
+    name="telefone" 
+    class="form-control" 
+    placeholder="(xx) x xxxx-xxxx"
+      kzMask="(99) 9 9999-9999">
   </div>
   <div class="form-group menor">
     <label for="endereco">Endereço *</label>
     <select [(ngModel)]="cliente.client_adress_type" class="form-control" id="endereco" name="endereco">
-          <option disabled="true">Selecione</option>
-          <option value="1">Apartamento</option>
-          <option value="3">Casa</option>
-          <option value="3">Comercial</option>
-          <option value="4">Outros</option>
-        </select>
+      <option disabled="true" value="0">Selecione</option>
+      <option value="1">Apartamento</option>
+      <option value="3">Casa</option>
+      <option value="3">Comercial</option>
+      <option value="4">Outros</option>
+    </select>
   </div>
   <div class="form-group menor">
-    <label for="logradouro">Logradouro *</label>
-    <input [(ngModel)]="cliente.client_adress_logradouro" type="text" id="logradouro" name="logradouro" class="form-control"
-      placeholder="Logradouro">
+    <label for="CEP">CEP *</label>
+    <input 
+    [(ngModel)]="cliente.client_adress_cep" 
+    type="text" 
+    id="CEP" 
+    name="CEP" 
+    class="form-control" 
+    placeholder="xxxxx-xxx"
+    kzMask="99999-999"
+    (keyup)="buscaCep()">
   </div>
-  <div class="form-group menor">
-    <label for="numero">Número *</label>
-    <input [(ngModel)]="cliente.client_adress_number" type="number" class="form-control" id="numero" name="numero" placeholder="xxxx">
-  </div>
-  <div class="form-group menor">
-    <label for="complemento">Complemento (opicional)</label>
-    <input [(ngModel)]="cliente.client_adress_complements" type="text" class="form-control" id="complemento" name="complemento"
-      placeholder="Complemento">
-  </div>
-  <div class="form-group menor">
-    <label for="bairro">Bairro (opicional)</label>
-    <input [(ngModel)]="cliente.client_adress_district" type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
-  </div>
-  <div class="form-group menor">
-    <label for="cidade">Cidade *</label>
-    <input [(ngModel)]="cliente.client_adress_city" type="text" class="form-control" id="Cidade" name="Cidade" placeholder="cidade">
-  </div>
-  <div class="form-group menor">
-    <label for="estado">Estado *</label>
-    <select [(ngModel)]="cliente.client_adress_state" class="form-control" id="estado" name="estado">
-          <option disabled>Selecione</option>
-          <option value="AC">Acre</option>
-          <option value="AL">Alagoas</option>
-          <option value="AM">Amazonas</option>
-          <option value="AP">Amapá</option>
-          <option value="BA">Bahia</option>
-          <option value="CE">Ceará</option>
-          <option value="DF">Distrito Federal</option>
-          <option value="ES">Espirito Santo</option>
-          <option value="GO">Goiás</option>
-          <option value="MA">Maranhão</option>
-          <option value="MG">Minas Gerais</option>
-          <option value="MS">Mato Grosso do Sul</option>
-          <option value="MT">Mato Grosso</option>
-          <option value="PA">Pará</option>
-          <option value="PB">Paraiba</option>
-          <option value="PE">Pernambuco</option>
-          <option value="PI">Piaui</option>
-          <option value="PR">Paraná</option>
-          <option value="RJ">Rio de Janeiro</option>
-          <option value="RN">Rio Grande do Norte</option>
-          <option value="RS">Rio Grande do Sul</option>
-          <option value="RO">Rondonia</option>
-          <option value="RR">Roraima</option>
-          <option value="SC">Santa Catarina</option>
-          <option value="SE">Sergipe</option>
-          <option value="SP">São Paulo</option>
-          <option value="TO">Tocantins</option>
-        </select>
+  <div *ngIf="cliente.client_adress_cep.length == 8" class="box-endereco">
+    <app-load *ngIf="loading"></app-load>
+    <div class="form-group menor">
+      <label for="logradouro">Logradouro *</label>
+      <input [(ngModel)]="cliente.client_adress_logradouro" type="text" id="logradouro" name="logradouro" class="form-control"
+        placeholder="Logradouro">
+    </div>
+    <div class="form-group menor">
+      <label for="numero">Número *</label>
+      <input [(ngModel)]="cliente.client_adress_number" type="number" class="form-control" id="numero" name="numero" placeholder="xxxx">
+    </div>
+    <div class="form-group menor">
+      <label for="bairro">Bairro (opicional)</label>
+      <input [(ngModel)]="cliente.client_adress_district" type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro">
+    </div>
+    <div class="form-group menor">
+      <label for="cidade">Cidade *</label>
+      <input [(ngModel)]="cliente.client_adress_city" type="text" class="form-control" id="Cidade" name="Cidade" placeholder="cidade">
+    </div>
+    <div class="form-group menor">
+      <label for="estado">Estado *</label>
+      <select [(ngModel)]="cliente.client_adress_state" class="form-control" id="estado" name="estado">
+        <option disabled>Selecione</option>
+        <option value="AC">Acre</option>
+        <option value="AL">Alagoas</option>
+        <option value="AM">Amazonas</option>
+        <option value="AP">Amapá</option>
+        <option value="BA">Bahia</option>
+        <option value="CE">Ceará</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="ES">Espirito Santo</option>
+        <option value="GO">Goiás</option>
+        <option value="MA">Maranhão</option>
+        <option value="MG">Minas Gerais</option>
+        <option value="MS">Mato Grosso do Sul</option>
+        <option value="MT">Mato Grosso</option>
+        <option value="PA">Pará</option>
+        <option value="PB">Paraiba</option>
+        <option value="PE">Pernambuco</option>
+        <option value="PI">Piaui</option>
+        <option value="PR">Paraná</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RN">Rio Grande do Norte</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="RO">Rondonia</option>
+        <option value="RR">Roraima</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SE">Sergipe</option>
+        <option value="SP">São Paulo</option>
+        <option value="TO">Tocantins</option>
+      </select>
+    </div>
+    <div class="form-group menor">
+        <label for="complemento">Complemento (opicional)</label>
+        <input [(ngModel)]="cliente.client_adress_complements" type="text" class="form-control" id="complemento" name="complemento"
+          placeholder="Complemento">
+      </div>
   </div>
 
   <!-- <div class="form-group email-promocional">
