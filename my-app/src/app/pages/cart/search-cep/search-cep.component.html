@@ -4,8 +4,9 @@
   </div>
   <div class="card-body">
     <div class="form-group">
-      <input type="text" placeholder="Digite seu cep" tooltip="Digite seu cep. Ex: 00000-00" [(ngModel)]="sCepDestino">
+      <input type="text" id="CEP" name="CEP" class="form-control" placeholder="xxxxx-xxx" kzMask="99999-999" [(ngModel)]="sCepDestino">
       <i class="ion-search" style="cursor:pointer" (click)="buscarCepAPI()"></i>
+      <div [hidden]="!error" style="color:red;">Campo Obrigatório</div>
     </div>
     <table>
       <thead>

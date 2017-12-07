@@ -3,44 +3,44 @@
 
   <div class="form-group menor">
     <label for="nome">Nome Completo*</label>
-    <input 
-    [(ngModel)]="cliente.client_name" 
-    type="text" 
-    id="nome" 
-    name="nome" 
-    class="form-control" 
+    <input
+    [(ngModel)]="cliente.client_name"
+    type="text"
+    id="nome"
+    name="nome"
+    class="form-control"
     placeholder="Digite seu nome" maxlength="100">
   </div>
   <div class="form-group menor">
     <label for="email">E-mail *</label>
-    <input 
-    [(ngModel)]="cliente.client_email" 
-    type="email" 
-    id="email" 
-    name="email" 
-    class="form-control" 
+    <input
+    [(ngModel)]="cliente.client_email"
+    type="email"
+    id="email"
+    name="email"
+    class="form-control"
     placeholder="exemplo@exemplo.com"
     maxlength="100">
   </div>
   <div class="form-group menor">
     <label for="senha">Senha *</label>
-    <input 
-    [(ngModel)]="cliente.client_password" 
-    type="password" 
-    id="senha" 
-    name="senha" 
-    class="form-control" 
+    <input
+    [(ngModel)]="cliente.client_password"
+    type="password"
+    id="senha"
+    name="senha"
+    class="form-control"
     placeholder="*******"
     maxlength="20">
   </div>
   <div class="form-group menor">
     <label for="cpf">CPF *</label>
-    <input 
-    [(ngModel)]="cliente.client_cpf" 
-    type="text" 
-    id="cpf" 
-    name="cpf" 
-    class="form-control" 
+    <input
+    [(ngModel)]="cliente.client_cpf"
+    type="text"
+    id="cpf"
+    name="cpf"
+    class="form-control"
     placeholder="xxx.xxx.xxx-xx"
     kzMask="999.999.999-99"
     maxlength="14">
@@ -54,34 +54,33 @@
   </div>
   <div class="form-group menor">
     <label for="dataNasc">Data Nascimento *</label>
-    <input 
-    [(ngModel)]="cliente.client_birthday" 
-    type="text" 
-    id="dataNasc" 
-    name="dataNasc" 
-    class="form-control" 
-    placeholder="dd/MM/aaaa"
-    kzMask="99/99/9999">
+    <input
+    [(ngModel)]="cliente.client_birthday"
+    type="text"
+    id="dataNasc"
+    name="dataNasc"
+    class="form-control"
+    >
   </div>
   <div class="form-group menor">
     <label for="telefone">Telefone *</label>
-    <input 
-    [(ngModel)]="cliente.client_tel" 
-    type="text" 
+    <input
+    [(ngModel)]="cliente.client_tel"
+    type="text"
     id="telefone"
-    name="telefone" 
-    class="form-control" 
+    name="telefone"
+    class="form-control"
     placeholder="(xx) xxxx-xxxx"
     kzMask="(99) 9999-9999">
   </div>
   <div class="form-group menor">
     <label for="celular">Celular (opcional)</label>
-    <input 
-    [(ngModel)]="cliente.client_cel" 
-    type="text" 
-    id="telefone" 
-    name="telefone" 
-    class="form-control" 
+    <input
+    [(ngModel)]="cliente.client_cel"
+    type="text"
+    id="telefone"
+    name="telefone"
+    class="form-control"
     placeholder="(xx) x xxxx-xxxx"
       kzMask="(99) 9 9999-9999">
   </div>
@@ -97,12 +96,12 @@
   </div>
   <div class="form-group menor">
     <label for="CEP">CEP *</label>
-    <input 
-    [(ngModel)]="cliente.client_adress_cep" 
-    type="text" 
-    id="CEP" 
-    name="CEP" 
-    class="form-control" 
+    <input
+    [(ngModel)]="cliente.client_adress_cep"
+    type="text"
+    id="CEP"
+    name="CEP"
+    class="form-control"
     placeholder="xxxxx-xxx"
     kzMask="99999-999"
     (keyup)="buscaCep()">

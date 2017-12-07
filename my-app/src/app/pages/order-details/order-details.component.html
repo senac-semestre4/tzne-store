@@ -128,13 +128,14 @@
   <div class="card">
     <form>
       <div class="form-group">
+        <!-- type="text" id="CEP" name="CEP" class="form-control" placeholder="xxxxx-xxx" kzMask="99999-999" -->
         <label for="">Número do cartão *</label>
-        <input type="number" id="numCartao" (keypress)="somenteNumeros(this)" name="numCartao" [(ngModel)]="dadosCartao.numeroCartao.value">
+        <input type="text" id="numCartao" name="numCartao" placeholder="xxxx-xxxx-xxxx-xxxx" kzMask="9999-9999-9999-9999" [(ngModel)]="dadosCartao.numeroCartao.value">
         <div class="validation-label" [hidden]="!dadosCartao.numeroCartao.error">Campo obrigatório.</div>
       </div>
       <div class="form-group">
         <label for="">Impresso no cartão *</label>
-        <input type="number" id="numImpCartao" name="numImpCartao" [(ngModel)]="dadosCartao.numeroimpressoCartao.value">
+        <input type="text" id="numImpCartao" placeholder="xxxxx" kzMask="9999" name="numImpCartao" [(ngModel)]="dadosCartao.numeroimpressoCartao.value">
         <div class="validation-label" [hidden]="!dadosCartao.numeroimpressoCartao.error">Campo obrigatório.</div>
       </div>
       <div class="form-group">
@@ -175,7 +176,7 @@
       </div>
       <div class="form-group">
         <label for="">Código de Segurança *</label>
-        <input type="number" id="codigoSeguranca" name="codigoSeguranca"  [(ngModel)]="dadosCartao.codigoSeguranca.value">
+        <input type="text" id="codigoSeguranca" name="codigoSeguranca" placeholder="xxx" kzMask="999" name="numImpCartao" [(ngModel)]="dadosCartao.codigoSeguranca.value">
         <div class="validation-label" [hidden]="!dadosCartao.codigoSeguranca.error">Campo obrigatório.</div>
       </div>
       <div class="form-group">

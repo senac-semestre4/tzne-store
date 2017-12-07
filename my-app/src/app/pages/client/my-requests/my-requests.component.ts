@@ -6,17 +6,16 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Headers, Http } from '@angular/http';
 
-
-
 @Component({
   selector: 'app-my-requests',
   templateUrl: './my-requests.component.html',
   styleUrls: ['./my-requests.component.scss']
 })
 export class MyRequestsComponent implements OnInit {
-  resultVendaCliente: any[];
 
 
+  private getCliente: any = [];
+  private resultVendaCliente: any[] = [];
   private produtosNoCarrinho: any;
   public modalRef: BsModalRef;
   public config = {
@@ -57,62 +56,21 @@ export class MyRequestsComponent implements OnInit {
   // tirar o post daqui e colocar no botão do finalizar compra
 
   ngOnInit() {
-    this.precoTotal = this.produtos.getProdutoCarrinho();
+    /* this.precoTotal = this.produtos.getProdutoCarrinho();
     this.precoTotal.map(i => this.valorTotal = this.valorTotal + parseInt(i['product_purchase_price']) * i['quantidade']);
     this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
     this.frete = this.produtos.getValorFrete();
+    console.log(this.valorTotal, this.frete)
     this.valortotalCompra = (this.valorTotal + parseInt(this.frete));
     console.log(this.valortotalCompra);
     this.compraEfetuada = this.produtos.getPagamento();
-    this.date = new Date();
+    this.date = new Date(); */
 
-    this.produtosNoCarrinho.filter(i => {
-      this.itensVenda = {
-        "product_product_has_id": i['product_has_id'],
-        "product_name": i['product_name'],
-        "unit_price": i['product_purchase_price'],
-        "quantity": i['quantidade'],
-        "subtotal": parseInt(i['product_purchase_price']) * i['quantidade']
-      }
-      this.vendaAPI.push(this.itensVenda)
-      console.log(this.itensVenda, 'api venda')
-      console.log(this.vendaAPI, 'api venda')
-      i++;
+    this.listaClientes();
+    console.log(this.localStorageService.get('cliente'), 'log')
+    this.getCliente.filter(i=> {
+
     })
-
-    /* this.venda = {
-      "quantidadeAlterada": true,
-      "client_client_id": 1,
-      "total_partial": this.valortotalCompra,
-      "amount": 115,
-      "discount": 0,
-      "type_freight": "correios",
-      "value_freight": parseInt(this.frete),
-      "number_plots": this.produtosNoCarrinho.length,
-      "itens": this.vendaAPI
-    };
- */
-    this.venda = {
-    "client_client_id": 1,
-    "total_partial": 230, //
-    "amount": 115,
-    "discount": 0,
-    "type_freight": "correios",
-    "value_freight": 16, //
-    "number_plots": this.produtosNoCarrinho.length,
-    "itens": this.vendaAPI
-    }
-
-    console.log(this.precoTotal, 'preço')
-    console.log(this.valortotalCompra, 'preço')
-    console.log(this.produtosNoCarrinho.length, 'tamanho')
-    console.log(this.produtosNoCarrinho)
-    console.log(this.compraEfetuada)
-    console.log(this.frete)
-
-    this.carrinho();
-    this.vendaFeita()
-    this.localStorageService.set('addCart', []);
   }
 
   carrinho() {
@@ -132,31 +90,56 @@ export class MyRequestsComponent implements OnInit {
       });
   }
 
-  vendaFeita(){
-    this.produtos.getVenda(1)
-        .then( result => {
+  vendaFeita(id) {
+    console.log(id)
+    this.produtos.getVenda(id)
+      .then(result => {
         console.log(result);
         this.resultVendaCliente = result;
         console.log(this.resultVendaCliente);
-        /* console.log(this.resultVendaCliente) */
       })
-      .catch( error => {
+      .catch(error => {
         console.log(error);
-    });
+      });
   }
 
-  /* vendaFeita() {
-    this.http.get('http://tzne.kwcraft.com.br/api/venda/listavendacliente/', '1')
-      .subscribe(result => {
-        this.resultVendaCliente = result.json();
-        console.log(this.resultVendaCliente);
-        console.log(result.json());
-      }, error => {
-        console.log(error.json());
+  listaClientes() {
+    this.produtos.listarClientes()
+      .then(result => {
+        console.log(result);
+        this.getCliente = result;
+        console.log(this.getCliente);
+        let aux = result.filter(i=> i['client_email'] == this.localStorageService.get('cliente')['userName']);
+        this.vendaFeita(aux[0]['client_id']);
+      })
+      .catch(error => {
+        console.log(error);
       });
-  } */
+  }
 
-  public openModal(template: TemplateRef<any>) {
+  vendaFeitaById(id) {
+    this.produtos.getVendaById(id)
+      .then(result => {
+        console.log(result);
+        result.filter(i => {
+          this.itensVenda = {
+            "product_product_has_id": i['product_product_has_id'],
+            "product_name": "",
+            "unit_price": i['subtotal'],
+            "quantity": i['quantity'],
+            "subtotal": parseInt(i['subtotal']) * parseInt(i['quantity'])
+          }
+          this.vendaAPI.push(this.itensVenda);
+        })
+        console.log('tenaskdajsha', this.itensVenda, this.vendaAPI)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  public openModal(template: TemplateRef<any>, id) {
+    this.vendaFeitaById(id);
     this.modalRef = this.modalService.show(template, Object.assign({}, this.config, { class: 'gray modal-lg' }));
   }
 
@@ -164,30 +147,3 @@ export class MyRequestsComponent implements OnInit {
     console.log(this.localStorageService.get('detailsNew') as object[])
   }
 }
-
-/* this.venda = {
-      "quantidadeAlterada": true,
-      "client_client_id": 1,
-      "total_partial": 230,
-      "amount": 115,
-      "discount": 0,
-      "type_freight": "correios",
-      "value_freight": 16,
-      "number_plots": 2,
-      "itens": [
-        {
-          "product_product_has_id": 153,
-          "product_name": "Camiseta Homem Aranha",
-          "unit_price": 57.5,
-          "quantity": 1,
-          "subtotal": 115
-        },
-        {
-          "product_product_has_id": 178,
-          "product_name": "Camiseta Homem Aranha",
-          "unit_price": 57.5,
-          "quantity": 1,
-          "subtotal": 115
-        }
-      ]
-    }; */

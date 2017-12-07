@@ -24,6 +24,7 @@ import { GrowlModule } from 'primeng/primeng';
 import { ApiService } from '../../services/api.service';
 import { ProductService } from '../../services/product.service';
 import { RouterModule } from '@angular/router';
+import { AlertModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { RouterModule } from '@angular/router';
     MyCadastreInitialComponent,
   ],
   imports: [
+    AlertModule.forRoot(),
     ButtonsModule.forRoot(),
     TooltipModule.forRoot(),
     FormsModule,

@@ -20,7 +20,7 @@
     <div [hidden]="sair" class="col-4 conta-carrinho">
       <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
       <div class="btn-group" dropdown>
-        <h2><a dropdownToggle class="hidden-t hidden-m" style="cursor: pointer" tooltip="Acesse seu perfil.">Bem Vindo {{cliente.userName}} <span class="caret"></span>
+        <h2><a dropdownToggle class="hidden-t hidden-m" style="cursor: pointer" tooltip="Acesse seu perfil.">Bem Vindo  {{cliente.nome}}  <!-- MANO BROWn --> <span class="caret"></span>
           </a></h2>
         <ul *dropdownMenu class="dropdown-menu" role="menu">
           <li role="menuitem"><a class="dropdown-item" style="cursor: pointer" (click)="minhaConta()">Minha conta</a></li>
@@ -40,12 +40,14 @@
       <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i> <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> </a>
     </div>
     <!-- login -->
+
     <div [hidden]="!sair" class="col-4 conta-carrinho">
       <i class="fa fa-user-circle-o fa-2x hidden-ld hidden-d" aria-hidden="true"></i>
       <h2 class="hidden-t hidden-m"><a style="cursor: pointer" (click)="login()" tooltip="Entre com sua conta.">Entre</a> ou <a style="cursor: pointer"
           (click)="cadastrar( 0 )" tooltip="Crie uma conta.">cadastre-se</a></h2>
       <a class="nav-link" href="" routerLinkActive="active" [routerLink]="['cart']"><i class="fa fa-shopping-bag fa-2x" aria-hidden="true" tooltip="Veja sua sacola." ></i> <span class="badge badge-danger"> {{quantidadeEmCarrinho}} </span> </a>
     </div>
+
   </header>
 </div>
 <div class="linha">

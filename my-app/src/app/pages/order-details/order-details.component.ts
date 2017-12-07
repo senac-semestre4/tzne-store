@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ButtonsModule } from 'ngx-bootstrap';
+import { Headers, Http } from '@angular/http';
+
 
 @Component({
   selector: 'app-order-details',
@@ -24,12 +26,29 @@ export class OrderDetailsComponent implements OnInit {
     ignoreBackdropClick: false
   };
 
+  private itensVenda = {
+    "product_product_has_id": null,
+    "product_name": "",
+    "unit_price": null,
+    "quantity": null,
+    "subtotal": null
+  }
+  private resultVendaCliente: any[];
+  private vendaAPI: any = [];
+  private bkpCart: any;
+  private compraEfetuada: any;
+  private date: Date;
   private formaEntrega: string = "";
   private precoTotal: any
   private valorTotal: number = 0;
   private parcelas: number = 0;
   private frete: any;
   private valortotalCompra: number = 0;
+  private bkpLista: any = [];
+  private venda: any;
+  private resultvenda: any;
+  private headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+
   private dadosCartaoNames: any;
   private dadosCartao: any = {
     'numeroCartao': {
@@ -61,7 +80,8 @@ export class OrderDetailsComponent implements OnInit {
     private localStorageService: LocalStorageService,
     private produtos: ProductService,
     private modalService: BsModalService,
-    private router: Router
+    private router: Router,
+    private http: Http,
   ) { }
 
   ngOnInit() {
@@ -69,7 +89,12 @@ export class OrderDetailsComponent implements OnInit {
     this.precoTotal.map(i => this.valorTotal = this.valorTotal + (parseInt(i['product_purchase_price']) * i['quantidade']));
     this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
     this.frete = this.produtos.getValorFrete();
+    if(this.frete == null || this.frete == undefined){
+      this.frete = this.localStorageService.get('cep')
+    }
     this.valortotalCompra = (this.valorTotal + parseInt(this.frete));
+    console.log(this.localStorageService.get('idVenda'))
+
   }
 
   selecionaEntrega(event) {
@@ -84,19 +109,9 @@ export class OrderDetailsComponent implements OnInit {
     this.modalRef = this.modalService.show(template, Object.assign({}, this.config, { class: 'gray modal-lg' }));
   }
 
-  somenteNumeros(num) {
-    var er = /[^0-9.]/;
-    er.lastIndex = 0;
-    var campo = num;
-    if (er.test(campo.value)) {
-      campo.value = "";
-    }
-  }
-
   public veriricarPreenchimento() {
     let listaError = []
     this.dadosCartaoNames = Object.keys(this.dadosCartao);
-
     for (var i = 0; i < this.dadosCartaoNames.length; i++) {
       if (this.dadosCartaoNames != 'validade') {
         this.dadosCartao[this.dadosCartaoNames[i]]['value'] === '' ||
@@ -105,7 +120,6 @@ export class OrderDetailsComponent implements OnInit {
           : this.dadosCartao[this.dadosCartaoNames[i]]['error'] = false
       }
     };
-
     this.dadosCartao['validade']['mes'] === '' ||
     this.dadosCartao['validade']['mes'] === null
     this.dadosCartao['validade']['ano'] === '' ||
@@ -120,14 +134,74 @@ export class OrderDetailsComponent implements OnInit {
       }
     }
     this.validar = false;
+
     return true;
+  }
+
+  // pegar esses dados e salvar no services de produtos e recuperar os dados no my-request
+  insertCart(){
+    let teste = this.localStorageService.get('idVenda')
+    console.log(teste['PHPSESSID'])
+    this.produtosNoCarrinho.filter(i => {
+      this.itensVenda = {
+        "product_product_has_id": i['product_has_id'],
+        "product_name": i['product_name'],
+        "unit_price": i['product_purchase_price'],
+        "quantity": i['quantidade'],
+        "subtotal": parseInt(i['product_purchase_price']) * i['quantidade']
+      }
+      this.vendaAPI.push(this.itensVenda)
+      i++;
+    })
+    this.venda = {
+      "PHPSESSID": teste['PHPSESSID'],
+      "client_client_id": 1,
+      "total_partial": this.valortotalCompra,
+      "amount": 115,
+      "discount": 0,
+      "type_freight": "correios",
+      "value_freight": this.frete,
+      "number_plots": this.produtosNoCarrinho.length,
+      "itens": this.vendaAPI
+    }
+
+    this.carrinho();
+    this.vendaFeita()
+    this.localStorageService.set('addCart', []);
+  }
+
+  carrinho() {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('json', JSON.stringify(this.venda));
+    let body = urlSearchParams.toString()
+    this.http.post('http://tzne.kwcraft.com.br/api/venda/inserevenda', body, { headers: headers })
+      .subscribe(result => {
+        console.log(result.json());
+        this.resultvenda = result.json();
+      }, error => {
+        console.log(error.json());
+      });
+  }
+
+  vendaFeita(){
+    this.produtos.getVenda(1)
+        .then( result => {
+        console.log(result);
+        this.resultVendaCliente = result;
+        console.log(this.resultVendaCliente);
+      })
+      .catch( error => {
+        console.log(error);
+    });
   }
 
   public finalizarPagamento() {
     if (this.veriricarPreenchimento()) {
+      this.insertCart();
       this.produtos.setPagamento(true);
       this.router.navigate(['/client/meus-pedidos/']);
     }
   }
 }
-/*  */

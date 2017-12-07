@@ -19,21 +19,26 @@ export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChang
   private sair: boolean = false;
   private ListaProdutosID: any;
   private cliente: any;
+  private acesso: boolean = true;
 
   constructor(
     private routeParams: ActivatedRoute,
     private produtos: ProductService,
     private router: Router,
     private localStorageService: LocalStorageService
-
   ) { }
 
   ngOnInit(): void {
-    this.sair = false;
+    this.sair =  false;
     this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length;
     console.log(this.quantidadeEmCarrinho, "Quantidade");
     this.cliente = this.localStorageService.get('cliente') as object;
-    console.log(this.cliente)
+    if(this.cliente != [] || this.cliente != null){
+      this.sair =  false;
+    } else {
+      this.sair = true
+    }
+    console.log(this.cliente);
   }
 
   //função de alteração para o numero de quantidade no carrinho
@@ -45,7 +50,7 @@ export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChang
         return
       }
     })
-    this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length;;
+    this.quantidadeEmCarrinho = this.produtos.getProdutoCarrinho().length;
     //this.quantidadeEmCarrinho += this.produtos.getProdutoCarrinho().length;
   }
 
@@ -91,8 +96,13 @@ export class HeaderComponent implements OnInit /* AfterViewChecked */ /* OnChang
   }
 
    private logout(): void {
-    this.sair = true;
-    this.localStorageService.set('cliente', []);
+    this.sair = false;
+    this.cliente = this.localStorageService.set('cliente', []);
+     if(this.cliente != [] || this.cliente != null){
+      console.log('aqui')
+      this.sair =  true;
+    }
+    //this.ngOnInit();
   }
 
   private login(): void {

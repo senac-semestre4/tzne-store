@@ -226,6 +226,12 @@ export class ProductService {
                   .then( response => this.vendaCliente = response.json() )
                   .catch(this.handleError);
   }
+   public getVendaById( id ) {
+    return this.http.get( this.apiService.getUrl() + 'api/venda/listaitensvendas/' + id)
+                  .toPromise()
+                  .then( response => this.vendaCliente = response.json() )
+                  .catch(this.handleError);
+  }
 
    public buscarProdutos() {
     return this.http.get( this.apiService.getUrl() + 'api/produtos/listarprodutos')
