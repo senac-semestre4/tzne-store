@@ -1,6 +1,6 @@
 <ul >
   <li class="pedido" *ngFor="let pedido of resultPedidosCliente, let i = index " style="margin-bottom: 10px;" > <!-- ped of resultVendaCliente -->
-    <table > <!-- *ngFor="let venda of resultvenda['SalesItens'], let i = index" -->
+    <table >
       <thead>
         <tr>
           <th>Número do Pedido</th>
@@ -49,10 +49,10 @@
                 <tr *ngFor="let p of vendaAPI, let i = index" >
                   <td class="small">
                     <div class="miniatura">
-                      <a><img [src]="p.product_img_relative_url" alt="Imagem Indisponivel"></a>
+                      <a><img [src]="p.img" alt="Imagem Indisponivel"></a>
                     </div>
                     <a class="descricao-produto">
-                      <h3>{{p.product_name}}</h3>
+                      <h3>{{p.nome}}</h3>
                     </a>
                   </td>
                   <td class="small">{{ p.unit_price | currency:'BRL':true }}</td>
@@ -69,13 +69,13 @@
             <div class="row container-produto-mobile visible-xs" *ngFor="let pm of vendaAPI, let i = index">
               <div class="col-xs-5">
                 <div class="imagem-produto">
-                  <a><img [src]="pm.product_img_relative_url" alt="Imagem indisponível"></a>
+                  <a><img [src]="pm.img" alt="Imagem indisponível"></a>
                 </div>
               </div>
               <div class="col-xs-7">
                 <div class="descricao-produto">
                   <a href="#!" class="descricao-produto">
-                    <h3>{{pm.product_name}}</h3>
+                    <h3>{{pm.nome}}</h3>
                   </a>
                   <p>Preço unitário: {{ pm.unit_price | currency:'BRL':true }}</p>
                 </div>
@@ -89,25 +89,11 @@
                 </div>
               </div>
             </div>
-            <!-- mobile -->
           </div>
         </div>
 
 
         <div class="detalhes-compra card">
-          <div class="detalhes-produtos pull-left">
-            <div class="produtos">
-              <p>Produtos</p>
-              <p> <!-- {{precoTotal.length}} --> Produtos </p>
-              <p>{{valorTotal | currency:'BRL':true }}</p>
-              <p>Frete</p>
-              <p>R$ {{ frete }}</p>
-            </div>
-            <div class="total">
-              <p>Total à pagar</p>
-              <p> <!-- {{ resultvenda.totalPartial | currency:'BRL':true }} --> </p>
-            </div>
-          </div>
           <div class="detalhes-endereco">
             <p>Endereço de entrega</p>
             <p>{{localentrega.nome}}</p>

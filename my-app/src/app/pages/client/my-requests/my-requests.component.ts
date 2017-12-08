@@ -33,7 +33,10 @@ export class MyRequestsComponent implements OnInit {
     "unit_price": null,
     "quantity": null,
     "subtotal": null,
-    "totall": null
+    "totall": null,
+    "img": null,
+    "nome": null,
+
   }
   private localentrega = {
     "nome": null,
@@ -65,22 +68,11 @@ export class MyRequestsComponent implements OnInit {
     private router: Router
   ) { }
 
-  // tirar o post daqui e colocar no botão do finalizar compra
-
   ngOnInit() {
-    /* this.precoTotal = this.produtos.getProdutoCarrinho();
-    this.precoTotal.map(i => this.valorTotal = this.valorTotal + parseInt(i['product_purchase_price']) * i['quantidade']);
-    this.produtosNoCarrinho = this.produtos.getProdutoCarrinho();
-    this.frete = this.produtos.getValorFrete();
-    console.log(this.valorTotal, this.frete)
-    this.valortotalCompra = (this.valorTotal + parseInt(this.frete));
-    this.compraEfetuada = this.produtos.getPagamento(); */
-
     this.listaClientes();
     this.pedidoFeito();
     console.log(this.localStorageService.get('cliente'), 'log')
     this.getCliente.filter(i=> {
-
     })
   }
 
@@ -163,6 +155,8 @@ export class MyRequestsComponent implements OnInit {
         result.filter(i => {
           total =+ parseInt(i['subtotal']) * parseInt(i['quantity']);
           this.itensVenda = {
+            "img": i['img'],
+            "nome": i['name'],
             "product_product_has_id": i['product_product_has_id'],
             "product_name": "",
             "unit_price": i['subtotal'],
