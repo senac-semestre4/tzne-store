@@ -167,7 +167,6 @@ export class OrderDetailsComponent implements OnInit {
 
     this.carrinho();
     this.vendaFeita()
-    this.localStorageService.set('addCart', []);
   }
 
   carrinho() {
@@ -179,6 +178,12 @@ export class OrderDetailsComponent implements OnInit {
     this.http.post('http://tzne.kwcraft.com.br/api/venda/inserevenda', body, { headers: headers })
       .subscribe(result => {
         console.log(result.json());
+         if(result.json()['autenticado'] == false){
+          this.router.navigate(['/login/2']);
+          return;
+        } else{
+          this.localStorageService.set('addCart', []);
+        }
         this.resultvenda = result.json();
       }, error => {
         console.log(error.json());
@@ -197,7 +202,8 @@ export class OrderDetailsComponent implements OnInit {
     });
   }
 
-  public finalizarPagamento() {
+  public finalizarPagamento() { 
+    
     if (this.veriricarPreenchimento()) {
       this.insertCart();
       this.produtos.setPagamento(true);

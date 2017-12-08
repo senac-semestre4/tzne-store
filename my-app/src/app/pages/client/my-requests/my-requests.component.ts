@@ -5,6 +5,7 @@ import { ProductService } from '../../../services/product.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Headers, Http } from '@angular/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-requests',
@@ -12,6 +13,8 @@ import { Headers, Http } from '@angular/http';
   styleUrls: ['./my-requests.component.scss']
 })
 export class MyRequestsComponent implements OnInit {
+  aux: any = '';
+  resultPedidosCliente: any;
 
 
   private getCliente: any = [];
@@ -29,7 +32,15 @@ export class MyRequestsComponent implements OnInit {
     "product_name": "",
     "unit_price": null,
     "quantity": null,
-    "subtotal": null
+    "subtotal": null,
+    "totall": null
+  }
+  private localentrega = {
+    "nome": null,
+    "rua": "",
+    "local": null,
+    "estado": null,
+    "cep": null,
   }
   private vendaAPI: any = [];
   private bkpCart: any;
@@ -51,6 +62,7 @@ export class MyRequestsComponent implements OnInit {
     private modalService: BsModalService,
     private localStorageService: LocalStorageService,
     private http: Http,
+    private router: Router
   ) { }
 
   // tirar o post daqui e colocar no botão do finalizar compra
@@ -62,11 +74,10 @@ export class MyRequestsComponent implements OnInit {
     this.frete = this.produtos.getValorFrete();
     console.log(this.valorTotal, this.frete)
     this.valortotalCompra = (this.valorTotal + parseInt(this.frete));
-    console.log(this.valortotalCompra);
-    this.compraEfetuada = this.produtos.getPagamento();
-    this.date = new Date(); */
+    this.compraEfetuada = this.produtos.getPagamento(); */
 
     this.listaClientes();
+    this.pedidoFeito();
     console.log(this.localStorageService.get('cliente'), 'log')
     this.getCliente.filter(i=> {
 
@@ -103,14 +114,40 @@ export class MyRequestsComponent implements OnInit {
       });
   }
 
+  pedidoFeito() {
+    this.produtos.getVendaPedidos()
+      .then(result => {
+        console.log(result);
+        if(result['logado'] == false){
+          this.router.navigate(['/login/0'])
+        }
+        this.resultPedidosCliente = result.filter(i => i['venda']['client_client_id'] == this.aux[0]['client_id']);
+        console.log(this.resultPedidosCliente);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   listaClientes() {
     this.produtos.listarClientes()
       .then(result => {
         console.log(result);
+        result.filter(i => {
+          if(i=> i['client_email'] == this.localStorageService.get('cliente')['userName']){
+          this.localentrega = {
+            "nome": i['client_name'],
+            "rua": i['client_adress_logradouro'],
+            "local": i['client_adress_district'],
+            "estado": i['client_adress_city'],
+            "cep": i['client_adress_cep'],
+          }
+        }
+        })
         this.getCliente = result;
         console.log(this.getCliente);
-        let aux = result.filter(i=> i['client_email'] == this.localStorageService.get('cliente')['userName']);
-        this.vendaFeita(aux[0]['client_id']);
+        this.aux = result.filter(i=> i['client_email'] == this.localStorageService.get('cliente')['userName']);
+        this.vendaFeita(this.aux[0]['client_id']);
       })
       .catch(error => {
         console.log(error);
@@ -118,16 +155,20 @@ export class MyRequestsComponent implements OnInit {
   }
 
   vendaFeitaById(id) {
+    this.vendaAPI = [];
+    let total = 0;
     this.produtos.getVendaById(id)
       .then(result => {
         console.log(result);
         result.filter(i => {
+          total =+ parseInt(i['subtotal']) * parseInt(i['quantity']);
           this.itensVenda = {
             "product_product_has_id": i['product_product_has_id'],
             "product_name": "",
             "unit_price": i['subtotal'],
             "quantity": i['quantity'],
-            "subtotal": parseInt(i['subtotal']) * parseInt(i['quantity'])
+            "subtotal": parseInt(i['subtotal']) * parseInt(i['quantity']),
+            "totall": total
           }
           this.vendaAPI.push(this.itensVenda);
         })

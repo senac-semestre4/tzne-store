@@ -1,5 +1,5 @@
 <ul >
-  <li class="pedido" *ngFor="let venda of resultVendaCliente, let i = index" style="margin-bottom: 10px;" >
+  <li class="pedido" *ngFor="let pedido of resultPedidosCliente, let i = index " style="margin-bottom: 10px;" > <!-- ped of resultVendaCliente -->
     <table > <!-- *ngFor="let venda of resultvenda['SalesItens'], let i = index" -->
       <thead>
         <tr>
@@ -11,16 +11,15 @@
       </thead>
       <tbody>
         <tr >
-          <td>{{venda.sale_id }}</td>
-          <td><!-- {{ resultvenda.SalesItens[0].date | date:'dd-MM-yyyy HH:mm' }} --></td>
-          <td><!-- {{ resultvenda.SalesItens[0].comment }} --></td>
-          <!-- <td>Produto a ser enviado</td> -->
-          <td>{{ venda.total_partial | currency:'BRL':true }}</td>
+          <td>{{pedido.venda.sale_id }}</td>
+          <td> {{ pedido.venda.date | date:'dd-MM-yyyy HH:mm' }} </td>
+          <td> {{ pedido.venda.name }} </td>
+          <td> {{ resultVendaCliente[i].total_partial  | currency:'BRL':true  }} </td>
         </tr>
       </tbody>
     </table>
     <div class="container-ver-detalhes">
-      <a (click)="openModal(template, venda.sale_id)" class="detalhes">Ver Detalhes</a>
+      <a (click)="openModal(template, pedido.venda.sale_id)" style="cursor:pointer" class="detalhes">Ver Detalhes</a>
     </div>
 
     <template class="modal-dialog" #template>
@@ -33,7 +32,7 @@
       <div class="modal-body">
         <!-- <app-cart></app-cart> -->
         <div class="row">
-          <div class="col-sm-12">
+          <div class="">
 
             <!-- tablete e desktop -->
             <table class="table table-produtos-carrinho hidden-xs">
@@ -54,8 +53,6 @@
                     </div>
                     <a class="descricao-produto">
                       <h3>{{p.product_name}}</h3>
-                      <!-- <p>Tamanho: M</p>
-                      <p>Cor: vermelho</p> -->
                     </a>
                   </td>
                   <td class="small">{{ p.unit_price | currency:'BRL':true }}</td>
@@ -69,29 +66,26 @@
             <!-- tablete e desktop -->
 
             <!-- mobile -->
-            <div class="row container-produto-mobile visible-xs" *ngFor="let pm of produtosNoCarrinho, let i = index">
+            <div class="row container-produto-mobile visible-xs" *ngFor="let pm of vendaAPI, let i = index">
               <div class="col-xs-5">
                 <div class="imagem-produto">
-                  <a href="#!"><img [src]="pm.product_img_relative_url" alt="Imagem indisponível"></a>
-
+                  <a><img [src]="pm.product_img_relative_url" alt="Imagem indisponível"></a>
                 </div>
               </div>
               <div class="col-xs-7">
                 <div class="descricao-produto">
                   <a href="#!" class="descricao-produto">
                     <h3>{{pm.product_name}}</h3>
-                    <p>Tamanho: M</p>
-                    <p>Cor: vermelho</p>
                   </a>
-                  <p>{{pm.product_purchase_price | currency:'BRL':true }}</p>
+                  <p>Preço unitário: {{ pm.unit_price | currency:'BRL':true }}</p>
                 </div>
                 <div class="quantidade-produto">
-                  <div class="box-input-quantidade">
-                    <input type="text" id="quantidade" value="pm.quantidade">
+                  <div class="">
+                  <p>Quantidade: {{ pm.quantity }}</p>
                   </div>
                 </div>
                 <div class="valor-total-produto">
-                  <p>{{pm.product_purchase_price * pm.quantidade | currency:'BRL':true }}</p>
+                  <p>Total dos produtos: {{ pm.subtotal | currency:'BRL':true }}</p>
                 </div>
               </div>
             </div>
@@ -104,23 +98,23 @@
           <div class="detalhes-produtos pull-left">
             <div class="produtos">
               <p>Produtos</p>
-              <p><!-- {{precoTotal.length}} Produtos --></p>
+              <p> <!-- {{precoTotal.length}} --> Produtos </p>
               <p>{{valorTotal | currency:'BRL':true }}</p>
               <p>Frete</p>
               <p>R$ {{ frete }}</p>
             </div>
             <div class="total">
               <p>Total à pagar</p>
-              <p><!-- {{ resultvenda.totalPartial | currency:'BRL':true }} --></p>
+              <p> <!-- {{ resultvenda.totalPartial | currency:'BRL':true }} --> </p>
             </div>
           </div>
           <div class="detalhes-endereco">
             <p>Endereço de entrega</p>
-            <p>Everton Roberto de Oliveira</p>
-            <p>Rua Hélio Jacy Gouveia Schiefler, 42, Casa 4</p>
-            <p>Jardim Souza</p>
-            <p>São Paulo - SP</p>
-            <p>CEP 04918-110</p>
+            <p>{{localentrega.nome}}</p>
+            <p>{{localentrega.rua}}</p>
+            <p>{{localentrega.local}}</p>
+            <p>{{localentrega.estado}}</p>
+            <p>CEP {{localentrega.cep}}</p>
           </div>
         </div>
       </div>

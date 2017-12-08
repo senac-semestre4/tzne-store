@@ -226,6 +226,21 @@ export class ProductService {
                   .then( response => this.vendaCliente = response.json() )
                   .catch(this.handleError);
   }
+
+    public getVendaPedidos( ) {
+    return this.http.get( this.apiService.getUrl() + 'api/venda/listarpedidos')
+                  .toPromise()
+                  .then( response => response.json() )
+                  .catch(this.handleError);
+  }
+
+ /*  public getVendaPedidos( ) {
+    return this.http.get( this.apiService.getUrl() + 'listarprotocolos/')
+                  .toPromise()
+                  .then( response => response.json() )
+                  .catch(this.handleError);
+  } */
+
    public getVendaById( id ) {
     return this.http.get( this.apiService.getUrl() + 'api/venda/listaitensvendas/' + id)
                   .toPromise()

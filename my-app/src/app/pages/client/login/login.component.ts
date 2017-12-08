@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
     if (this.id == 1) {
       this.alertarStatus('success', 'Sucesso!', 'Sucesso.');
     }
+    if (this.id == 2) {
+      this.alertarStatus('info', 'FIM da Sessão!', 'Sua Sessao foi encerrada. Acesse seu login novamente para contnuar comprando.');
+    }
 
     this.produtos.listarClientes()
       .then(result => {
