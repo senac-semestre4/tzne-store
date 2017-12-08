@@ -16,6 +16,7 @@ import { Erro404Component } from './pages/erro-404/erro-404.component';
 import { LoginComponent } from './pages/client/login/login.component';
 import { MyCadastreInitialComponent } from './pages/client/my-cadastre-initial/my-cadastre-initial.component';
 import { AuthGuard } from './guards/auth-guard';
+import { AuthGuardEntrar } from './guards/auth-guardEntrar';
 
 export const routes: Routes = [
   // For empty routes
@@ -74,8 +75,8 @@ export const routes: Routes = [
     path: 'cadastre/:id',
     component: MyCadastreInitialComponent,
     pathMatch: 'full',
-    canActivate: [AuthGuard],
-        canLoad: [AuthGuard]
+    canActivate: [AuthGuardEntrar],
+        canLoad: [AuthGuardEntrar]
   },
   /* {
     path: 'cadastre/:id',
@@ -86,8 +87,8 @@ export const routes: Routes = [
     path: 'login/:id',
     component: LoginComponent,
     pathMatch: 'full',
-    canActivate: [AuthGuard],
-        canLoad: [AuthGuard]
+   canActivate: [AuthGuardEntrar],
+        canLoad: [AuthGuardEntrar]
   },
   {
     path: 'account/cart/details',

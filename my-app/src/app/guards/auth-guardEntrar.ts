@@ -5,7 +5,7 @@ import { ProductService } from '../services/product.service';
 import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanLoad {
+export class AuthGuardEntrar implements CanActivate, CanLoad {
 
   constructor(
     private localStorageService: LocalStorageService,
@@ -20,21 +20,19 @@ export class AuthGuard implements CanActivate, CanLoad {
   }
 
   private verificarAcesso(){
-    console.log(this.localStorageService.get('cliente'), 'activate')
+    console.log(this.localStorageService.get('cliente'), 'activate entrar')
     let flag = []
     flag = this.localStorageService.get('cliente') as object[];
-    if (flag.length == 0 || flag == []) {
-      console.log('Veificadoooooooo')
-      this.router.navigate(['/login/0'])
-      return false;
+    if (flag.length == 0) {
+      return true
+    } else {
+      this.router.navigate(['']);
     }
-    return true;
   }
-
 
   canLoad(route: Route): boolean | Observable<boolean> | Promise<boolean> {
     //verificar se o user pode carregar o codigo do modulo
-    console.log("CanLoad")
+    console.log("CanLoad Entrar")
     return this.verificarAcesso();
 
   }

@@ -27,6 +27,7 @@ import { MensagensService } from './services/messages.service';
 import { LocalStorageModule } from "angular-2-local-storage/dist";
 import { ClientModule } from './pages/client/client.module';
 import { AuthGuard } from './guards/auth-guard';
+import { AuthGuardEntrar } from "./guards/auth-guardEntrar";
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AuthGuard } from './guards/auth-guard';
   providers: [
     ApiService,
     MensagensService,
-    AuthGuard
+    AuthGuard,
+    AuthGuardEntrar
   ],
   bootstrap: [/* AppComponent */FullLayoutComponent]
 })
